@@ -1134,8 +1134,7 @@ ingestionLogs
 | mv-expand Timestamp, avg_size, anom
 | where anom <> 0
 ```
->
-     ![](./media/image82.png)
+  ![](./media/image82.png)
 
 2.  To get a tabular format of the detected anomalies, you can use
     the mv-expand operator to expand the multi-value dynamic array of
@@ -1192,8 +1191,8 @@ ingestionLogs
 | where Timestamp between (datetime(2014-03-08 01:00).. datetime(2014-03-08 10:00))
 | summarize count() by bin(Timestamp, 10m), Component
 ```
->
-     ![](./media/image85.png)
+
+   ![](./media/image85.png)
 
 5.  Parameterize (add Timefilter) and render an Anomaly chart using the
     following Anomaly detection query. The chart should show values
@@ -1209,8 +1208,7 @@ ingestionLogs
 | summarize count() by bin(Timestamp, 10m), Component
 | render timechart
 ```
->
-     ![](./media/image86.png)
+   ![](./media/image86.png)
 
 7.  Replace all the code in the **cell** with the following code and
     click on **▷ Run cell** button and review the output.
@@ -1249,7 +1247,7 @@ ingestionLogs
 1.  Select ***Fabric Real-Time AnalyticsXX*** workspace in the left
     navigation pane.
 
-![](./media/image89.png)
+    ![](./media/image89.png)
 
 2.  On the **Synapse Real-Time Analytics Home** page, from the menu bar,
     select the **New** drop-down, and from there select **Eventstream.**
@@ -1410,8 +1408,7 @@ logsRaw
 
 | take 10
 ```
->
-     ![](./media/image116.png)
+   ![](./media/image116.png)
 
 9.  Replace all the code in the **cell** with the following code and
     click on **▷ Run cell** button and review the output
@@ -1422,8 +1419,7 @@ logsRaw
 | make-series count() default=0 on ingestion_time() step 1m 
 | render timechart
 ```
->
-     ![](./media/image117.png)
+   ![](./media/image117.png)
 
 10. Replace all the code in the **cell** with the following code and
     click on **▷ Run cell** button and review the output
