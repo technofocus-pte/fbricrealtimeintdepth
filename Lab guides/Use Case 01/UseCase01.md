@@ -372,7 +372,7 @@ logsRaw
 | where Level=="Error"
 | take 10
 ```
->
+
    ![](./media/image47.png)
 
 The take operator samples any number of records from our table without
@@ -387,8 +387,7 @@ logsRaw
 | summarize count() // or: count
 
 ```
->
-     ![](./media/image48.png)
+   ![](./media/image48.png)
 
 4.  Find out the minimum and maximum Timestamp. Replace all the code in
     the **cell** with the following code and click on **▷ Run** button.
@@ -398,8 +397,7 @@ logsRaw
 logsRaw
 | summarize min(Timestamp), max(Timestamp)
 ```
->
-    ![](./media/image49.png)
+   ![](./media/image49.png)
 
 5.  Our dataset has trace records written by Contoso's DOWNLOADER
     program, which downloads files from blob storage as part of its
@@ -412,8 +410,7 @@ logsRaw
 | where Component == "DOWNLOADER"
 | take 10
 ```
->
-     ![](./media/image50.png)
+   ![](./media/image50.png)
 
 6.  Select the **Properties** column is dynamic. The dynamic data type
     is special in that it can take on any value of other data types, as
