@@ -135,7 +135,8 @@ trial enabled.
 |Name	| +++Fabric Real-Time AnalyticsXX+++(XX can be a unique number) |
 |Advanced|	Under License mode, select Trial|
 |Default storage format|Small dataset storage forma
-      ![](./media/image18.png)
+
+   ![](./media/image18.png)
        ![](./media/image19.png)
        ![](./media/image20.png)
 
