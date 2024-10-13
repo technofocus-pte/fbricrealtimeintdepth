@@ -265,47 +265,46 @@ Azure blob storage.
     click on **Get data** in the command bar, then select **Azure
     Storage**.
 
-![](./media/image37.png)
+      ![](./media/image37.png)
 
 3.  Then use the wizard to import the data into a new table by selecting
     the following options:
 
 4.  In the **Get data** tab, select the existing table as **logsRaw**.
     Under the Configure the data source tab enter the **URI :**
-    +++<https://adxsamplefiles.blob.core.windows.net/publiccsvsamples/logsbenchmark-onegb/2014>+++
+    +++https://adxsamplefiles.blob.core.windows.net/publiccsvsamples/logsbenchmark-onegb/2014+++
 
-![](./media/image38.png)
+      ![](./media/image38.png)
 
 5.  In the **Get data** tab, click on the **+** and click on **Next**
     button.
 
-![](./media/image39.png)
+      ![](./media/image39.png)
 
 6.  In Get data tab under the Inspect the data click on the horizontal
     **ellipses (…)** beside Edit columns, select the **Advanced** and
     check the **Keep table schema.** Click on the **Finish** button**.**
 
-![](./media/image40.png)
+      ![](./media/image40.png)
 
 7.  Wait for the Data ingestion to be completed, and click **Close**.
 
-![](./media/image41.png)
+     ![](./media/image41.png)
 
-![](./media/image42.png)
+     ![](./media/image42.png)
 
 8.  Select **querysetXX** KQL queryset in the left navigation pane.
 
-![](./media/image43.png)
+      ![](./media/image43.png)
 
 9.  Replace all the code in the **cell** with the following code and
     click on **▷ Run** button
 
 Copy
-
+```
 logsRaw
-
 | count
-
+```
 ![](./media/image44.png)
 
 The logsRaw table should have 3,834,012 records.
@@ -325,10 +324,11 @@ returns data in a tabular or graph format.
     Run** button.
 
 **Copy**
-
+```
 SELECT COUNT() FROM logsRaw
-
-![](./media/image45.png)
+```
+>
+     ![](./media/image45.png)
 
 2.  The primary language to interact with Kusto is KQL (Kusto Query
     Language). To make the transition and learning experience easier,
@@ -338,14 +338,13 @@ SELECT COUNT() FROM logsRaw
     click on **▷ Run** button.
 
 **Copy**
-
-explain SELECT MAX(Timestamp) AS MaxTimestamp FROM logsRaw WHERE
-Level='Error'
-
+```
+explain SELECT MAX(Timestamp) AS MaxTimestamp FROM logsRaw WHERE Level='Error'
+```
 ![](./media/image46.png)
 
 Output of the above query will be a corresponding KQL query
-
+>
 logsRaw
 
 | where (Level == "Error")
@@ -353,7 +352,7 @@ logsRaw
 | summarize MaxTimestamp=max(Timestamp)
 
 | project MaxTimestamp
-
+>
 ## **Task 2: Basic KQL queries - explore the data**
 
 In this task, you will see some KQL examples. For this task, we will use
@@ -368,15 +367,14 @@ storage account.
 2.  Replace all the code in the **cell** with the following code and
     click on **▷ Run** button.
 
-> **Copy**
-
+**Copy**
+```
 logsRaw
-
 | where Level=="Error"
-
 | take 10
-
-![](./media/image47.png)
+```
+>
+   ![](./media/image47.png)
 
 The take operator samples any number of records from our table without
 any order. In the above example, we asked to provide 10 random records.
@@ -385,23 +383,24 @@ any order. In the above example, we asked to provide 10 random records.
     the **cell** with the following code and click on **▷ Run** button.
 
 **Copy**
-
+```
 logsRaw
-
 | summarize count() // or: count
 
-![](./media/image48.png)
+```
+>
+     ![](./media/image48.png)
 
 4.  Find out the minimum and maximum Timestamp. Replace all the code in
     the **cell** with the following code and click on **▷ Run** button.
 
 **Copy**
-
+```
 logsRaw
-
 | summarize min(Timestamp), max(Timestamp)
-
-![](./media/image49.png)
+```
+>
+    ![](./media/image49.png)
 
 5.  Our dataset has trace records written by Contoso's DOWNLOADER
     program, which downloads files from blob storage as part of its
@@ -409,20 +408,19 @@ logsRaw
     following code and click on **▷ Run** button.
 
 **Copy**
-
+```
 logsRaw
-
 | where Component == "DOWNLOADER"
-
 | take 10
-
-![](./media/image50.png)
+```
+>
+     ![](./media/image50.png)
 
 6.  Select the **Properties** column is dynamic. The dynamic data type
     is special in that it can take on any value of other data types, as
     well as arrays and property bags (dictionaries).
 
-![](./media/image51.png)
+      ![](./media/image51.png)
 
 7.  The dynamic type is extremely beneficial when it comes to storing
     JSON data, since KQL makes it simple to access fields in JSON and
@@ -436,15 +434,12 @@ logsRaw
     click on **▷ Run** button.
 
 **Copy**
-
+```
 logsRaw
-
 | where Component == "DOWNLOADER"
-
 | take 100
-
-| extend originalSize=Properties.OriginalSize,
-compressedSize=Properties.compressedSize
+| extend originalSize=Properties.OriginalSize, compressedSize=Properties.compressedSize
+```
 
 ![](./media/image52.png)
 
@@ -463,13 +458,11 @@ the dynamic type to a numeric type, like long).
     click on **▷ Run cell** button and review the output.
 
 **Copy**
-
-> logsRaw
->
-> | extend originalSize=Properties.OriginalSize,
-> compressedSize=Properties.compressedSize
->
-> | getschema
+```
+logsRaw
+| extend originalSize=Properties.OriginalSize, compressedSize=Properties.compressedSize
+| getschema 
+```
 
 ![](./media/image53.png)
 
@@ -485,13 +478,11 @@ columns of the dataset.
     click on **▷ Run cell** button and review the output.
 
 **Copy**
-
-> logsRaw
->
-> | project Timestamp, ClientRequestId, Level, Message
->
-> | take 10
-
+```
+logsRaw
+| project Timestamp, ClientRequestId, Level, Message
+| take 10
+```
 ![](./media/image54.png)
 
 ## [Task 5: Filter the output](https://github.com/microsoft/FabricRTA-in-a-Day/blob/main/Lab1.md#challenge-3-task-4-filter-the-output-)
@@ -507,16 +498,12 @@ frame.
     click on **▷ Run cell** button and review the output.
 
 > **Copy**
->
-> logsRaw
->
-> | where Timestamp between (datetime(2014-03-08 01:00)..
-> datetime(2014-03-08 10:00))
->
-> | project Timestamp, ClientRequestId, Level, Message
->
-> | take 10
-
+```
+logsRaw
+| where Timestamp between (datetime(2014-03-08 01:00).. datetime(2014-03-08 10:00))
+| project Timestamp, ClientRequestId, Level, Message
+| take 10
+```
 ![](./media/image55.png)
 
 ## [Task 6: Sorting the results](https://github.com/microsoft/FabricRTA-in-a-Day/blob/main/Lab1.md#challenge-3-task-5-sorting-the-results-)
@@ -535,18 +522,14 @@ incoming data. You want to check the traces of the "INGESTOR_EXECUTER"
     click on **▷ Run cell** button and review the output.
 
 **Copy**
-
-> logsRaw
->
-> | where Component == 'INGESTOR_EXECUTER'
->
-> | extend rowCount=toint(Properties.rowCount)
->
-> | where isnotempty(rowCount)
->
-> | sort by rowCount
->
-> | top 10 by rowCount desc
+```
+logsRaw
+| where Component == 'INGESTOR_EXECUTER'
+| extend rowCount=toint(Properties.rowCount)
+| where isnotempty(rowCount)
+| sort by rowCount
+| top 10 by rowCount desc
+```
 
 ![](./media/image56.png)
 
@@ -562,23 +545,17 @@ incoming data. You want to check the traces of the "INGESTOR_EXECUTER"
     click on **▷ Run cell** button and review the output.
 
 > **Copy**
->
-> logsRaw
->
-> | where Component == 'INGESTOR_EXECUTER'
->
-> | extend rowCount=toint(Properties.rowCount),
-> fileFormat=tostring(Properties.format)
->
-> | project Timestamp, fileFormat, rowCount, ClientRequestId, Component,
-> Level, Message
->
-> | take 10
+```
+logsRaw
+| where Component == 'INGESTOR_EXECUTER'
+| extend rowCount=toint(Properties.rowCount), fileFormat=tostring(Properties.format) 
+| project Timestamp, fileFormat, rowCount, ClientRequestId, Component, Level, Message
+| take 10
+```
 
 ![](./media/image57.png)
 
-## [**Task 8: Total number of records**](https://github.com/microsoft/FabricRTA-in-a-Day/blob/main/Lab1.md#challenge-3-task-7-total-number-of-records-)
-
+## **Task 8: Total number of records**
 The system comprises of several "components", but you don't know their
 names or how many records were generated by each.
 
@@ -589,15 +566,13 @@ names or how many records were generated by each.
     click on **▷ Run cell** button and review the output.
 
 > **Copy**
->
-> logsRaw
->
-> | summarize count() by Component
->
-> ![A screenshot of a computer Description automatically
-> generated](./media/image58.png)
+```
+logsRaw
+| summarize count() by Component
+```
+![](./media/image58.png)
 
-## [**Task 9: Aggregations and string operations **](https://github.com/microsoft/FabricRTA-in-a-Day/blob/main/Lab1.md#challenge-3-task-8-aggregations-and-string-operations-)
+## **Task 9: Aggregations and string operations **
 
 You assume that the incident being investigated has a connection to the
 ingestion process run by Contoso's program.
@@ -610,16 +585,14 @@ ingestion process run by Contoso's program.
     click on **▷ Run cell** button and review the output.
 
 **Copy**
-
-> logsRaw
->
-> | where Message has "ingestion"
->
-> | summarize count() by Level
-
+```
+logsRaw
+| where Message has "ingestion"
+| summarize count() by Level
+```
 ![](./media/image59.png)
 
-## [**Task 10: Render a chart **](https://github.com/microsoft/FabricRTA-in-a-Day/blob/main/Lab1.md#challenge-3-task-9-render-a-chart-)
+## **Task 10: Render a chart **
 
 1.  Write a query to find out how many total records are present
     per Level (aggregated by Level) and render a piechart.
@@ -628,16 +601,15 @@ ingestion process run by Contoso's program.
     click on **▷ Run cell** button and review the output.
 
 > **Copy**
->
-> logsRaw
->
-> | summarize count() by Level
->
-> | render piechart
->
-> ![](./media/image60.png)
 
-## [**Task 11: Create bins and visualize time series **](https://github.com/microsoft/FabricRTA-in-a-Day/blob/main/Lab1.md#challenge-3-task-10-create-bins-and-visualize-time-series-)
+```
+logsRaw
+| summarize count() by Level
+| render piechart
+```
+ ![](./media/image60.png)
+
+## **Task 11: Create bins and visualize time series **
 
 1.  Write a query to show a timechart of the number of records in 30
     minute bins (buckets). Each point on the timechart represent the
@@ -647,16 +619,14 @@ ingestion process run by Contoso's program.
     click on **▷ Run cell** button and review the output.
 
 > **Copy**
->
-> logsRaw
->
-> | summarize count() by bin(Timestamp, 30m)
->
-> | render timechart
-
+```
+logsRaw
+| summarize count() by bin(Timestamp, 30m)
+| render timechart
+```
 ![](./media/image61.png)
 
-# [Exercise 4: Explore and Transform Data](https://github.com/microsoft/FabricRTA-in-a-Day/blob/main/Lab1.md#challenge-4-explore-and-transform-data)
+# Exercise 4: Explore and Transform Data
 
 In this exercise we will explore 3 capabilities of Data Explorer
 
@@ -683,7 +653,7 @@ In this exercise we will explore 3 capabilities of Data Explorer
 > This function's output schema and target table schema should exactly
 > match.
 
-## [**Task 1: User defined Function (Stored Functions)**](https://github.com/microsoft/FabricRTA-in-a-Day/blob/main/Lab1.md#challenge-4-task-1-user-defined-function-stored-functions-)
+## **Task 1: User defined Function (Stored Functions)**
 
 1.  Create a stored functions, named ManiputatelogsRaw, that will
     contain the code below. Make sure the function works.
@@ -692,24 +662,18 @@ In this exercise we will explore 3 capabilities of Data Explorer
     click on **▷ Run cell** button and review the output.
 
 **Copy**
-
+```
 logsRaw
-
 | where Component in (
-
-  'INGESTOR_EXECUTER',
-
-  'INGESTOR_GATEWAY',
-
-  'INTEGRATIONDATABASE',
-
-  'INTEGRATIONSERVICEFLOWS',
-
-  'INTEGRATIONSERVICETRACE')
-
+  'INGESTOR_EXECUTER', 
+  'INGESTOR_GATEWAY', 
+  'INTEGRATIONDATABASE',
+  'INTEGRATIONSERVICEFLOWS', 
+  'INTEGRATIONSERVICETRACE')
+```
 ![](./media/image62.png)
 
-## [**Task 2: Create an update policy**](https://github.com/microsoft/FabricRTA-in-a-Day/blob/main/Lab1.md#challenge-4-task-2-create-an-update-policy-)
+## **Task 2: Create an update policy**
 
 In this task, we will use an update policy to filter the raw data in
 the logsRaw table (the source table) for ingestion logs, that will be
@@ -720,58 +684,45 @@ ingested into the new table ingestionLogs that we’ll create.
     output.
 
 **Copy**
-
+```
 .create table ingestionLogs (
-
-Timestamp: datetime,
-
-Source: string,
-
-Node: string,
-
-Level: string,
-
-Component: string,
-
-ClientRequestId: string,
-
-Message: string,
-
-Properties: dynamic)
-
-![](./media/image63.png)
+  Timestamp: datetime, 
+  Source: string,
+  Node: string, 
+  Level: string, 
+  Component: string, 
+  ClientRequestId: string, 
+  Message: string, 
+  Properties: dynamic)
+```
+>
+      ![](./media/image63.png)
 
 2.  Create a function for the update policy, replace all the code in the
     **cell** with the following code and click on **▷ Run cell** button
     and review the output.
 
 **Copy**
-
-> .create function ingestionComponents(){
+```
+.create function ingestionComponents(){
+logsRaw
+| where Component has_any ('INGESTOR_EXECUTER', 'INGESTOR_GATEWAY', 'INTEGRATIONDATABASE','INTEGRATIONSERVICEFLOWS', 'INTEGRATIONSERVICETRACE', 'DOWNLOADER')
+}
+```
 >
-> logsRaw
->
-> | where Component has_any ('INGESTOR_EXECUTER', 'INGESTOR_GATEWAY',
-> 'INTEGRATIONDATABASE','INTEGRATIONSERVICEFLOWS',
-> 'INTEGRATIONSERVICETRACE', 'DOWNLOADER')
->
-> }
-
-![](./media/image64.png)
+     ![](./media/image64.png)
 
 3.  Create the update policy(Fill in the blanks), replace all the code
     in the **cell** with the following code and click on **▷ Run
     cell** button and review the output.
 
 **Copy**
-
-> .alter table ingestionLogs
+```
+.alter table ingestionLogs 
+    policy update  @'[{ "IsEnabled": true,"Source": "logsRaw", "Query": "ingestionComponents()", "IsTransactional": true, "PropagateIngestionProperties": false} ]'
+```
 >
->     policy update  @'\[{ "IsEnabled": true,"Source": "logsRaw",
-> "Query": "ingestionComponents()", "IsTransactional": true,
-> "PropagateIngestionProperties": false} \]'
-
-![](./media/image65.png)
+     ![](./media/image65.png)
 
 4.  Update policy can transform and move the data from source table from
     the time it is created. It cannot look back at already existing data
@@ -785,36 +736,19 @@ Properties: dynamic)
     **Save** the notepad to use the information in the upcoming step.
 
 **Copy**
+```
+// Note, the following .ingest commands set creationTime to 2014 as you may notice in the file path.
+// This param allows to backfill the table with historical data and index it according ot the creationTime setting.
 
-// Note, the following .ingest commands set creationTime to 2014 as you
-may notice in the file path.
-
-// This param allows to backfill the table with historical data and
-index it according ot the creationTime setting.
-
-.execute database script \<|
-
-.ingest async into table logsRaw
-(h'https://adxsamplefiles.blob.core.windows.net/publiccsvsamples/logsbenchmark-onegb/2014/03/08/00/data.csv.gz')
-with (format='csv', creationTime='2024-03-08T00:00:00Z');
-
-.ingest async into table logsRaw
-(h'https://adxsamplefiles.blob.core.windows.net/publiccsvsamples/logsbenchmark-onegb/2014/03/08/01/data.csv.gz')
-with (format='csv', creationTime='2024-03-08T01:00:00Z');
-
-.ingest async into table logsRaw
-(h'https://adxsamplefiles.blob.core.windows.net/publiccsvsamples/logsbenchmark-onegb/2014/03/08/02/data.csv.gz')
-with (format='csv', creationTime='2024-03-08T02:00:00Z');
-
-.ingest async into table logsRaw
-(h'https://adxsamplefiles.blob.core.windows.net/publiccsvsamples/logsbenchmark-onegb/2014/03/08/03/data.csv.gz')
-with (format='csv', creationTime='2024-03-08T03:00:00Z');
-
-.ingest async into table logsRaw
-(h'https://adxsamplefiles.blob.core.windows.net/publiccsvsamples/logsbenchmark-onegb/2014/03/08/04/data.csv.gz')
-with (format='csv', creationTime='2024-03-08T04:00:00Z');
-
-![](./media/image66.png)
+.execute database script <|
+.ingest async into table logsRaw (h'https://adxsamplefiles.blob.core.windows.net/publiccsvsamples/logsbenchmark-onegb/2014/03/08/00/data.csv.gz') with (format='csv', creationTime='2024-03-08T00:00:00Z');
+.ingest async into table logsRaw (h'https://adxsamplefiles.blob.core.windows.net/publiccsvsamples/logsbenchmark-onegb/2014/03/08/01/data.csv.gz') with (format='csv', creationTime='2024-03-08T01:00:00Z');
+.ingest async into table logsRaw (h'https://adxsamplefiles.blob.core.windows.net/publiccsvsamples/logsbenchmark-onegb/2014/03/08/02/data.csv.gz') with (format='csv', creationTime='2024-03-08T02:00:00Z');
+.ingest async into table logsRaw (h'https://adxsamplefiles.blob.core.windows.net/publiccsvsamples/logsbenchmark-onegb/2014/03/08/03/data.csv.gz') with (format='csv', creationTime='2024-03-08T03:00:00Z');
+.ingest async into table logsRaw (h'https://adxsamplefiles.blob.core.windows.net/publiccsvsamples/logsbenchmark-onegb/2014/03/08/04/data.csv.gz') with (format='csv', creationTime='2024-03-08T04:00:00Z');
+```
+>
+     ![](./media/image66.png)
 
 **Note:** The above command does not complete immediately. Because we
 used the async parameter, the output of the above query will
@@ -825,27 +759,26 @@ below command
     with the following code and click on **▷ Run cell** button and
     review the output.
 
-Copy
-
+**Copy**
+```
 .show operations
 
 | where OperationId == ' OperationId '
-
+```
 **Note:** Replace the operationIds which you have saved in Step 6
-
-![](./media/image67.png)
+     ![](./media/image67.png)
 
 8.  Make sure the data is transformed correctly in the destination
     table. Replace all the code in the **cell** with the following code
     and click on **▷ Run cell** button and review the output.
 
 **Copy**
-
+```
 ingestionLogs
-
 | count
-
-![](./media/image68.png)
+```
+>
+     ![](./media/image68.png)
 
 Check if the count of ingestionLogs table is 111,740.
 
@@ -857,10 +790,11 @@ that one of the above .ingest commands have throttled or failed.
     click on **▷ Run cell** button and review the output.
 
 **Copy**
-
+```
 .clear table ingestionLogs data
-
-![](./media/image69.png)
+```
+>
+     ![](./media/image69.png)
 
 10. Now then run the above **.ingest** commands one by one and this will
     result in 93,648 count in ingestionLogs table.
@@ -869,19 +803,17 @@ that one of the above .ingest commands have throttled or failed.
     click on **▷ Run cell** button and review the output.
 
 > **Copy**
+```
+.alter table ingestionLogs policy update 
+@'[{ "IsEnabled": true, "Source": "logsRaw", "Query": "ingestionComponents()"}]'
 
-.alter table ingestionLogs policy update
-
-@'\[{ "IsEnabled": true, "Source": "logsRaw", "Query":
-"ingestionComponents()"}\]'
-
-.set-or-append logsRaw \<| logsRaw | take 100000
+.set-or-append logsRaw <| logsRaw | take 100000
 
 ingestionLogs | take 10
-
+```
 ![](./media/image70.png)
 
-#  [**Exercise 5: Advanced KQL, Policies, and Visualization**](https://github.com/microsoft/FabricRTA-in-a-Day/blob/main/Lab2.md#lab-2-advanced-kql-policies-and-visualization)
+#  **Exercise 5: Advanced KQL, Policies, and Visualization**
 
 #  [Caching and Retention Policies](https://github.com/microsoft/FabricRTA-in-a-Day/blob/main/Lab2.md#challenge-5-how-long-will-my-data-be-kept---caching-and-retention-policies)
 
@@ -930,9 +862,9 @@ Database policies can be overridden per table using a KQL control
 command. A database cache and retention policies can be edited from the
 Fabric UI. Tables policies can be managed via a KQL command.
 
-1.  Select ***querysetXX*** KQL queryset in the left navigation pane.
+1.  Select **querysetXX** KQL queryset in the left navigation pane.
 
-![](./media/image71.png)
+     ![](./media/image71.png)
 
 2.  Always use KQL commands to alter the policies of the entire
     Database/tables. Table level policy takes precedence over database
@@ -945,25 +877,20 @@ Fabric UI. Tables policies can be managed via a KQL command.
     click on **▷ Run cell** button and review the output
 
 Copy
-
-.alter table ingestionLogs policy retention
-
-\`\`\`
-
-{
-
-"SoftDeletePeriod": "10:12:00:00",
-
-"Recoverability": "Enabled"
-
+```
+.alter table ingestionLogs policy retention 
+```
+{ 
+    "SoftDeletePeriod": "10:12:00:00",
+    "Recoverability": "Enabled"
 }
-
-\`\`\`
+```
+>
+```
 
 ![](./media/image72.png)
 
-# [Exercise 6: Metadata objects handling using Control Commands](https://github.com/microsoft/FabricRTA-in-a-Day/blob/main/Lab2.md#challenge-6-metadata-objects-handling-using-control-commands)
-
+# Exercise 6: Metadata objects handling using Control Commands
 ## **Task 1: .show/diagnostic logs/Insights**
 
 Control commands are requests to the service to retrieve information
@@ -996,29 +923,21 @@ dot (.) character, and no query may start with that character.
     click on **▷ Run cell** button and review the output
 
 **Copy**
+```
+// 1. Using pipe: Count how many tables are in the database-in-scope:
+.show tables
+| count
 
-> // 1. Using pipe: Count how many tables are in the database-in-scope:
->
-> .show tables
->
-> | count
->
-> // 2. Using semicolon: Count how many tables are in the
-> database-in-scope:
->
-> .show tables;
->
-> $command_results
->
-> | count
->
-> // 3. Using semicolon, and including a let statement:
->
-> .show tables;
->
-> let useless=(n:string){strcat(n,'-','useless')};
->
-> $command_results | extend LastColumn=useless(TableName)
+// 2. Using semicolon: Count how many tables are in the database-in-scope:
+.show tables;
+$command_results
+| count
+
+// 3. Using semicolon, and including a let statement:
+.show tables;
+let useless=(n:string){strcat(n,'-','useless')};
+$command_results | extend LastColumn=useless(TableName)
+```
 
 ![](./media/image73.png)
 
@@ -1034,12 +953,11 @@ queries were executed in the past 3 hours.
     click on **▷ Run cell** button and review the output
 
 **Copy**
-
-> .show queries
->
-> | where StartedOn \>ago(7d)
->
-> | summarize count() by User
+```
+.show queries 
+| where StartedOn >ago(7d)
+| summarize count() by User
+```
 
 ![](./media/image74.png)
 
@@ -1050,12 +968,11 @@ queries were executed in the past 3 hours.
     click on **▷ Run cell** button and review the output
 
 **Copy**
-
-> .show journal
->
-> | where EventTimestamp \> ago(1h) and Event =='ADD-FUNCTION'
->
-> | project Event, EventTimestamp, ChangeCommand
+```
+.show journal
+| where EventTimestamp > ago(1h) and Event =='ADD-FUNCTION'
+| project Event, EventTimestamp, ChangeCommand
+```
 
 ![](./media/image75.png)
 
@@ -1066,12 +983,11 @@ queries were executed in the past 3 hours.
     click on **▷ Run cell** button and review the output.
 
 **Copy**
-
+```
 .show commands
-
-| where StartedOn \>ago(4h)
-
+| where StartedOn >ago(4h)
 | summarize count() by User
+```
 
 ![](./media/image76.png)
 
@@ -1084,18 +1000,15 @@ queries were executed in the past 3 hours.
     click on **▷ Run cell** button and review the output
 
 Copy
-
+```
 .show extents
-
-| summarize format_bytes(sum(OriginalSize),2,'MB'),
-format_bytes(sum(ExtentSize),2,'MB') by TableName
+| summarize format_bytes(sum(OriginalSize),2,'MB'), format_bytes(sum(ExtentSize),2,'MB') by TableName
 
 .show tables details
-
+```
 ![](./media/image77.png)
 
-# [Exercise 7: Going more advanced with KQL](https://github.com/microsoft/FabricRTA-in-a-Day/blob/main/Lab2.md#challenge-7-going-more-advanced-with-kql)
-
+# Exercise 7: Going more advanced with KQL
 ## **Task 1: Declaring variables and using 'let' statements**
 
 You can use the let statement to set a variable name equal to an
@@ -1123,17 +1036,13 @@ let statements are useful for:
     click on **▷ Run cell** button and review the output.
 
 **Copy**
-
+```
 let LogType = 'Warning';
-
 let TimeBucket = 1m;
-
 logsRaw
-
 | summarize count() by Level = LogType, bin(Timestamp,TimeBucket)
-
 | render timechart
-
+```
 ![](./media/image78.png)
 
 ## **Task 2: Use the search operator**
@@ -1146,9 +1055,9 @@ specific columns or table names.
     click on **▷ Run cell** button and review the output.
 
 Copy
-
+```
 search "Exception=System.Timeout" | count
-
+```
 ![](./media/image79.png)
 
 ## **Task 3: Parse Key-Value pairs strings into separate columns**
@@ -1162,26 +1071,18 @@ trace, representing the information in a key/value form.
     click on **▷ Run cell** button and review the output.
 
 Copy
-
-logsRaw
-
-| where Component == "INGESTOR_EXECUTER"
-
-//| parse-kv Properties as (size: int, format: string, rowCount: int,
-cpuTime: string , duration: string) //bug: cpuTime, duration truncated
-
+```
+logsRaw 
+| where Component == "INGESTOR_EXECUTER" 
+//| parse-kv Properties as (size: int, format: string, rowCount: int, cpuTime: string , duration: string) //bug: cpuTime, duration truncated
 | take 20
-
 | evaluate bag_unpack(Properties)
 
-ingestionLogs
-
-| where Component == "INGESTOR_EXECUTER"
-
-| take 20
-
-| parse-kv Message as (IngestionCompletionEvent:string, path:string)
-with (pair_delimiter=' file', kv_delimiter=':')
+ingestionLogs 
+| where Component == "INGESTOR_EXECUTER" 
+| take 20 
+| parse-kv Message as (IngestionCompletionEvent:string, path:string) with (pair_delimiter=' file', kv_delimiter=':')
+```
 
 ![](./media/image80.png)
 
@@ -1196,27 +1097,19 @@ timechart.
     click on **▷ Run cell** button and review the output.
 
 **Copy**
-
+```
 logsRaw
-
 | where Component=='INGESTOR_EXECUTER' and Node =='Engine000000000378'
-
 | extend size=tolong(Properties.size)
-
 | summarize avg(size) by bin(Timestamp, 1h), Node
-
-| render timechart
+| render timechart 
 
 logsRaw
-
 | where Component=='INGESTOR_EXECUTER' and Node =='Engine000000000378'
-
 | extend size=tolong(Properties.size)
-
 | make-series avg(size) default=0 on Timestamp step 1h by Node
-
 | render timechart
-
+```
 ![](./media/image81.png)
 
 ## **Task 5: Anomaly detection**
@@ -1230,30 +1123,23 @@ file sizes in 1-minute intervals.
     click on **▷ Run cell** button and review the output.
 
 **Copy**
-
+```
 ingestionLogs
-
 | extend size=tolong(Properties.size)
-
 | make-series avg(size) default=0 on Timestamp step 10m
-
 | extend anom=series_decompose_anomalies(avg_size)
+| render anomalychart  with (anomalycolumns=anom)
 
-| render anomalychart with (anomalycolumns=anom)
 
 ingestionLogs
-
 | extend size=tolong(Properties.size)
-
 | make-series avg(size) default=0 on Timestamp step 10m
-
 | extend anom=series_decompose_anomalies(avg_size, 0.5)
-
 | mv-expand Timestamp, avg_size, anom
-
-| where anom \<\> 0
-
-![](./media/image82.png)
+| where anom <> 0
+```
+>
+     ![](./media/image82.png)
 
 2.  To get a tabular format of the detected anomalies, you can use
     the mv-expand operator to expand the multi-value dynamic array of
@@ -1266,34 +1152,17 @@ ingestionLogs
     click on **▷ Run cell** button and review the output.
 
 **Copy**
-
+```
 ingestionLogs
-
 | where Component == "INGESTOR_EXECUTER"
-
 | extend fileSize=tolong(Properties.size)
-
-| make-series ActualSize=avg(fileSize) on Timestamp step 1min // Creates
-the time series, listed by data type
-
-| extend(AnomalyFlags, AnomalyScore, PredictedSize) =
-series_decompose_anomalies(ActualSize, -1) // Scores and extracts
-anomalies based on the output of make-series
-
-| mv-expand ActualSize to typeof(double), Timestamp to typeof(datetime),
-AnomalyFlags to typeof(double),AnomalyScore to typeof(double),
-PredictedSize to typeof(long) // Expands the array created by
-series_decompose_anomalies()
-
-| where AnomalyFlags != 0 // Returns all positive and negative
-deviations from expected usage
-
-| project Timestamp,ActualSize = format_bytes(ActualSize,
-2),PredictedSize = format_bytes(PredictedSize, 2), AnomalyScore,
-AnomalyFlags // Defines which columns to return
-
-| sort by abs(AnomalyScore) desc // Sorts results by anomaly score in
-descending ordering
+| make-series ActualSize=avg(fileSize) on Timestamp step 1min // Creates the time series, listed by data type
+| extend(AnomalyFlags, AnomalyScore, PredictedSize) = series_decompose_anomalies(ActualSize, -1) // Scores and extracts anomalies based on the output of make-series 
+| mv-expand ActualSize to typeof(double), Timestamp to typeof(datetime), AnomalyFlags to typeof(double),AnomalyScore to typeof(double), PredictedSize to typeof(long) // Expands the array created by series_decompose_anomalies()
+| where AnomalyFlags != 0  // Returns all positive and negative deviations from expected usage
+| project Timestamp,ActualSize = format_bytes(ActualSize, 2),PredictedSize = format_bytes(PredictedSize, 2), AnomalyScore, AnomalyFlags // Defines which columns to return 
+| sort by abs(AnomalyScore) desc // Sorts results by anomaly score in descending ordering
+```
 
 ![](./media/image83.png)
 
@@ -1302,37 +1171,33 @@ descending ordering
 ## **Task 1: Find the anomaly value**
 
 1.  Create a Timechart using following query. Observe that we
-    used \_startTime? and \_endTime. These 2 are parameters from
+    used _startTime? and _endTime. These 2 are parameters from
     TimeRange filter in ADX Dashboard with which we can filter the
     minimum and maximum time of our data.
 
 2.  Use the below example query as reference to add Timestamp filter
-    with \_startTime and \_endTime filter to queries in task 1 and task
+    with _startTime and _endTime filter to queries in task 1 and task
     2.
 
 3.  The following 2 tasks use the timefilter
     between 2014-03-08T00:00:00 and 2014-03-08T10:00:00
-
-> ingestionLogs
->
-> | where Timestamp between (todatetime(\_startTime) ..
-> todatetime(\_endTime))
->
-> | summarize count() by bin(Timestamp, 10m), Component
+```
+ingestionLogs
+| where Timestamp between (todatetime(_startTime) .. todatetime(_endTime))
+| summarize count() by bin(Timestamp, 10m), Component 
+```
 
 4.  Replace all the code in the **cell** with the following code and
     click on **▷ Run cell** button and review the output.
 
 **Copy**
-
+```
 ingestionLogs
-
-| where Timestamp between (datetime(2014-03-08 01:00)..
-datetime(2014-03-08 10:00))
-
+| where Timestamp between (datetime(2014-03-08 01:00).. datetime(2014-03-08 10:00))
 | summarize count() by bin(Timestamp, 10m), Component
-
-![](./media/image85.png)
+```
+>
+     ![](./media/image85.png)
 
 5.  Parameterize (add Timefilter) and render an Anomaly chart using the
     following Anomaly detection query. The chart should show values
@@ -1342,35 +1207,27 @@ datetime(2014-03-08 10:00))
     click on **▷ Run cell** button and review the output.
 
 **Copy**
-
+```
 ingestionLogs
-
-| where Timestamp between (datetime(2014-03-08 01:00)..
-datetime(2014-03-08 10:00))
-
+| where Timestamp between (datetime(2014-03-08 01:00).. datetime(2014-03-08 10:00))
 | summarize count() by bin(Timestamp, 10m), Component
-
 | render timechart
-
-![](./media/image86.png)
+```
+>
+     ![](./media/image86.png)
 
 7.  Replace all the code in the **cell** with the following code and
     click on **▷ Run cell** button and review the output.
 
 **Copy**
-
-> let bucket=10m;
->
-> logsRaw
->
-> | where Timestamp between(datetime(2014-03-08 01:00)..
-> datetime(2014-03-08 10:00))
->
-> | make-series count() on Timestamp step bucket by Level
->
-> | extend anom = series_decompose_anomalies(count\_)
->
-> | render anomalychart with (anomalycolumns=anom)
+```
+let bucket=10m;
+logsRaw
+| where Timestamp between(datetime(2014-03-08 01:00).. datetime(2014-03-08 10:00))
+| make-series count() on Timestamp step bucket by Level
+| extend anom = series_decompose_anomalies(count_)
+| render anomalychart with (anomalycolumns=anom)
+```
 
 ![](./media/image87.png)
 
@@ -1380,15 +1237,12 @@ datetime(2014-03-08 10:00))
     click on **▷ Run cell** button and review the output.
 
 **Copy**
-
+```
 ingestionLogs
-
-| where Timestamp between(datetime(2014-03-08 01:00)..
-datetime(2014-03-08 10:00))
-
+| where Timestamp between(datetime(2014-03-08 01:00).. datetime(2014-03-08 10:00))
 | summarize count() by Level
-
 | render piechart
+```
 
 ![](./media/image88.png)
 
@@ -1403,77 +1257,77 @@ datetime(2014-03-08 10:00))
 
 2.  On the **Synapse Real-Time Analytics Home** page, from the menu bar,
     select the **New** drop-down, and from there select **Eventstream.**
-    Name the Eventstream +++***RTA_EventStream**+++* and click on the
+    Name the Eventstream **+++RTA_EventStream+++** and click on the
     **Create** button.
 
-![](./media/image90.png)
+     ![](./media/image90.png)
 
-![](./media/image91.png)
+     ![](./media/image91.png)
 
-![](./media/image92.png)
+     ![](./media/image92.png)
 
 3.  On the Eventstream, select **New source** and select **Custom
-    App*.***
+    App**.
 
-![](./media/image93.png)
+     ![](./media/image93.png)
 
 4.  On the **Custom App** configuration page, enter the source name as
-    +++**RTAcustom+++** and click on **Add** button
+    **+++RTAcustom+++** and click on **Add** button
 
-![](./media/image94.png)
+     ![](./media/image94.png)
 
 5.  On the **Eventstream** pane**,** select the **keys** under the
     Details ,copy the **connection strings-primarykey** and paste them
     on a notepad, as you need them in the upcoming task
 
-![](./media/image95.png)
+     ![](./media/image95.png)
 
 ## Task 2: Import LogSteamSimulator notebook
 
 1.  Now, select ***Fabric Real-Time AnalyticsXX*** workspace in the left
     navigation pane
 
-![](./media/image96.png)
+     ![](./media/image96.png)
 
 2.  On the **Synapse Real-Time Analytics Home** page, from the menu bar,
     select the **New** drop-down, and from there select **Import
     notebook.**
 
-![](./media/image97.png)
+     ![](./media/image97.png)
 
 3.  Select **Upload** from the **Import status** pane that appears on
     the right side of the screen.
 
-![](./media/image98.png)
+      ![](./media/image98.png)
 
 4.  Navigate and select **LogSteamSimulator** notebooks from
     **C:\LabFiles**and click on the **Open** button.
 
-![](./media/image99.png)
+      ![](./media/image99.png)
 
 5.  You will see a notification stating **Imported successfully.**
 
-6.  *Then*, select the ***LOgStreamSimulator* **notebook.
+6.  Then, select the **LOgStreamSimulator**notebook.
 
-![](./media/image100.png)
+      ![](./media/image100.png)
 
 7.  To start the notebook, in the 1^(st) cell paste the **connection
     string of your custom app source**(the value that you have saved in
     your notepad in the **Exercise 9\>Task 1\>Step 5)**, select
     the **Run** icon that appears on the left side of the cell.
 
-![](./media/image101.png)
+      ![](./media/image101.png)
 
 8.  To installs required library, select and run the 2^(nd) , 3^(rd)
     cells.
 
-![](./media/image102.png)
+     ![](./media/image102.png)
 
-![](./media/image103.png)
+     ![](./media/image103.png)
 
 9.  To sends the data, select and run the 4^(th) ,5^(th) cells.
 
-![](./media/image104.png)
+      ![](./media/image104.png)
 
 **Note:**  If you get AnalysisException: \[PATH_NOT_FOUND\] Path does
 not exist, replace code cell 1 with [backup URL
@@ -1495,25 +1349,24 @@ cells should run successfully.
 ⚠️ If you get ImportError: cannot import name 'Buffer' from
 'typing_extensions', replace code cell 2 with: pip install
 azure-eventhub==5.11.5 --upgrade --force and click **Run All** again.
+    ![](./media/image105.png)
 
-![](./media/image105.png)
+10. Select **RTA-Eventstream** in the left navigation pane.
 
-10. Select ***RTA-Eventstream*** in the left navigation pane.
-
-![](./media/image106.png)
+     ![](./media/image106.png)
 
 11. Open eventstream artifact, preview the data stream
 
-![](./media/image107.png)
+     ![](./media/image107.png)
 
 ## Task 3: Send data from the Eventstream to the KQL database
 
 1.  Our data should be arriving into our Eventstream, and we'll now
     configure the data to be ingested into the KQL database we created
-    in the above task. On the Eventstream, click on ***New
-    destination***, then navigate and click on **KQL Database**.
+    in the above task. On the Eventstream, click on **New
+    destination**, then navigate and click on **KQL Database**.
 
-![](./media/image108.png)
+     ![](./media/image108.png)
 
 2.  On the KQL settings, select ***Direct ingestion***. While we have
     the opportunity to process event data at this stage, for our
@@ -1522,76 +1375,69 @@ azure-eventhub==5.11.5 --upgrade --force and click **Run All** again.
     your **workspace** and KQL database created in the above task, then
     click on **Add and Configure** button.
 
-![](./media/image109.png)
+      ![](./media/image109.png)
 
 3.  On the first settings page, select **logsRaw** table and click on
     the **Next** button.
 
-![](./media/image110.png)
+      ![](./media/image110.png)
 
 4.  The next page allows us to inspect and configure the schema. Be sure
     to change the format from TXT to **JSON**, if necessary. The default
     columns of *symbol*, *price*, and *timestamp* should be formatted as
     shown in the below image; then click on the ***Finish*** button.
 
-![](./media/image111.png)
+      ![](./media/image111.png)
 
 5.  On the **Summary** page, if there are no errors, you’ll see a
     **green checkmark** as shown in the below image, then click on the
-    ***Close*** button to complete the configuration.
+    **Close** button to complete the configuration.
 
-![](./media/image112.png)
+     ![](./media/image112.png)
 
-![A screenshot of a computer Description automatically
-generated](./media/image113.png)
+     ![](./media/image113.png)
 
 6.  Now, select ***Fabric Real-Time AnalyticsXX*** workspace in the left
     navigation pane.
 
-![](./media/image114.png)
+      ![](./media/image114.png)
 
 7.  On the **Synapse Real-Time Analytics Home** page, Select **KQL
     Queryset.**
 
-![](./media/image115.png)
+     ![](./media/image115.png)
 
 8.  Replace all the code in the **cell** with the following code and
     click on **▷ Run cell** button and review the output
-
+```
 logsRaw
 
 | take 10
-
-![](./media/image116.png)
+```
+>
+     ![](./media/image116.png)
 
 9.  Replace all the code in the **cell** with the following code and
     click on **▷ Run cell** button and review the output
-
+```
 //rate
-
 logsRaw
-
-| where ingestion_time() \> ago(1d)
-
-| make-series count() default=0 on ingestion_time() step 1m
-
+| where ingestion_time() > ago(1d)
+| make-series count() default=0 on ingestion_time() step 1m 
 | render timechart
-
-![](./media/image117.png)
+```
+>
+     ![](./media/image117.png)
 
 10. Replace all the code in the **cell** with the following code and
     click on **▷ Run cell** button and review the output
-
+```
 //lag
-
 logsRaw
-
-| where ingestion_time() \>ago(1m)
-
+| where ingestion_time() >ago(1m)
 | summarize m=max(ingestion_time())
-
 | project lag=now()-m
-
+```
 ![](./media/image118.png)
 
 # Exercise 10: Data Activator
@@ -1603,135 +1449,129 @@ logsRaw
 2.  In **Settings** pane, scroll down to **Governance and insights**,
     then click on **Admin portal** .
 
-![](./media/image119.png)
+     ![](./media/image119.png)
 
 3.  In **Admin portal** pane, select **Tenant settings**, scroll down to
     **Microsoft Fabric** section, click on **Data Activator**, then
     enable it using the **toggle** button. After **Data Activator** were
     Enabled, click on the **Apply** button.
 
-![](./media/image120.png)
+     ![](./media/image120.png)
 
 4.  Now, select ***Fabric Real-Time AnalyticsXX*** workspace in the left
     navigation pane
 
-![](./media/image121.png)
+     ![](./media/image121.png)
 
 5.  At the bottom left of the Power BI portal, select
     the **Real-Time-Intelligence** icon and switch to the **Data
     Activator** experience
 
-![](./media/image122.png)
+     ![](./media/image122.png)
 
 6.  Select **Reflex(Preview).**
 
-![](./media/image123.png)
+      ![](./media/image123.png)
 
-7.  Select ***RTA_Eventstream*** in the left navigation pane.
+7.  Select **RTA_Eventstream** in the left navigation pane.
 
-![](./media/image124.png)
+      ![](./media/image124.png)
 
-8.  On the ***StockEventstream*** page, add a new output by clicking on
+8.  On the **StockEventstream** page, add a new output by clicking on
     the **+ (plus)** symbol on the **StockEventStream** object, and
-    select ***Reflex*** as shown in the below image.
+    select **Reflex** as shown in the below image.
 
-![](./media/image125.png)
+      ![](./media/image125.png)
 
-9.  Configure the Reflex as follows and then click on the ***Add***
-    button**:**
+9.  Configure the Reflex as follows and then click on the **Add**
+    button:
 
-- Destination name: +++**Reflex_RTA+++**
+- Destination name: **+++Reflex_RTA+++**
 
 - Workspace: **RealTimeWorkspace** (or the name of your workspace)
 
 - Select Reflex and click on **Done** button.
 
-![](./media/image126.png)
+     ![](./media/image126.png)
 
 10. You will get a notification that the destination “Reflex” was
     **Successfully added**.
 
-![](./media/image127.png)
+      ![](./media/image127.png)
 
-11. After the Reflex is added, open the Reflex by clicking the ***Data
-    preview*** at the bottom of the page as shown in the below image.
+11. After the Reflex is added, open the Reflex by clicking the **Data
+    preview** at the bottom of the page as shown in the below image.
 
-![](./media/image128.png)
+     ![](./media/image128.png)
 
 ## Task 2: Configure the object
 
-1.  Now, select ***Fabric Real-Time AnalyticsXX*** workspace in the left
+1.  Now, select **Fabric Real-Time AnalyticsXX** workspace in the left
     navigation pane
 
-![](./media/image96.png)
+      ![](./media/image96.png)
 
-2.  In the *Fabric Real-Time AnalyticsXX pane**, ***Select **Reflex**
+2.  In the **Fabric Real-Time AnalyticsXX pane**, ***Select **Reflex**
 
-![](./media/image129.png)
+     ![](./media/image129.png)
 
-![A screenshot of a computer Description automatically
-generated](./media/image130.png)
+     ![](./media/image130.png)
 
 **Note:** If the data does not reflect, please refresh the browser.
 
 3.  In **StockEventStram-Reflex** window, enter the following details in
-    the ***Assign your data** *pane*.* Then, click on ***Save** and
-    select **Save and go to design mode***.
+    the **Assign your data** pane. Then, click on **Save** and
+    select **Save and go to design mode**.
 
-- Object name -+++ **EngineNode+++**
+- Object name -**+++EngineNode+++**
 
 - Assign key column **- Node**
 
 - Assign properties - select **Level**
 
-![](./media/image131.png)
+     ![](./media/image131.png)
 
-![](./media/image132.png)
+     ![](./media/image132.png)
 
-4.  
-
-![A screenshot of a computer Description automatically
-generated](./media/image133.png)
+     ![](./media/image133.png)
 
 5.  To add a new trigger, in the top navigation bar, click on the ***New
     Trigger*** button. In the **Unsaved change** dialog box, click on
     the **Save** button
 
-![](./media/image134.png)
+     ![](./media/image134.png)
 
 6.  Dropdown the **Select a property or event column**, select
     **Existing property** and select **Level** property for the trigger.
 
-![](./media/image135.png)
+     ![](./media/image135.png)
 
-![A screenshot of a computer Description automatically
-generated](./media/image136.png)
+     ![](./media/image136.png)
 
 7.  **Define the condition to detect** pane, drop down the **change by**
     , select **Common** and select **Change to**
 
-![](./media/image137.png)
+     ![](./media/image137.png)
 
 8.  The conditions are met when Level property value changes from
     "Information" to "Warning".
 
-![](./media/image138.png)
+      ![](./media/image138.png)
 
 9.  Click on **Save** button
 
-![](./media/image139.png)
+     ![](./media/image139.png)
 
-![A screenshot of a computer Description automatically
-generated](./media/image140.png)
+     ![](./media/image140.png)
 
 10. Scroll down, click on the dropdown beside **Act** and select
     **Email**.
 
-![](./media/image141.png)
+      ![](./media/image141.png)
 
 11. Then, click on **Send me a test alert**.
 
-![](./media/image142.png)
+     ![](./media/image142.png)
 
 **Important Note:**  Users having a trial account won't receive
 notifications.
@@ -1741,27 +1581,25 @@ notifications.
 1.  Select your workspace, the **Fabric Real-Time AnalyticsXX** from the
     left-hand navigation menu. It opens the workspace item view.
 
-![](./media/image143.png)
+     ![](./media/image143.png)
 
-2.  Select the ***...*** option under the workspace name and
+2.  Select the **...** option under the workspace name and
     select **Workspace settings**.
 
-![](./media/image144.png)
+     ![](./media/image144.png)
 
 3.  Select **General** and **Remove this workspace.**
 
-![](./media/image145.png)
+      ![](./media/image145.png)
 
 4.  Click on **Delete** in the warning that pops up.
 
-![A white background with black text Description automatically
-generated](./media/image146.png)
+     ![](./media/image146.png)
 
 5.  Wait for a notification that the Workspace has been deleted, before
     proceeding to the next lab.
 
-![A screenshot of a computer Description automatically
-generated](./media/image147.png)
+      ![](./media/image147.png)
 
 **Summary**
 
