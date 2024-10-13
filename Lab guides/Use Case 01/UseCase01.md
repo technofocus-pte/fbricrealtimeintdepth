@@ -568,7 +568,7 @@ logsRaw
 ```
 ![](./media/image58.png)
 
-## **Task 9: Aggregations and string operations **
+## **Task 9: Aggregations and string operations**
 
 You assume that the incident being investigated has a connection to the
 ingestion process run by Contoso's program.
@@ -588,7 +588,7 @@ logsRaw
 ```
 ![](./media/image59.png)
 
-## **Task 10: Render a chart **
+## **Task 10: Render a chart**
 
 1.  Write a query to find out how many total records are present
     per Level (aggregated by Level) and render a piechart.
@@ -605,7 +605,7 @@ logsRaw
 ```
  ![](./media/image60.png)
 
-## **Task 11: Create bins and visualize time series **
+## **Task 11: Create bins and visualize time series**
 
 1.  Write a query to show a timechart of the number of records in 30
     minute bins (buckets). Each point on the timechart represent the
