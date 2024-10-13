@@ -1,3 +1,4 @@
+# **Use case1- Performing Real-Time Intelligence using Microsoft Fabric**
 **Introduction**
 
 Microsoft Fabric Real-Time Analytics is a fully managed,
@@ -36,61 +37,50 @@ KQL queries.
 1.  In your VM, navigate and click in the **Search bar**, type
     **Settings** and then click on **Settings** under **Best match**.
 
-> ![A screenshot of a computer Description automatically
-> generated](./media/image1.png)
+     ![](./media/image1.png)
 
 2.  On Settings window, navigate and click on **Time & language**.
 
-![A screenshot of a computer Description automatically
-generated](./media/image2.png)
+     ![](./media/image2.png)
 
 3.  On **Time & language** page, navigate and click on **Date & time**.
 
-![A screenshot of a computer Description automatically
-generated](./media/image3.png)
+      ![](./media/image3.png)
 
 4.  Scroll down and navigate to **Additional settings** section, then
     click on **Syn now** button. It will take 3-5 minutes to syn.
 
-![A screenshot of a computer Description automatically
-generated](./media/image4.png)
+     ![](./media/image4.png)
 
 5.  Close the **Settings** window.
 
-![A screenshot of a computer Description automatically
-generated](./media/image5.png)
+      ![](./media/image5.png)
 
 ## Task 1: Sign in to Power BI account and sign up for the free [Microsoft Fabric trial](https://learn.microsoft.com/en-us/fabric/get-started/fabric-trial)
 
 1.  Open your browser, navigate to the address bar, and type or paste
-    the following URL:
-    [https://app.fabric.microsoft.com/](https://app.fabric.microsoft.com/,)
+    the following URL: +++https://app.fabric.microsoft.com/+++
     then press the **Enter** button.
 
-> ![A search engine window with a red box Description automatically
-> generated with medium confidence](./media/image6.png)
+     ![](./media/image6.png)
 
 2.  In the **Microsoft Fabric** window, enter your given credentials,
     and click on the **Submit** button.
 
-> ![A close up of a white and green object Description automatically
-> generated](./media/image7.png)
+      ![](./media/image7.png)
 
 3.  Then, In the **Microsoft** window enter the password and click on
-    the **Sign in** button**.**
+    the **Sign in** button.
 
-> ![A login screen with a red box and blue text Description
-> automatically generated](./media/image8.png)
+     ![](./media/image8.png)
 
 4.  In **Stay signed in?** window, click on the **Yes** button.
 
-> ![A screenshot of a computer error Description automatically
-> generated](./media/image9.png)
+     ![](./media/image9.png)
 
 5.  You’ll be directed to Power BI Home page.
 
-![A screenshot of a computer Description automatically
-generated](./media/image10.png)
+      ![](./media/image10.png)
 
 ## Task 2: Start the Microsoft Fabric trial
 
@@ -100,27 +90,23 @@ Follow these steps to start your Fabric trial.
     right side. In the Account manager blade, navigate and
     select **Start trial as shown in the below image.**
 
-![A screenshot of a computer Description automatically
-generated](./media/image11.png)
+      ![](./media/image11.png)
 
 2.  If prompted, agree to the terms and then select **Start trial**.
 
-> ![A screenshot of a computer Description automatically
-> generated](./media/image12.png)
+     ![](./media/image12.png)
 
 3.  Once your trial capacity is ready, you receive a confirmation
     message. Select **Fabric Home Page** to begin working in Fabric.
 
-> ![A screenshot of a computer Description automatically
-> generated](./media/image13.png)
+      ![](./media/image13.png)
 
 4.  Open your Account manager again. Notice that you now have a heading
     for **Trial status**. Your Account manager keeps track of the number
     of days remaining in your trial. You will also see the countdown in
     your Fabric menu bar when you work in a product experience.
 
-> ![A screenshot of a computer Description automatically
-> generated](./media/image14.png)
+      ![](./media/image14.png)
 
 ## Task 3: Create a workspace 
 
@@ -130,38 +116,35 @@ trial enabled.
 1.  In the **Microsoft Fabric** home page, select the **Power BI**
     template.
 
-> ![A screenshot of a computer Description automatically
-> generated](./media/image15.png)
+     ![](./media/image15.png)
 
 2.  In the **Power BI Home** page menu bar on the left,
     select **Workspaces** (the icon looks similar to 🗇).
 
-> ![A screenshot of a computer Description automatically
-> generated](./media/image16.png)
+      ![](./media/image16.png)
 
 3.  In the Workspaces pane, select **+** **New workspace**.
 
-> ![A screenshot of a computer Description automatically
-> generated](./media/image17.png)
+      ![](./media/image17.png)
 
 4.  In the **Create a workspace tab**, enter the following details and
     click on the **Apply** button.
+    
+|   |  |
+|-----|----|
+|Name	| +++Fabric Real-Time AnalyticsXX+++(XX can be a unique number) |
+|Advanced|	Under License mode, select Trial|
+|Default storage format|Small dataset storage forma
 
-[TABLE]
-
-> ![](./media/image18.png)
-
-![A screenshot of a computer Description automatically
-generated](./media/image19.png)
-
-![A screenshot of a computer Description automatically
-generated](./media/image20.png)
+>
+       ![](./media/image18.png)
+       ![](./media/image19.png)
+       ![](./media/image20.png)
 
 5.  Wait for the deployment to complete. It takes 2-3 minutes to
     complete. When your new workspace opens, it should be empty.
 
-> ![A screenshot of a computer Description automatically
-> generated](./media/image21.png)
+       ![](./media/image21.png)
 
 ## **Task 4:** [**Create a KQL Database**](https://github.com/microsoft/FabricRTA-in-a-Day/blob/main/Lab1.md#challenge-1-create-a-kql-database)
 
@@ -173,20 +156,17 @@ file.
 1.  At the bottom left of the Power BI portal, select the **Power
     BI** icon and switch to the **Real-Time Analytics** experience.
 
-> ![](./media/image22.png)
->
-> ![](./media/image23.png)
+     ![](./media/image22.png)
+ 
+     ![](./media/image23.png)
 
 2.  In the **New Eventhouse** dialog box, enter the **Eventhouse name**
     as **FabricRTA** (or new database with a name of your choice) and
     click on **Create** button.
 
 **Note**: Remove any extra space before and after **FabricRTA.**
-
-![](./media/image24.png)
-
-![A screenshot of a computer Description automatically
-generated](./media/image25.png)
+     ![](./media/image24.png)
+     ![](./media/image25.png)
 
 ## **Task 5: Create a KQL queryset**
 
@@ -197,40 +177,38 @@ create it.
 1.  Select ***Fabric Real-Time AnalyticsXX*** workspace in the left
     navigation pane.
 
-![](./media/image26.png)
+     ![](./media/image26.png)
 
 2.  On the **Synapse Real-Time Analytics Home** page, from the menu bar,
     select the **New** drop-down, and from there select **KQL Queryset**
 
-![](./media/image27.png)
+     ![](./media/image27.png)
 
 3.  In the **New KQL Queryset** dialog box, enter the **KQL Query name**
-    as +++**querysetXX+++**(or new database with a name of your choice)
+    as **+++querysetXX+++**(or new database with a name of your choice)
     and click on **Create** button.
 
 Note: KQL Query name should be alphanumeric characters, underscores,
 periods, and hyphens. Special characters aren't supported.
-
-![](./media/image28.png)
+    ![](./media/image28.png)
 
 3.  In **OneLake data hub** pane ,select **FabricRTA** KQL Database and
     click on **Select** button.
 
-![](./media/image29.png)
+     ![](./media/image29.png)
 
-![](./media/image30.png)
+     ![](./media/image30.png)
 
 4.  Now you can write a simple KQL query:
 
-> print "Hello World"
-
-![](./media/image31.png)
+  +++print "Hello World"+++
+     ![](./media/image31.png)
 
 5.  Highlight the line with the code and hit the **Run** button. The
     query will be executed and its result can be seen in the result grid
     at the bottom of the page.
 
-![](./media/image31.png)
+      ![](./media/image31.png)
 
 # **Exercise 2: Ingest data from Azure Storage Account**
 
@@ -251,34 +229,26 @@ KQL Database.
     following code and click on **▷ Run** button to create a table
 
 **Copy**
-
+```
 .create table logsRaw(
-
-Timestamp:datetime,
-
-Source:string,
-
-Node:string,
-
-Level:string,
-
-Component:string,
-
-ClientRequestId:string,
-
-Message:string,
-
-Properties:dynamic
-
+    Timestamp:datetime, 
+    Source:string, 
+    Node:string, 
+    Level:string, 
+    Component:string, 
+    ClientRequestId:string, 
+    Message:string, 
+    Properties:dynamic
 )
-
-![](./media/image32.png)
+```
+>
+     ![](./media/image32.png)
 
 2.  Click on refresh to see the new table on the left.
 
-![](./media/image33.png)
+     ![](./media/image33.png)
 
-![](./media/image34.png)
+     ![](./media/image34.png)
 
 ## **Task 2: Use the “One-click” User Interface to ingest data from Azure blob storage**
 
@@ -287,9 +257,9 @@ Azure blob storage.
 
 1.  Select **FabricRTA** d*atabase* in the left navigation pane.
 
-![](./media/image35.png)
+     ![](./media/image35.png)
 
-![](./media/image36.png)
+     ![](./media/image36.png)
 
 2.  In **FabricRTA** database, under the **Home** tab, navigate and
     click on **Get data** in the command bar, then select **Azure
