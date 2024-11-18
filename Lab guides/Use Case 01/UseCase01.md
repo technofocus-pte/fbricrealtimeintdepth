@@ -227,20 +227,20 @@ KQL Database.
 1.  In KQL queryset pane, replace all the code in the **cell** with the
     following code and click on **▷ Run** button to create a table
 
-**Copy**
-```
-.create table logsRaw(
-    Timestamp:datetime, 
-    Source:string, 
-    Node:string, 
-    Level:string, 
-    Component:string, 
-    ClientRequestId:string, 
-    Message:string, 
-    Properties:dynamic
-)
-```
->
+      **Copy**
+      ```
+      .create table logsRaw(
+          Timestamp:datetime, 
+          Source:string, 
+          Node:string, 
+          Level:string, 
+          Component:string, 
+          ClientRequestId:string, 
+          Message:string, 
+          Properties:dynamic
+      )
+      ```
+
      ![](./media/image32.png)
 
 2.  Click on refresh to see the new table on the left.
