@@ -57,7 +57,7 @@ KQL queries.
 
       ![](./media/image5.png)
 
-## Task 1: Sign in to Power BI account and sign up for the free [Microsoft Fabric trial](https://learn.microsoft.com/en-us/fabric/get-started/fabric-trial)
+## Task 1: Sign in to Power BI account and sign up for the free 
 
 1.  Open your browser, navigate to the address bar, and type or paste
     the following URL: +++https://app.fabric.microsoft.com/+++ then
@@ -133,7 +133,7 @@ trial enabled.
 
       |   |   |
       |---|----|
-      |Name|	+++Fabric Real-Time AnalyticsXX+++(XX can be a unique number) |
+      |Name|+++Fabric Real-Time AnalyticsXX+++(XX can be a unique number) |
       |Advanced|	Under License mode, select Trial|
       |Default| storage format	Small dataset storage format|
 
