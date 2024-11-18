@@ -64,7 +64,7 @@ reports.
 
     |  |  |
     |---|---|
-    |Name	|+++ RealTimeWorkspaceXX +++(XX can be a unique number)| 
+    |Name	|+++ RealTimeWorkspaceXX+++(XX can be a unique number)| 
     |Advanced|	Under License mode, select Trial|
     |Default |storage format	Small dataset storage format|
 
