@@ -1,3 +1,5 @@
+# **Use case 01- Performing Real-Time Intelligence using Microsoft Fabric**
+
 **Introduction**
 
 Microsoft Fabric Real-Time Analytics is a fully managed,
@@ -36,29 +38,24 @@ KQL queries.
 1.  In your VM, navigate and click in the **Search bar**, type
     **Settings** and then click on **Settings** under **Best match**.
 
-> ![A screenshot of a computer Description automatically
-> generated](./media/image1.png)
+      ![](./media/image1.png)
 
 2.  On Settings window, navigate and click on **Time & language**.
 
-![A screenshot of a computer Description automatically
-generated](./media/image2.png)
+      ![](./media/image2.png)
 
 3.  On **Time & language** page, navigate and click on **Date & time**.
 
-![A screenshot of a computer Description automatically
-generated](./media/image3.png)
+     ![](./media/image3.png)
 
 4.  Scroll down and navigate to **Additional settings** section, then
     click on **Syn now** button. It will take 3-5 minutes to syn.
 
-![A screenshot of a computer Description automatically
-generated](./media/image4.png)
+     ![](./media/image4.png)
 
 5.  Close the **Settings** window.
 
-![A screenshot of a computer Description automatically
-generated](./media/image5.png)
+      ![](./media/image5.png)
 
 ## Task 1: Sign in to Power BI account and sign up for the free [Microsoft Fabric trial](https://learn.microsoft.com/en-us/fabric/get-started/fabric-trial)
 
@@ -66,30 +63,25 @@ generated](./media/image5.png)
     the following URL: +++https://app.fabric.microsoft.com/+++ then
     press the **Enter** button.
 
-> ![A search engine window with a red box Description automatically
-> generated with medium confidence](./media/image6.png)
+      ![](./media/image6.png)
 
 2.  In the **Microsoft Fabric** window, enter your given credentials,
     and click on the **Submit** button.
 
-> ![A close up of a white and green object Description automatically
-> generated](./media/image7.png)
+     ![](./media/image7.png)
 
 3.  Then, In the **Microsoft** window enter the password and click on
-    the **Sign in** button**.**
+    the **Sign in** button . 
 
-> ![A login screen with a red box and blue text Description
-> automatically generated](./media/image8.png)
+      ![](./media/image8.png)
 
 4.  In **Stay signed in?** window, click on the **Yes** button.
 
-> ![A screenshot of a computer error Description automatically
-> generated](./media/image9.png)
+     ![](./media/image9.png)
 
 5.  You’ll be directed to Power BI Home page.
 
-![A screenshot of a computer Description automatically
-generated](./media/image10.png)
+      ![](./media/image10.png)
 
 ## Task 2: Start the Microsoft Fabric trial
 
@@ -99,23 +91,23 @@ Follow these steps to start your Fabric trial.
     right side. In the Account manager blade, navigate and
     select **Start trial as shown in the below image.**
 
-![](./media/image11.png)
+      ![](./media/image11.png)
 
 2.  If prompted, agree to the terms and then select **Activate**.
 
-> ![](./media/image12.png)
+      ![](./media/image12.png)
 
 3.  Once your trial capacity is ready, you receive a confirmation
     message. Select **Fabric Home Page** to begin working in Fabric.
 
-> ![](./media/image13.png)
+     ![](./media/image13.png)
 
 4.  Open your Account manager again. Notice that you now have a heading
     for **Trial status**. Your Account manager keeps track of the number
     of days remaining in your trial. You will also see the countdown in
     your Fabric menu bar when you work in a product experience.
 
-> ![](./media/image14.png)
+     ![](./media/image14.png)
 
 ## Task 3: Create a workspace 
 
@@ -125,35 +117,36 @@ trial enabled.
 1.  In the **Microsoft Fabric** home page, select the **Power BI**
     template.
 
-> ![](./media/image15.png)
+     ![](./media/image15.png)
 
 2.  In the **Power BI Home** page menu bar on the left,
     select **Workspaces** (the icon looks similar to 🗇).
 
-> ![A screenshot of a computer Description automatically
-> generated](./media/image16.png)
+     ![](./media/image16.png)
 
-3.  In the Workspaces pane, select **+** **New workspace**.
+3.  In the Workspaces pane, select **+New workspace**.
 
-> ![A screenshot of a computer Description automatically
-> generated](./media/image17.png)
+     ![](./media/image17.png)
 
 4.  In the **Create a workspace tab**, enter the following details and
     click on the **Apply** button.
 
-[TABLE]
+      |   |   |
+      |---|----|
+      |Name|	+++Fabric Real-Time AnalyticsXX+++(XX can be a unique number) |
+      |Advanced|	Under License mode, select Trial|
+      |Default| storage format	Small dataset storage format|
 
-> ![](./media/image18.png)
+     ![](./media/image18.png)
 
-![A screenshot of a computer Description automatically
-generated](./media/image19.png)
+     ![](./media/image19.png)
 
-> ![](./media/image20.png)
+     ![](./media/image20.png)
 
 5.  Wait for the deployment to complete. It takes 2-3 minutes to
     complete. When your new workspace opens, it should be empty.
 
-> ![](./media/image21.png)
+    ![](./media/image21.png)
 
 ## **Task 4:** [**Create a KQL Database**](https://github.com/microsoft/FabricRTA-in-a-Day/blob/main/Lab1.md#challenge-1-create-a-kql-database)
 
@@ -165,20 +158,17 @@ file.
 1.  At the bottom left of the Power BI portal, select the **Power
     BI** icon and switch to the **Real-Time Intelligence** experience.
 
-> ![](./media/image22.png)
->
-> ![](./media/image23.png)
+     ![](./media/image22.png)
+ 
+     ![](./media/image23.png)
 
 2.  In the **New Eventhouse** dialog box, enter the **Eventhouse name**
-    as +++**FabricRTA+++** (or new database with a name of your choice)
+    as +++FabricRTA+++ (or new database with a name of your choice)
     and click on **Create** button.
 
-**Note**: Remove any extra space before and after **FabricRTA.**
-
-![](./media/image24.png)
-
-![A screenshot of a computer Description automatically
-generated](./media/image25.png)
+   **Note**: Remove any extra space before and after **FabricRTA.**
+    ![](./media/image24.png)
+    ![](./media/image25.png)
 
 ## **Task 5: Create a KQL queryset**
 
