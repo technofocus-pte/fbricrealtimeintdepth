@@ -1,4 +1,4 @@
-# Use case 3: Ingesting data using Eventstream
+# Use case 03: Ingesting data using Eventstream
 
 **Introduction**
 
@@ -49,7 +49,7 @@ Most of this lab will be done within Jupyter notebooks, an industry
 standard way of doing exploratory data analysis, building models,
 visualizing datasets, and processing data.
 
-![Data Lakehouse with Azure Synapse Analytics](./media/image1.png)
+![](./media/image1.png)
 
 # Objectives
 
@@ -136,34 +136,28 @@ of resources.
 ## Task 0: Redeem Azure Pass
 
 1.  Open a new tab on your browser and browse to the **Microsoft Azure
-    Pass** website using the given
-    link <https://www.microsoftazurepass.com/>.
+    Pass** website using the given link+++https://www.microsoftazurepass.com/+++.
 
 2.  Click on **Start**.
 
-![A person using a computer Description automatically
-generated](./media/image2.png)
+     ![](./media/image2.png)
 
 3.  Enter the **Office 365 tenant credentials** from the Lab
     VM(**Resources** tab) and **Sign In**.
 
-> ![A screenshot of a computer Description automatically
-> generated](./media/image3.png)
-
-![Graphical user interface, application Description automatically
-generated](./media/image4.png)
+      ![](./media/image3.png)
+      ![](./media/image4.png)
 
 4.  Verify email id and then click on **Confirm Microsoft Account**.
 
-![Text Description automatically generated](./media/image5.png)
+      ![](./media/image5.png)
 
 5.  Paste the **promo code** from the Resources tab in the **Enter Promo
     code** box and click **Claim Promo Code**.
 
-> ![](./media/image6.png)
+     ![](./media/image6.png)
 
-![Graphical user interface, text, application Description automatically
-generated](./media/image7.png)
+      ![](./media/image7.png)
 
 6.  It may take few seconds to process the redemption.
 
@@ -173,24 +167,19 @@ generated](./media/image7.png)
     subscription agreement, offer details, and privacy statement, and
     then click on **Sign up**.
 
-![Graphical user interface, text, application Description automatically
-generated](./media/image8.png)
+    ![](./media/image8.png)
 
 9.  You may **Submit** the feedback while the account setup is in
     progress.
 
-![Graphical user interface, text, application, Teams Description
-automatically generated](./media/image9.png)
-
-![Graphical user interface, text, application, email Description
-automatically generated](./media/image10.png)
+    ![](./media/image9.png)
+    ![](./media/image10.png)
 
 10. The account setup will take about 2-3 minutes to complete. It would
     automatically redirect you to the **Azure Portal** and now you are
     ready to use Azure services.
 
-![A screenshot of a computer Description automatically
-generated](./media/image11.png)
+     ![](./media/image11.png)
 
 ## **Task 1: Create a Fabric workspace**
 
@@ -200,33 +189,31 @@ dataflows, Data Factory pipelines, the notebooks, Power BI datasets, and
 reports.
 
 1.  Open your browser, navigate to the address bar, and type or paste
-    the following URL: https://app.fabric.microsoft.com/ then press the
+    the following URL: +++https://app.fabric.microsoft.com/+++ then press the
     **Enter** button. In the **Microsoft Fabric Home** page, navigate
     and click on **Power BI** tile.
 
-> ![A screenshot of a computer Description automatically
-> generated](./media/image12.png)
+    ![](./media/image12.png)
 
 2.  In the **Power BI Home** page left-sided navigation menu, navigate
     and click on **Workspaces** as shown in the below image.
 
-> ![](./media/image13.png)
+    ![](./media/image13.png)
 
 3.  In the Workspaces pane, click on **+** **New workspace button**
 
-> ![A screenshot of a computer Description automatically
-> generated](./media/image14.png)
+     ![](./media/image14.png)
 
 4.  In the **Create a workspace** pane that appears on the right side,
     enter the following details, and click on the **Apply** button.
 
 [TABLE]
 
-> ![](./media/image15.png)
->
-> ![](./media/image16.png)
->
-> ![](./media/image17.png)
+  ![](./media/image15.png)
+ 
+  ![](./media/image16.png)
+ 
+  ![](./media/image17.png)
 
 ## **Task 2: Deploy the app via Azure Container Instance**
 
