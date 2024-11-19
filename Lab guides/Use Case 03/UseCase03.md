@@ -206,14 +206,17 @@ reports.
 
 4.  In the **Create a workspace** pane that appears on the right side,
     enter the following details, and click on the **Apply** button.
+    |  |  |
+    |---|---|
+    |Name|	+++RealTimeWorkspaceXXX+++ (XXX can be a unique number, you can add more numbers)|
+    |Advanced|	Select Trail|
+    |Default storage forma|	Small dataset storage format|
 
-[TABLE]
-
-  ![](./media/image15.png)
- 
-  ![](./media/image16.png)
- 
-  ![](./media/image17.png)
+    ![](./media/image15.png)
+   
+    ![](./media/image16.png)
+   
+    ![](./media/image17.png)
 
 ## **Task 2: Deploy the app via Azure Container Instance**
 
@@ -226,146 +229,121 @@ To auto-deploy the resources, use these steps below.
 
 1.  Open a new address bar and enter the following URL. If prompted to
     Sign in, then use your tenant credentials.
-
-> [https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fmicrosoft%2Ffabricrealtimelab%2Fmain%2Fresources%2Fmodule00%2Ffabricworkshop_arm_managedid.json](https://portal.azure.com/%23create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fmicrosoft%2Ffabricrealtimelab%2Fmain%2Fresources%2Fmodule00%2Ffabricworkshop_arm_managedid.json)
++++https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fmicrosoft%2Ffabricrealtimelab%2Fmain%2Fresources%2Fmodule00%2Ffabricworkshop_arm_managedid.json+++
 
 2.  In the **Custom deployment** window, under the **Basics** tab, enter
     the following details and click on the **Review+create** button.
+    |  |  |
+    |---|---|
+    |Subscription|	Select the assigned subscription|
+    |Resource group|	Click on Create new> enter +++realtimeworkshop+++ and select Ok|
+    |Region	|Select West US 3|
 
-[TABLE]
 
-![A screenshot of a computer Description automatically
-generated](./media/image18.png)
+    ![](./media/image18.png)
+    
+    ![](./media/image19.png)
 
-![A screenshot of a computer Description automatically
-generated](./media/image19.png)
+4.  Once the validation has passed, click **Create**.
 
-3.  Once the validation has passed, click **Create**.
-
-![A screenshot of a computer Description automatically
-generated](./media/image20.png)
+     ![](./media/image20.png)
 
 5.  After the deployment is completed, click on the **Go to resource**
     button.
 
-![A screenshot of a computer Description automatically
-generated](./media/image21.png)
+      ![](./media/image21.png)
 
 4.  After the deployment has completed, open the resource group and
     verify the **Event Hub Namespace and Azure Container
     Instance (ACI)** is deployed
 
-![A screenshot of a computer Description automatically
-generated](./media/image22.png)
+    ![](./media/image22.png)
 
 5.  Open the **Event Hub** **namespace**, which will have a name similar
-    to** *ehns-123456-fabricworkshop***.
-
-> ![A screenshot of a computer Description automatically
-> generated](./media/image23.png)
+    to **ehns-123456-fabricworkshop**.
+      ![](./media/image23.png)
 
 6.  In **Event Hub** **namespace** page from the left menu select
     **Shared access policies** under the **Settings.**
 
-> ![A screenshot of a computer Description automatically
-> generated](./media/image24.png)
+      ![](./media/image24.png)
 
-7.   In the ***Shared access policies*** page, click
-    the ***stockeventhub_sas*** .On the SAS key tab copy the **primary
+7.   In the  **Shared access policies**  page, click
+    the  **stockeventhub_sas**  .On the SAS key tab copy the **primary
     key** and **Event Hub namespace** (such
-    as *ehns-123456-fabricworkshop*) to your notepad as this will be
+    as **ehns-123456-fabricworkshop**) to your notepad as this will be
     needed shortly. In short, you'll need the following:
 
-![A screenshot of a computer Description automatically
-generated](./media/image25.png)
-
-![A screenshot of a computer Description automatically
-generated](./media/image26.png)
+      ![](./media/image25.png)
+      ![](./media/image26.png)
 
 ## **Task 3: Get data with Eventstream**
 
 1.  Go back to the Microsoft Fabric, navigate and click on **Power BI**
     at the bottom of the page, then select **Real-Time Intelligence**.
 
-![](./media/image27.png)
+      ![](./media/image27.png)
 
 2.  On the **Synapse Real-Time Analytics** home page,
     select **Eventstream**. Name the Eventstream
-    +++ **StockEventStream***+++,* click on the **Create** button.
+    +++StockEventStream+++, click on the **Create** button.
 
-![](./media/image28.png)
-
-![](./media/image29.png)
+      ![](./media/image28.png)
+      
+      ![](./media/image29.png)
 
 3.  On the Eventstream, select **Use external source**
 
-![](./media/image30.png)
+      ![](./media/image30.png)
 
 4.  On the Add source, select **Azure *Event* Hubs** and click on
     **Connect** button.
 
-> ![](./media/image31.png)
+      ![](./media/image31.png)
 
 5.  On the **Azure Event Hubs** configuration page, enter the below
     details and click on **Add** button.
 
-&nbsp;
+      i.	Cloud connection: Click on the **Create new** and enter the below details then click on Create button. 
+        a.	In **Event Hub namespace**-Enter **Event Hub name** (the values that you have saved in your notepad in the **Task 2**)
+        b.	Event Hub : +++StockEventHub+++
+        c.	Shared Access Key Name:**+++stockeventhub_sas+++**
+        d.	Shared Access Key- Enter **Primary Key** (the value that you have saved in your notepad in the Task 2)
+      ii.	Consumer group: **$Default** 
+      iii.	Data format: **JSON**
 
-1.  Cloud connection: Click on the **Create new** and enter the below
-    details then click on **Create** button.
-
-&nbsp;
-
-1.  In Event Hub namespace-Enter Event Hub name (the values that you
-    have saved in your notepad in the **Task 2)**
-
-2.  Event Hub : **+++StockEventHub+++**
-
-3.  Shared Access Key Name:+++**stockeventhub_sas+++**
-
-4.  Shared Access Key- Enter Primary Key (the value that you have saved
-    in your notepad in the **Task 2)**
-
-&nbsp;
-
-2.  Consumer group: ***$Default*** 
-
-3.  Data format: **JSON**
-
-![](./media/image32.png)
-
-![](./media/image33.png)
-
-![](./media/image34.png)
-
-![](./media/image35.png)
-
-![](./media/image36.png)
+      ![](./media/image32.png)
+      
+      ![](./media/image33.png)
+      
+      ![](./media/image34.png)
+      
+      ![](./media/image35.png)
+      
+      ![](./media/image36.png)
 
 8.  You will see a notification stating **Successfully added The source
     “StockEventHub,Azure Event Hubs”** was added.
 
-> ![A screenshot of a computer Description automatically
-> generated](./media/image37.png)
+     ![](./media/image37.png)
 
 9.  With the Event Hub configured, click on ***Test result***. You
     should see events including the stock symbol, price, and timestamp.
 
-> ![](./media/image38.png)
+      ![](./media/image38.png)
 
 10. On the Eventstream, select **Publish.**
 
-> ![](./media/image39.png)
+      ![](./media/image39.png)
 
-![A screenshot of a computer Description automatically
-generated](./media/image40.png)
+     ![](./media/image40.png)
 
 11. On the Eventstream, select **AzureEventHub** and click on
     **Refresh** button.
 
-![](./media/image41.png)
-
-![](./media/image42.png)
+    ![](./media/image41.png)
+    
+    ![](./media/image42.png)
 
 # Exercise 2: KQL Database Configuration and Ingestion
 
@@ -387,34 +365,32 @@ the Eventstream into the KQL DB.
 1.  In the left-sided navigation menu, navigate and click on **RealTime
     workspaceXXX**, as shown in the below image.
 
-> ![](./media/image43.png)
+      ![](./media/image43.png)
 
 2.  In the **Real-Time Intelligence** page, navigate to +**New item**
     section and select **Eventhouse** to create Eventhouse.
 
-> ![](./media/image44.png)
+      ![](./media/image44.png)
 
-3.  In the **New Eventhouse** dialog box, enter +++**StockDB+++**in
+3.  In the **New Eventhouse** dialog box, enter +++StockDB+++in
     the **Name** field, click on the **Create** button and open the new
     Eventhouse.
 
-> ![](./media/image45.png)
->
-> ![A screenshot of a computer Description automatically
-> generated](./media/image46.png)
+      ![](./media/image45.png)
+      ![](./media/image46.png)
 
 4.  From the **System overview** page, select the **StockDB** database
     you created in the previous task.
 
-> ![](./media/image47.png)
+      ![](./media/image47.png)
 
 5.  Select **StockDB**, click on the **OneLake availability** as shown
     in the below image to change the setting and, then click on the
     **Turn on** Toggle the button enable OneLake access.
 
-> ![](./media/image48.png)
->
-> ![](./media/image49.png)
+      ![](./media/image48.png)
+     
+      ![](./media/image49.png)
 
 ## Task 2: Send data from the Eventstream to the KQL database
 
@@ -422,79 +398,68 @@ the Eventstream into the KQL DB.
     **StockEventStream** created in the previous task, as shown in the
     below image.
 
-> ![A screenshot of a computer Description automatically
-> generated](./media/image50.png)
+    ![](./media/image50.png)
 
 2.  On the Eventstream, click on the **Edit** button.
 
-> ![](./media/image51.png)
+      ![](./media/image51.png)
 
 3.  Our data should be arriving into our Eventstream, and we'll now
     configure the data to be ingested into the KQL database we created
     in the above task. On the Eventstream, click on **Transform events
     or add destination***,* then navigate and click on **Eventhouse**.
 
-> ![](./media/image52.png)
+      ![](./media/image52.png)
 
 4.  On the KQL settings, select **Direct ingestion**. While we have the
     opportunity to process event data at this stage, for our purposes,
     we will ingest the data directly into the KQL database. Set the
-    destination name to +++***KQL+++***, then select your **workspace,
+    destination name to +++KQL+++, then select your **workspace,
     Eventhouse** and KQL database created in the above task, then click
     on **Save** button.
 
-> ![](./media/image53.png)
->
-> ![A screenshot of a computer Description automatically
-> generated](./media/image54.png)
+      ![](./media/image53.png)
+     ![](./media/image54.png)
 
 5.  On the Eventstream, select **Publish.**
 
-> ![](./media/image55.png)
+      ![](./media/image55.png)
 
 6.  On the Eventstream pane, select **configure** in the **KQL**
     destination.
 
-> ![](./media/image56.png)
+      ![](./media/image56.png)
 
 7.  On the first settings page, select **+New table** and enter the
-    name +++***StockPrice+++*** for the table to hold the data in
+    name +++StockPrice+++ for the table to hold the data in
     StockDB. Click on the **Next** button.
 
-![A screenshot of a computer Description automatically
-generated](./media/image57.png)
-
-![A screenshot of a computer Description automatically
-generated](./media/image58.png)
+    ![](./media/image57.png)
+    ![](./media/image58.png)
 
 8.  The next page allows us to inspect and configure the schema. Be sure
     to change the format from TXT to **JSON**, if necessary. The default
     columns of *symbol*, *price*, and *timestamp* should be formatted as
     shown in the below image; then click on the **Finish** button.
 
-![A screenshot of a computer Description automatically
-generated](./media/image59.png)
+    ![](./media/image59.png)
 
-2.  On the **Summary** page, if there are no errors, you’ll see a
+9.  On the **Summary** page, if there are no errors, you’ll see a
     **green checkmark** as shown in the below image, then click on the
     **Close** button to complete the configuration.
 
-![A screenshot of a computer Description automatically
-generated](./media/image60.png)
+      ![](./media/image60.png)
+      ![](./media/image61.png)
 
-> ![A screenshot of a computer Description automatically
-> generated](./media/image61.png)
+10.  Click on the **Refresh** button
 
-9.  Click on the **Refresh** button
+      ![](./media/image62.png)
 
-> ![](./media/image62.png)
+11. Select the **KQL** destination and click on the **Refresh** button.
 
-10. Select the **KQL** destination and click on the **Refresh** button.
+     ![](./media/image63.png)
 
-> ![](./media/image63.png)
-
-![A screenshot of a computer Description automatically
-generated](./media/image64.png)
+     ![](./media/image64.png)
 
 # Exercise 3: Exploring the Data
 
@@ -505,93 +470,80 @@ complexity to support different business uses.
 
 1.  Click on **RealTimeWorkspace** on the left-sided navigation pane.
 
-![A screenshot of a computer Description automatically
-generated](./media/image65.png)
+     ![](./media/image65.png)
 
-2.  From your workspace, click on ***+** **New item \> KQL Queryset** as
-    shown in the below image. In the **New KQL Queryset** dialog box,*
-    enter +++***StockQueryset**+++*, then click on the **Create**
+2.  From your workspace, click on **+** **New item \> KQL Queryset** as
+    shown in the below image. In the **New KQL Queryset** dialog box,
+    enter +++StockQueryset+++, then click on the **Create**
     button.
 
-> ![](./media/image66.png)
->
-> ![A screenshot of a computer Description automatically
-> generated](./media/image67.png)
+      ![](./media/image66.png)
+   
+      ![](./media/image67.png)
 
 3.  Select the ***StockDB*** and click on the **Connect** button. ![A
-    screenshot of a computer Description automatically
-    generated](./media/image68.png)
+      ![](./media/image68.png)
 
 4.  The KQL query window will open, allowing you to query the data.
 
-> ![A screenshot of a computer Description automatically
-> generated](./media/image69.png)
+     ![](./media/image69.png)
 
 5.  The default query code will look like the code shown in the below
     image; it contains 3 distinct KQL queries. You may
     see *YOUR_TABLE_HERE* instead of the ***StockPrice*** table. Select
     and delete them.
 
-> ![A screenshot of a computer Description automatically
-> generated](./media/image69.png)
+    ![](./media/image69.png)
 
 6.  In the query editor, copy and paste the following code. Select the
     entire text and click on *the **Run*** button to execute the query.
     After the query is executed, you will see the results.
 
-> **Copy**
->
-> // Use "take" to view a sample number of records in the table and
-> check the data.
->
-> StockPrice
->
-> | take 100;
->
-> // See how many records are in the table.
->
-> StockPrice
->
-> | count;
->
-> // This query returns the number of ingestions per hour in the given
-> table.
->
-> StockPrice
->
-> | summarize IngestionCount = count() by bin(ingestion_time(), 1h);
+      **Copy**
+      ```
+      // Use "take" to view a sample number of records in the table and check the data.
+      StockPrice
+      | take 100;
+      
+      // See how many records are in the table.
+      StockPrice
+      | count;
+      
+      // This query returns the number of ingestions per hour in the given table.
+      StockPrice
+      | summarize IngestionCount = count() by bin(ingestion_time(), 1h);
+      ```
 
-***Note:** To run a single query when there are multiple queries in the
-editor, you can highlight the query text or place your cursor so the
-cursor is in the context of the query (for example, at the beginning or
-end of the query) -- the current query should highlight in blue. To run
-the query, click Run in the toolbar. If you'd like to run all 3 to
-display the results in 3 different tables, each query will need to have
-a semicolon (;) after the statement, as shown below.*
+       **Note:** To run a single query when there are multiple queries in the
+      editor, you can highlight the query text or place your cursor so the
+      cursor is in the context of the query (for example, at the beginning or
+      end of the query) -- the current query should highlight in blue. To run
+      the query, click Run in the toolbar. If you'd like to run all 3 to
+      display the results in 3 different tables, each query will need to have
+      a semicolon (;) after the statement, as shown below.*
 
-![](./media/image70.png)
+      ![](./media/image70.png)
 
 7.  The results will be displayed in 3 different tables as shown in the
     below image. Click on each table tab to review the data.
 
-![A screenshot of a computer Description automatically
-generated](./media/image71.png)
-
-> ![](./media/image72.png)
->
-> ![](./media/image73.png)
+      ![](./media/image71.png)
+    
+      ![](./media/image72.png)
+     
+      ![](./media/image73.png)
 
 ## Task 2: New Query of StockByTime
 
 1.  Create a new tab within the queryset by clicking on the ***+* icon**
     as shown in the below image. Rename this tab as
-    +++***StockByTime***+++
+    **+++StockByTime+++**
 
-> ![](./media/image74.png)
->
-> ![](./media/image75.png)
->
-> ![](./media/image76.png)
+      ![](./media/image74.png)
+     
+      ![](./media/image75.png)
+     
+      ![](./media/image76.png)
 
 2.  We can begin to add our own calculations, such as calculating the
     change over time. For example,
@@ -606,38 +558,25 @@ generated](./media/image71.png)
     the **Run** button to execute the query. After the query is
     executed, you will see the results.
 
-Copy
+      Copy
+      ```
+      StockPrice
+      | where timestamp > ago(75m)
+      | project symbol, price, timestamp
+      | partition by symbol
+      (
+          order by timestamp asc
+          | extend prev_price = prev(price, 1)
+          | extend prev_price_10min = prev(price, 600)
+      )
+      | where timestamp > ago(60m)
+      | order by timestamp asc, symbol asc
+      | extend pricedifference_10min = round(price - prev_price_10min, 2)
+      | extend percentdifference_10min = round(round(price - prev_price_10min, 2) / prev_price_10min, 4)
+      | order by timestamp asc, symbol asc
+      ```
 
-StockPrice
-
-| where timestamp \> ago(75m)
-
-| project symbol, price, timestamp
-
-| partition by symbol
-
-(
-
-order by timestamp asc
-
-| extend prev_price = prev(price, 1)
-
-| extend prev_price_10min = prev(price, 600)
-
-)
-
-| where timestamp \> ago(60m)
-
-| order by timestamp asc, symbol asc
-
-| extend pricedifference_10min = round(price - prev_price_10min, 2)
-
-| extend percentdifference_10min = round(round(price - prev_price_10min,
-2) / prev_price_10min, 4)
-
-| order by timestamp asc, symbol asc
-
-> ![](./media/image77.png)
+      ![](./media/image77.png)
 
 4.  In this KQL query, the results are first limited to the most recent
     75 minutes. While we ultimately limit the rows to the last 60
@@ -653,13 +592,12 @@ order by timestamp asc
 ## Task 3: StockAggregate
 
 1.  Create another new tab within the queryset by clicking on
-    the ***+* icon** as shown in the below image. Rename this tab as
-    **+++*StockAggregate*+++**
+    the  **+** **icon** as shown in the below image. Rename this tab as
+    **+++StockAggregate+++**
 
-> ![](./media/image78.png)
->
-> ![A screenshot of a computer Description automatically
-> generated](./media/image79.png)
+      ![](./media/image78.png)
+     
+      ![](./media/image79.png)
 
 2.  This query will find the biggest price gains over a 10-minute period
     for each stock, and the time it occurred. This query uses
@@ -673,46 +611,33 @@ order by timestamp asc
     the **Run** button to execute the query. After the query is
     executed, you will see the results.
 
-> **Copy**
->
-> StockPrice
->
-> | project symbol, price, timestamp
->
-> | partition by symbol
->
-> (
->
-> order by timestamp asc
->
-> | extend prev_price = prev(price, 1)
->
-> | extend prev_price_10min = prev(price, 600)
->
-> )
->
-> | order by timestamp asc, symbol asc
->
-> | extend pricedifference_10min = round(price - prev_price_10min, 2)
->
-> | extend percentdifference_10min = round(round(price -
-> prev_price_10min, 2) / prev_price_10min, 4)
->
-> | order by timestamp asc, symbol asc
->
-> | summarize arg_max(pricedifference_10min, \*) by symbol
->
-> ![](./media/image80.png)
+      **Copy**
+      ```
+      StockPrice
+      | project symbol, price, timestamp
+      | partition by symbol
+      (
+          order by timestamp asc
+          | extend prev_price = prev(price, 1)
+          | extend prev_price_10min = prev(price, 600)
+      )
+      | order by timestamp asc, symbol asc
+      | extend pricedifference_10min = round(price - prev_price_10min, 2)
+      | extend percentdifference_10min = round(round(price - prev_price_10min, 2) / prev_price_10min, 4)
+      | order by timestamp asc, symbol asc
+      | summarize arg_max(pricedifference_10min, *) by symbol
+      ```
+      ![](./media/image80.png)
 
 ## Task 4: StockBinned
 
 1.  Create another new tab within the queryset by clicking on
-    the ***+* icon** as shown in the below image. Rename this tab as
-    +++***StockBinned+++***
+    the ***+ icon** as shown in the below image. Rename this tab as
+    **+++ StockBinned+++**
 
-![](./media/image81.png)
-
-![](./media/image82.png)
+      ![](./media/image81.png)
+      
+      ![](./media/image82.png)
 
 2.  KQL also has a [bin()
     function](https://learn.microsoft.com/en-us/azure/data-explorer/kusto/query/bin-function),
@@ -724,17 +649,13 @@ order by timestamp asc
 3.  In the query editor, copy and paste the following code. Click on
     the **Run** button to execute the query. After the query is
     executed, you will see the results.
-
-> **Copy**
->
-> StockPrice
->
-> | summarize avg(price), min(price), max(price) by bin(timestamp, 1h),
-> symbol
->
-> | sort by timestamp asc, symbol asc
->
-> ![](./media/image83.png)
+     **Copy**
+    ```
+    StockPrice
+    | summarize avg(price), min(price), max(price) by bin(timestamp, 1h), symbol
+    | sort by timestamp asc, symbol asc
+    ```
+      ![](./media/image83.png)
 
 4.  This is particularly useful when creating reports that aggregate
     real-time data over a longer time period.
@@ -743,12 +664,12 @@ order by timestamp asc
 
 1.  Create a final new tab within the queryset by clicking on
     the ***+* icon** as shown in the below image. Rename this tab as
-    +++***Visualizations+++*.** We'll use this tab to explore
+    **+++Visualizations+++**. We'll use this tab to explore
     visualizing data.
 
-> ![](./media/image84.png)
->
-> ![](./media/image85.png)
+    ![](./media/image84.png)
+   
+    ![](./media/image85.png)
 
 2.  KQL supports a large number
     of [visualizations](https://learn.microsoft.com/en-us/azure/data-explorer/kusto/query/render-operator?pivots=fabric) by
@@ -760,47 +681,29 @@ order by timestamp asc
     the **Run** button to execute the query. After the query is
     executed, you will see the results.
 
-> Copy
-
-StockPrice
-
-| where timestamp \> ago(75m)
-
-| project symbol, price, timestamp
-
-| partition by symbol
-
-(
-
-order by timestamp asc
-
-| extend prev_price = prev(price, 1)
-
-| extend prev_price_10min = prev(price, 600)
-
-)
-
-| where timestamp \> ago(60m)
-
-| order by timestamp asc, symbol asc
-
-| extend pricedifference_10min = round(price - prev_price_10min, 2)
-
-| extend percentdifference_10min = round(round(price - prev_price_10min,
-2) / prev_price_10min, 4)
-
-| order by timestamp asc, symbol asc
-
-| render linechart with (series=symbol, xcolumn=timestamp,
-ycolumns=price)
-
-![A screenshot of a computer Description automatically
-generated](./media/image86.png)
+       Copy
+      ```
+      StockPrice
+      | where timestamp > ago(75m)
+      | project symbol, price, timestamp
+      | partition by symbol
+      (
+          order by timestamp asc
+          | extend prev_price = prev(price, 1)
+          | extend prev_price_10min = prev(price, 600)
+      )
+      | where timestamp > ago(60m)
+      | order by timestamp asc, symbol asc
+      | extend pricedifference_10min = round(price - prev_price_10min, 2)
+      | extend percentdifference_10min = round(round(price - prev_price_10min, 2) / prev_price_10min, 4)
+      | order by timestamp asc, symbol asc
+      | render linechart with (series=symbol, xcolumn=timestamp, ycolumns=price)
+      ```
+     ![](./media/image86.png)
 
 4.  This will render a line chart as shown in the below image.
 
-> ![A screenshot of a computer Description automatically
-> generated](./media/image87.png)
+       ![](./media/image87.png)
 
 # Exercise 4: Optimizing Power BI Reporting Efficiency
 
@@ -817,105 +720,98 @@ updating.
     **Fabric portal**. Navigate to Governance and insights section, then
     click on **Admin portal**.
 
-> ![](./media/image88.png)
+      ![](./media/image88.png)
 
 2.  Select ***Capacity settings*** on the left, and select the **Trial**
     that matches your current environment. Select **Trial** name
 
-> ![](./media/image89.png)
+      ![](./media/image89.png)
 
-3.  On the following screen, scroll down to the ***Power BI
-    workloads*** section, and under ***Semantic Models*** (recently
-    renamed from *Datasets*), configure ***Automatic page
-    refresh*** to ***On***, with a **minimum refresh interval** of **1**
-    second. Click ***Apply*.**
+3.  On the following screen, scroll down to the **Power BI
+    workloads** section, and under **Semantic Models**  (recently
+    renamed from **Datasets**), configure  **Automatic page
+    refresh** to **On**, with a **minimum refresh interval** of **1**
+    second. Click **Apply**
 
-Note: depending on your administrative permissions, this setting may not
-be available. Note that this change may take several minutes to
-complete.
+    Note: depending on your administrative permissions, this setting may not
+    be available. Note that this change may take several minutes to
+    complete.
 
-![](./media/image90.png)
-
-![](./media/image91.png)
+    ![](./media/image90.png)
+    
+    ![](./media/image91.png)
 
 4.  In caseUpdate your capacity workloads dialog box appears, then click
     on the **Yes** button.
 
-![A white background with black text Description automatically
-generated](./media/image92.png)
+     ![](./media/image92.png)
 
 ## Task 2: Creating a basic Power BI report
 
 1.  In the **Microsoft Fabric** page menu bar on the left side, select
     **StockQueryset**.
 
-![A screenshot of a computer Description automatically
-generated](./media/image93.png)
+    ![](./media/image93.png)
 
-2.  From the ***StockQueryset*** queryset used in the previous module,
-    select the ***StockByTime*** query tab.
+2.  From the  **StockQueryset**  queryset used in the previous module,
+    select the  **StockByTime**  query tab.
 
-![](./media/image94.png)
+      ![](./media/image94.png)
 
-3.  Select the query and run to view the results. Click** **on *the
+3.  Select the query and run to view the results. Click on the
     **Build Power BI report*** button in the command bar to bring this
     query into Power BI.
 
-![](./media/image95.png)
+     ![](./media/image95.png)
 
-![A screenshot of a computer Description automatically
-generated](./media/image96.png)
+     ![](./media/image96.png)
 
 4.  On the report preview page, we can configure our initial chart,
     select a **line chart** to the design surface, and configure the
     report as follows. See the image below as a reference.
 
-- Legend: **symbol**
-
-- X-axis: **timestamp**
-
-- Y-axis**: price**
-
-![](./media/image97.png)
+      - Legend: **symbol**
+      
+      - X-axis: **timestamp**
+      
+      - Y-axis: **price**
+  
+      ![](./media/image97.png)
 
 5.  In the Power BI (preview) page, from the ribbon, click on
     **File** and select **Save**.
 
-> ![A screenshot of a graph Description automatically
-> generated](./media/image98.png)
+      ![](./media/image98.png)
 
 6.  On **Just a few details first** dialog box, in **Name your file in
-    Power BI** field, enter +++***RealTimeStocks**+++*. In **Save it to
+    Power BI** field, enter +++RealTimeStocks+++. In **Save it to
     a workspace** field, click on the dropdown and select
-    ***RealTimeWorkspace***. Then, click on the **Continue** button**.**
+    ***RealTimeWorkspace***. Then, click on the **Continue** button.
 
-![A screenshot of a computer Description automatically
-generated](./media/image99.png)
+      ![](./media/image99.png)
 
 7.  In the Power BI (preview) page, click on **Open the file in Power BI
     to view, edit and get a shareable link.**
 
-![](./media/image100.png)
+      ![](./media/image100.png)
 
 8.  On the **RealTimeStock** page, click on the **Edit** button in the
     command bar to open the report editor.
 
-> ![A graph of different colored lines Description automatically
-> generated](./media/image101.png)
+     ![](./media/image101.png)
 
 9.  Select the line chart on the report. Configure a **Filter**
     for ***timestamp*** to display data for the last 5 minutes using
     these settings:
 
-- Filter type: Relative time
+      - Filter type: Relative time
+      
+      - Show items when the value: is in the last 5 minutes
 
-- Show items when the value: is in the last 5 minutes
+      Click on ***Apply filter*** to enable the filter. You will see a
+      similar type of output as shown in the below image.
 
-> Click on ***Apply filter*** to enable the filter. You will see a
-> similar type of output as shown in the below image.
-
-![A screenshot of a computer Description automatically
-generated](./media/image102.png)
+       ![](./media/image102.png)
 
 ## Task 3: Creating a second visual for percent change
 
