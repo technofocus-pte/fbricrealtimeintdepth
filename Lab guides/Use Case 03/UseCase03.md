@@ -824,37 +824,36 @@ updating.
     and the value of the price from 10 minutes ago. Use these values for
     the chart:
 
-- Legend: **symbol**
+      - Legend: **symbol**
+      
+      - X-axis: **timestamp**
+      
+      - Y-axis: **average of percentdifference_10min**
 
-- X-axis: **timestamp**
+      ![](./media/image103.png)
 
-- Y-axis: **average of percentdifference_10min**
-
-![](./media/image103.png)
-
-![A screenshot of a computer Description automatically
-generated](./media/image104.png)
+      ![](./media/image104.png)
 
 3.  Under the **Visualization,** select the **Analytics** represented by
     a magnifier-like icon as shown in the below image, then click on
     **Y-Axis Constant Line(1).** In the **Apply settings to**
-    section**,** click on **+Add line,** then enter **Value 0.**
+    section , click on **+Add line,** then enter **Value 0.**
 
-![](./media/image105.png)
+      ![](./media/image105.png)
 
 4.  Select the line chart on the report. Configure a **Filter**
-    for ***timestamp*** to display data for the last 5 minutes using
+    for **timestamp** to display data for the last 5 minutes using
     these settings:
 
-- Filter type: Relative time
-
-- Show items when the value: is in the last 5 minutes
-
-![](./media/image106.png)
+    - Filter type: Relative time
+    
+    - Show items when the value: is in the last **5** minutes
+    
+    ![](./media/image106.png)
 
 ## Task 4: Configuring the report to auto-refresh
 
-1.  Deselect the chart. On the ***Visualizations* settings**,
+1.  Deselect the chart. On the  **Visualizations** settings ,
     enable ***Page refresh*** to automatically refresh every second or
     two, based on your preference. Of course, realistically we need to
     balance the performance implications of refresh frequency, user
@@ -864,12 +863,12 @@ generated](./media/image104.png)
     **Page refresh**. Turn on the toggle. Set the Auto page refresh
     value as **2 Seconds** as shown in the below image.
 
-![](./media/image107.png)
+      ![](./media/image107.png)
 
 3.  In the Power BI (preview) page, from the ribbon, click on
     **File** and select **Save**.
 
-![](./media/image108.png)
+    ![](./media/image108.png)
 
 # Exercise 5: Setting up the Lakehouse
 
@@ -885,29 +884,27 @@ across all modules.*
 1.  Within your Fabric workspace, switch to the **Data engineering**
     persona (bottom left) as shown in the below image.
 
-> ![](./media/image109.png)
+      ![](./media/image109.png)
 
 2.  In Synapse Data Engineering Home page, navigate and click on
-    ***Lakehouse* **tile.
+    **Lakehouse**tile.
 
-> ![](./media/image110.png)
+     ![](./media/image110.png)
 
 3.  In the **New lakehouse** dialog box, enter
-    +++***StocksLakehouse***+++ in the **Name** field, then click on the
+    +++StocksLakehouse+++ in the **Name** field, then click on the
     **Create** button. A **StocksLakehouse** page will appear.
 
-> ![](./media/image111.png)
->
-> ![](./media/image112.png)
+      ![](./media/image111.png)
+      ![](./media/image112.png)
 
 4.  You will see a notification stating - **Successfully created SQL
     endpoint**.
 
-> **Note**: In case, you did not see the Notifications, then wait for
-> few minutes.
+    **Note**: In case, you did not see the Notifications, then wait for
+     few minutes.
 
-![A screenshot of a computer Description automatically
-generated](./media/image113.png)
+     ![](./media/image113.png)
 
 ## **Task 2. Add Lakehouse to the Eventstream**
 
@@ -921,8 +918,7 @@ resemble the following:
 1.  Now, click on **RealTimeWorkspace** on the left-sided navigation
     pane and select **StockEventStream** as shown in the below image.
 
-![A screenshot of a computer Description automatically
-generated](./media/image114.png)
+       ![](./media/image114.png)
 
 2.  In addition to adding Lakehouse to the Eventstream, we'll do some
     cleanup of the data using some of the functions available in the
@@ -930,110 +926,101 @@ generated](./media/image114.png)
 
 3.  On the **StockEventStream** page, select **Edit**
 
-![](./media/image115.png)
+    ![](./media/image115.png)
 
 4.  On the **StockEventStream** page, click on the **Add destination**
     on the output of the Eventstream to add a new destination.
-    Select ***Lakehouse* **from the context menu.
+    Select **Lakehouse**from the context menu.
 
-![](./media/image116.png)
+      ![](./media/image116.png)
 
 5.  In the Lakehouse pane that appears on the right side, enter the
     following details and click on **Save.**
 
-[TABLE]
+      |  |   |
+      |---|---|
+      |Destination name|	+++Lakehouse+++|
+      |Workspace	|RealTimeWorkspace|
+      |Lakehouse|	StockLakehouse|
+      |Delta table|	Click on Create new> enter +++raw_stock_data+++|
+      |Input data format|	Json|
 
-> ![A screenshot of a computer Description automatically
-> generated](./media/image117.png)
 
-![A screenshot of a computer Description automatically
-generated](./media/image118.png)
+     ![](./media/image117.png)
+    
+     ![](./media/image118.png)
 
 6.  Connect **StockEventStream** and **Lakehouse**
 
-> ![](./media/image119.png)
->
-> ![A screenshot of a computer Description automatically
-> generated](./media/image120.png)
->
-> ![](./media/image121.png)
->
-> ![](./media/image122.png)
+     ![](./media/image119.png)
+     ![](./media/image120.png)
+   
+     ![](./media/image121.png)
+   
+     ![](./media/image122.png)
 
 7.  Select the Lakehouse and click on **Refresh** button
 
-> ![](./media/image123.png)
+     ![](./media/image123.png)
 
-8.  After clicking *Open event processor*, various processing can be
+8.  After clicking **Open event processor**, various processing can be
     added that perform aggregations, filtering, and changing datatypes.
 
-> ![A screenshot of a computer Description automatically
-> generated](./media/image124.png)
+     ![](./media/image124.png)
 
 9.  On the **StockEventStream** page, select **Edit**
 
-> ![](./media/image125.png)
+     ![](./media/image125.png)
 
-9.  On the **StockEventStream** page, select **stockEventStream**, and
+10.  On the **StockEventStream** page, select **stockEventStream**, and
     click the **Insert a node** icon to add a **Mange field**. Then,
     select **Mange field.**
 
-> ![](./media/image126.png)
->
-> ![](./media/image127.png)
+     ![](./media/image126.png)
+     
+      ![](./media/image127.png)
 
-10. In the eventstreem pane select **Managefields** pencil icon.
+11. In the eventstreem pane select **Managefields** pencil icon.
 
-![](./media/image128.png)
+    ![](./media/image128.png)
 
-11. In the ***Manage fields*** pane that opens, click ***Add all
+12. In the ***Manage fields*** pane that opens, click ***Add all
     fields*** to add all columns. Then, remove the fields
     **EventProcessedUtcTime**, **PartitionId**, and
     **EventEnqueuedUtcTime** by clicking the **ellipsis (...)** to the
-    right of the field name, and click ***Remove***
+    right of the field name, and click **Remove** 
 
-![A screenshot of a computer Description automatically
-generated](./media/image129.png)
+     ![](./media/image129.png)
+    
+     ![](./media/image130.png)
 
-![A screenshot of a computer Description automatically
-generated](./media/image130.png)
+     ![](./media/image131.png)
+      ![](./media/image132.png)
+      ![](./media/image133.png)
 
-> ![A screenshot of a computer Description automatically
-> generated](./media/image131.png)
->
-> ![A screenshot of a computer Description automatically
-> generated](./media/image132.png)
->
-> ![A screenshot of a computer Description automatically
-> generated](./media/image133.png)
-
-12. Now change the ***timestamp*** column to a ***DateTime* **as it is
+13. Now change the  **timestamp**  column to a **DateTime**as it is
     likely classified as a string. Click the **three ellipsis (...)** to
-    the right of the ***timestamp* column** and select ***Yes** change
+    the right of the  **timestamp  column** and select  **Yes** change
     type*. This will allow us to change the datatype:
-    select ***DateTime*,** as shown in the below image. Click on
+    select **DateTime**,as shown in the below image. Click on
     **Done**
 
-> ![A screenshot of a computer Description automatically
-> generated](./media/image134.png)
->
-> ![](./media/image135.png)
+      ![](./media/image134.png)
+      ![](./media/image135.png)
 
-12. Now, click on the **Publish** button to close the event processor
+14. Now, click on the **Publish** button to close the event processor
 
-> ![](./media/image136.png)
->
-> ![A screenshot of a computer Description automatically
-> generated](./media/image137.png)
+      ![](./media/image136.png)
+     
+      ![](./media/image137.png)
 
 13. Once it is completed, the Lakehouse will receive the symbol, price,
     and timestamp.
 
-![A screenshot of a computer Description automatically
-generated](./media/image138.png)
+    ![](./media/image138.png)
 
-Our KQL (hot path) and Lakehouse (cold path) is now configured. It may
-take a minute or two for data to be visible in the Lakehouse.
+    Our KQL (hot path) and Lakehouse (cold path) is now configured. It may
+    take a minute or two for data to be visible in the Lakehouse.
 
 ## Task 3. Import notebooks
 
@@ -1044,34 +1031,30 @@ is displaying the notebook.
 1.  Now, click on **RealTimeWorkspace** on the left-sided navigation
     menu.
 
-![A screenshot of a computer Description automatically
-generated](./media/image139.png)
+    ![](./media/image139.png)
 
 2.  In the **Synapse Data Engineering** **RealTimeWorkspace** page,
     navigate and click on **-\>|Import** button, then select
     **Notebook** and select **From this computer** as shown in the below
     image.
 
-> ![](./media/image140.png)
+      ![](./media/image140.png)
 
 3.  Select **Upload** from the **Import status** pane that appears on
     the right side of the screen.
 
-> ![A screenshot of a computer Description automatically
-> generated](./media/image141.png)
+      ![](./media/image141.png)
 
 4.  Navigate and select **Lakehouse 1-Import Data, Lakehouse 2-Build
     Aggregation, Lakehouse 3-Create Star Schema** and **Lakehouse 4-Load
     Star Schema** notebooks from **C:\LabFiles\Lab 04** and click on the
     **Open** button.
 
-> ![A screenshot of a computer Description automatically
-> generated](./media/image142.png)
+      ![](./media/image142.png)
 
 5.  You will see a notification stating **Imported successfully.**
 
-> ![A screenshot of a computer Description automatically
-> generated](./media/image143.png)
+      ![](./media/image143.png))
 
 ## Task 4. Import additional data
 
@@ -1083,94 +1066,85 @@ the table, prepending the historical data.
 
 1.  In the **RealTimeWorkspace** page, to view only the notebooks, click
     on the **Filter** at the top right corner of the page, then select
-    ***Notebook.***
+     **Notebook.** 
 
-![A screenshot of a computer Description automatically
-generated](./media/image144.png)
+    ![](./media/image144.png)
 
-2.  *Then*, select the ***Lakehouse 1 - Import Data* **notebook.
+2. Then , select the **Lakehouse 1 - Import Data**notebook.
 
-![A screenshot of a computer Description automatically
-generated](./media/image145.png)
+     ![](./media/image145.png)
 
 3.  Under **Explorer**, navigate and select the **Lakehouse**, then
-    click on the ***Add ***button as shown in the below images*.*
+    click on the **Add** button as shown in the below images.
 
-> ***Important Note***: You’ll need to add the Lakehouse to every
-> imported notebook -- do this each time you open a notebook for the
-> first time.
->
-> ![](./media/image146.png)
-
-![A screenshot of a computer Description automatically
-generated](./media/image147.png)
+    ***Important Note***: You’ll need to add the Lakehouse to every
+       imported notebook -- do this each time you open a notebook for the
+       first time.
+ 
+      ![](./media/image146.png)
+    
+      ![](./media/image147.png)
 
 4.  In the **Add Lakehouse** dialog box, select the **Existing
     lakehouse** **without Schema** radio button, then click on the
     **Add** button.
 
-![A screenshot of a computer Description automatically
-generated](./media/image148.png)
+    ![](./media/image148.png)
 
-5.  On the **OneLake data hub** window, select ***StockLakehouse*** and
-    click on the **Add** button. ![A screenshot of a computer
-    Description automatically generated](./media/image149.png)
+5.  On the **OneLake data hub** window, select  **StockLakehouse**  and
+    click on the **Add** button.
+     ![](./media/image149.png)
 
-6.  The ***raw_stock_data*** table was created when the Eventstream was
+7.  The  **raw_stock_data** table was created when the Eventstream was
     configured, and is the landing place for the data that is ingested
     from the Event Hub.
 
-![A screenshot of a computer Description automatically
-generated](./media/image150.png)
+     ![](./media/image150.png)
 
-**Note**: You will see the **Run** button when you hover your mouse over
-the cell in the notebook.
+    **Note**: You will see the **Run** button when you hover your mouse over
+    the cell in the notebook.
 
-7.  To start the notebook and execute the cell, select the **Run** icon
+8.  To start the notebook and execute the cell, select the **Run** icon
     that appears on the left side of the cell.
 
-> ![](./media/image151.png)
+     ![](./media/image151.png)
 
-8.  To download and unzip historical data to the lakehouse unmanaged
+9.  To download and unzip historical data to the lakehouse unmanaged
     files, run the 2^(nd) and 4^(th) cells.
 
-> ![](./media/image152.png)
->
-> ![](./media/image153.png)
->
-> ![A screenshot of a computer Description automatically
-> generated](./media/image154.png)
+      ![](./media/image152.png)
+     
+      ![](./media/image153.png)
+      ![](./media/image154.png)
 
-9.  Create the target table if it doesn't exist; find minimum date in
+10.  Create the target table if it doesn't exist; find minimum date in
     the table to act as a cut-off point., select and run the 5^(th)
     cell.
 
-> ![](./media/image155.png)
+      ![](./media/image155.png)
 
-10. Run the 6^(th) cell, 7^(th) cell
+11. Run the 6^(th) cell, 7^(th) cell
 
-> ![](./media/image156.png)
->
-> ![](./media/image157.png)
+      ![](./media/image156.png)
+     
+      ![](./media/image157.png)
 
-**Important**:While verifying CSV files, if you encounter the error
-shown below, restart the kernel and run the cell again. 
+    **Important**:While verifying CSV files, if you encounter the error
+    shown below, restart the kernel and run the cell again. 
 
 6.  Loads the data and filters out data outside the timeframe window.
     select and run the 8^(h) cell and 9^(th) cell.
 
-![](./media/image158.png)
-
-![](./media/image159.png)
+    ![](./media/image158.png)
+    
+    ![](./media/image159.png)
 
 11. While similar to 'commenting out' sections of code, freezing cells
     is powerful in that any output of the cells are also preserved.
 
-![A screenshot of a computer program Description automatically
-generated](./media/image160.png)
-
-![A screenshot of a computer program Description automatically
-generated](./media/image161.png)
+    ![](./media/image160.png)
+    
+    ![](./media/image161.png)
 
 # Exercise 6: Building the Aggregation Tables
 
@@ -1197,192 +1171,144 @@ Lakehouse if it is not already added.
 1.  Now, click on **RealTimeWorkspace** on the left-sided navigation
     menu.
 
-![A screenshot of a computer Description automatically
-generated](./media/image139.png)
+    ![](./media/image161.png)
 
-2.  *In the **RealTimeWork*****space** page, click on ***Lakehouse 2 –
-    Build Aggregation Tables*** notebook.
+2.   In the **RealTimeWork space** page, click on  **Lakehouse 2 –
+    Build Aggregation Tables**  notebook.
 
-![A screenshot of a computer Description automatically
-generated](./media/image162.png)
+      ![](./media/image162.png)
 
 3.  Under Explorer, navigate and select the **Lakehouse**, then click on
-    the ***Add ***button.
+    the **Add** button.
 
-![A screenshot of a computer Description automatically
-generated](./media/image163.png)
-
-![A screenshot of a computer Description automatically
-generated](./media/image164.png)
+      ![](./media/image163.png)
+      ![](./media/image164.png)
 
 4.  In the **Add Lakehouse** dialog box, select the **Existing lakehouse
     without Schema** dialog box, then click on the **Add** button.
 
-> ![A screenshot of a computer Description automatically
-> generated](./media/image148.png)
+      ![](./media/image148.png)
 
-5.  On the **OneLake data hub** window, select the ***StockLakehouse**,*
+5.  On the **OneLake data hub** window, select the **StockLakehouse**,
     and click on the **Add** button.
 
-![A screenshot of a computer Description automatically
-generated](./media/image149.png)
+      ![](./media/image149.png)
 
 6.  To build Aggregate Tables, select and run the 1^(st) , 2^(nd) ,
     3^(rd) , and 4^(th) cells.
 
-![A screenshot of a computer Description automatically
-generated](./media/image165.png)
-
-![A screenshot of a computer Description automatically
-generated](./media/image166.png)
-
-![A screenshot of a computer Description automatically
-generated](./media/image167.png)
-
-![A screenshot of a computer Description automatically
-generated](./media/image168.png)
-
+     ![](./media/image165.png)
+     ![](./media/image166.png)
+     ![](./media/image167.png)
+     ![](./media/image168.png)
 7.  Then, select and run the 5^(th) , 6^(th), 7^(th) , and 8^(th) cells.
 
-![A screenshot of a computer Description automatically
-generated](./media/image169.png)
-
-![A screenshot of a computer Description automatically
-generated](./media/image169.png)
-
-![A screenshot of a computer program Description automatically
-generated](./media/image170.png)
-
-![A screenshot of a computer Description automatically
-generated](./media/image171.png)
+    ![](./media/image169.png)
+    ![](./media/image170.png)
+    ![](./media/image171.png)
+    
 
 8.  Add data wrangler, select **9^(th)** cell, navigate dropdown **Data
     Wrangler**. Navigate and click on **anomaly_df** to load the
-    dataframe in data wrangler**.**
+    dataframe in data wrangler . 
 
-9.  We'll use the *anomaly_df* because it was intentionally created with
+9.  We'll use the **anomaly_df** because it was intentionally created with
     a few invalid rows that can be tested. 
 
-![A screenshot of a computer Description automatically
-generated](./media/image172.png)
+      ![](./media/image172.png)
 
 10. In data wrangler, we'll record a number of steps to process data.
     Notice the data is visualized in the central column. Operations are
     in the top left, while an overview of each step is in the
     bottom left.
 
-![A screenshot of a computer Description automatically
-generated](./media/image173.png)
+     ![](./media/image173.png)
 
-11. To remove null/empty values, under *Operations,* click on the
-    dropdown beside ***Find and replace***, then navigate and click on
-    ***Drop missing values***.
+11. To remove null/empty values, under **Operations,** click on the
+    dropdown beside  **Find and replace** , then navigate and click on
+     **Drop missing values** .
 
-![A screenshot of a computer Description automatically
-generated](./media/image174.png)
+    ![](./media/image174.png)
 
 12. From the ***Target columns*** dropdown, select
     the ***symbol*** and ***price* **columns and then click on ***Apply
-    button** below it as shown in the image**.***
+    button** below it as shown in the image . 
 
-![A screenshot of a computer Description automatically
-generated](./media/image175.png)
+    ![](./media/image175.png)
+    ![](./media/image176.png)
+    ![](./media/image177.png)
 
-![A screenshot of a computer Description automatically
-generated](./media/image176.png)
+13. Under  **Operations**  dropdown, navigate and click on  **Sort and
+    filter** , then click on  **Filter** as shown in the below image . 
 
-![A screenshot of a computer Description automatically
-generated](./media/image177.png)
+    ![](./media/image178.png)
 
-13. Under ***Operations*** dropdown, navigate and click on ***Sort and
-    filter***, then click on ***Filter** as shown in the below image*. 
+14. **Uncheck**  Keep matching rows , select  **price**  as the target
+    column, and set the condition to  **Equal** to **0**.
+    Click **Apply**in the *Operations* panel beneath the Filter
 
-> ![A screenshot of a computer Description automatically
-> generated](./media/image178.png)
+    Note: The rows with zero are marked red as they will be dropped (if
+    the other rows are marked red, ensure to uncheck the **Keep matching
+     rows** checkbox).
 
-14. **Uncheck** *Keep matching rows*, select ***price*** as the target
-    column, and set the condition to ***Equal* to *0*.**
-    Click ***Apply* **in the *Operations* panel beneath the Filter
+      ![](./media/image179.png))
+      ![](./media/image180.png)
 
-> Note: The rows with zero are marked red as they will be dropped (if
-> the other rows are marked red, ensure to uncheck the *Keep matching
-> rows* checkbox).
+15. Click on **+ Add code to notebook*** in the upper left side of the
+    page. On the  **Add code to notebook** window, ensure that  Include
+    pandas code is unchecked and click on the ***Add** button. 
 
-![A screenshot of a computer Description automatically
-generated](./media/image179.png)
-
-![A screenshot of a computer Description automatically
-generated](./media/image180.png)
-
-15. Click on **+*Add code to notebook*** in the upper left side of the
-    page. On the ***Add code to notebook* **window, ensure that *Include
-    pandas code* is unchecked and click on the ***Add** button.*
-
-![A screenshot of a computer Description automatically
-generated](./media/image181.png)
-
-![A screenshot of a computer code Description automatically
-generated](./media/image182.png)
+     ![](./media/image181.png)
+      ![](./media/image182.png)
 
 16. The code inserted will look similar to the below.
 
-![A screenshot of a computer Description automatically
-generated](./media/image183.png)
+     ![](./media/image183.png)
 
 17. Run the cell and observe the output. You’ll observe that the invalid
     rows were removed.
 
-> ![A screenshot of a computer Description automatically
-> generated](./media/image184.png)
+     ![](./media/image184.png)
+      ![](./media/image185.png)
 
-![A screenshot of a computer Description automatically
-generated](./media/image185.png)
-
-The function created, *clean_data*, contains all of the steps in
-sequence and can be modified as needed. Notice that each step performed
-in data wrangler is commented. Because data wrangler was loaded with
-the *anomaly_df*, the method is written to take that dataframe by name,
-but this can be any dataframe that matches the schema.
+    The function created, *clean_data*, contains all of the steps in
+    sequence and can be modified as needed. Notice that each step performed
+    in data wrangler is commented. Because data wrangler was loaded with
+    the *anomaly_df*, the method is written to take that dataframe by name,
+    but this can be any dataframe that matches the schema.
 
 18. Modify the function name
-    from ***clean_data*** to *remove_invalid_rows*, and change the
-    line *anomaly_df_clean = clean_data(anomaly_df)* to *df_stocks_clean
-    = remove_invalid_rows(df_stocks)* . Also, while not necessary for
+    from ***clean_data*** to **remove_invalid_rows**, and change the
+    line **anomaly_df_clean = clean_data(anomaly_df)** to **df_stocks_clean
+    = remove_invalid_rows(df_stocks)** . Also, while not necessary for
     functionality, you can change the name of the dataframe used in the
-    function to simply *df* as shown below
+    function to simply **df** as shown below
 
 19. Run this cell and observe the output.
-
-> \# Code generated by Data Wrangler for PySpark DataFrame
->
-> def remove_invalid_rows(df):
->
-> \# Drop rows with missing data in columns: 'symbol', 'price'
->
-> df = df.dropna(subset=\['symbol', 'price'\])
->
-> \# Filter rows based on column: 'price'
->
-> df = df.filter(~(df\['price'\] == 0))
->
-> return df
->
-> df_stocks_clean = remove_invalid_rows(df_stocks)
->
-> display(df_stocks_clean)
-
-![A screenshot of a computer Description automatically
-generated](./media/image186.png)
+      ```
+      # Code generated by Data Wrangler for PySpark DataFrame
+      
+      def remove_invalid_rows(df):
+          # Drop rows with missing data in columns: 'symbol', 'price'
+          df = df.dropna(subset=['symbol', 'price'])
+          # Filter rows based on column: 'price'
+          df = df.filter(~(df['price'] == 0))
+          return df
+      
+      df_stocks_clean = remove_invalid_rows(df_stocks)
+      display(df_stocks_clean)
+      ```
+      
+      ![](./media/image186.png)
 
 20. This function will now remove the invalid rows from
-    our *df_stocks* dataframe and return a new dataframe
-    called *df_stocks_clean*. It is common to use a different name for
-    the output dataframe (such as *df_stocks_clean*) to make the cell
+    our **df_stocks** dataframe and return a new dataframe
+    called **df_stocks_clean**. It is common to use a different name for
+    the output dataframe (such as **df_stocks_clean**) to make the cell
     idempotent -- this way, we can go back and re-run the cell, make
     modifications, etc., without having to reload our original data.
 
-![A screenshot of a computer Description automatically
-generated](./media/image187.png)
+     ![](./media/image187.png)
 
 ## Task 2: Build aggregation routine
 
@@ -1391,92 +1317,69 @@ steps in data wrangler, adding derived columns and aggregating the data.
 If you get stuck, continue as best you can and use the sample code in
 the notebook to help fix any issues after.
 
-1.  Add new column datestamp in the ***Symbol/Date/Hour/Minute
-    Aggregation** Section*, place your cursor in the *Add data wrangler
-    here* cell and select the cell. Dropdown the **Data Wrangler**.
+1.  Add new column datestamp in the  **Symbol/Date/Hour/Minute
+    Aggregation** Section*, place your cursor in the  **Add data wrangler
+    here** cell and select the cell. Dropdown the **Data Wrangler**.
     Navigate and click on **df_stocks_clean** as shown in the below
     image.
-
-> ![A screenshot of a computer Description automatically
-> generated](./media/image188.png)
->
-> ![A screenshot of a computer Description automatically
-> generated](./media/image189.png)
+      
+      ![](./media/image188.png)
+      ![](./media/image189.png)
 
 2.  In **Data Wrangler:df_stocks_clean** pane, select **Operations**,
     then select **New column by example.**
 
-> ![A screenshot of a computer Description automatically
-> generated](./media/image190.png)
+    ![](./media/image190.png)
 
-3.  Under ***Target columns*** field, click on the dropdown and select
-    ***timestamp***. Then, in the ***Derived column** **name*** field,
-    enter +++***datestamp+++***
+3.  Under  **Target columns**  field, click on the dropdown and select
+     **timestamp** . Then, in the  **Derived column**  name  field,
+    enter **+++datestamp+++** 
 
-![A screenshot of a computer Description automatically
-generated](./media/image191.png)
+     ![](./media/image191.png)
 
-4.  In the new ***datestamp*** column, enter an example value for any
-    given row. For example, if the *timestamp* is *2024-02-07
-    09:54:00* enter ***2024-02-07***. This allows data wrangler to infer
+4.  In the new  **datestamp**  column, enter an example value for any
+    given row. For example, if the **timestamp** is **2024-02-07
+    09:54:00** enter  **2024-02-07** . This allows data wrangler to infer
     we are looking for the date without a time component; once the
     columns autofill, click on the ***Apply*** button.
 
-![A screenshot of a computer Description automatically
-generated](./media/image192.png)
-
-![A screenshot of a computer Description automatically
-generated](./media/image193.png)
+      ![](./media/image192.png)
+      ![](./media/image193.png)
 
 5.  Similar to adding the ***datestamp*** column as mentioned in the
     above steps, click again on **New column by example** as shown in
     the below image.
 
-![A screenshot of a computer Description automatically
-generated](./media/image194.png)
+    ![](./media/image194.png)
 
-6.  Under *Target columns*, choose ***timestamp***. Enter a ***Derived
-    column** name* of +++***hour+++*.**
+6.  Under **Target columns**, choose  **timestamp** . Enter a  **Derived
+    column** name  of +++hour+++ 
 
-> ![A screenshot of a computer Description automatically
-> generated](./media/image195.png)
-
-7.  In the new ***hour ***column that appear in the data preview, enter
+     ![](./media/image195.png)
+7.  In the new ***hour***column that appear in the data preview, enter
     an hour for any given row -- but try to pick a row that has a unique
     hour value. For example, if the *timestamp* is *2024-02-07
     09:54:00* enter ***9***. You may need to enter example values for
     several rows, as shown here. Click on **Apply** button.
 
-> ![A screenshot of a computer Description automatically
-> generated](./media/image196.png)
+     ![](./media/image196.png)
 
 8.  Data wrangler should infer we are looking for the hour component,
     and build code similar to:
 
-\# Derive column 'hour' from column: 'timestamp'
+    # Derive column 'hour' from column: 'timestamp'
+    def hour(timestamp):
+        """
+        Transform based on the following examples:
+           timestamp           Output
+        1: 2024-02-07T09:54 => "9"
+        """
+        number1 = timestamp.hour
+        return f"{number1:01.0f}"
+    
+    pandas_df_stocks_clean.insert(3, "hour", pandas_df_stocks_clean.apply(lambda row : hour(row["timestamp"]), axis=1))
 
-def hour(timestamp):
-
-    """
-
-    Transform based on the following examples:
-
-       timestamp           Output
-
-    1: 2024-02-07T09:54 =\> "9"
-
-    """
-
-    number1 = timestamp.hour
-
-    return f"{number1:01.0f}"
-
-pandas_df_stocks_clean.insert(3, "hour",
-pandas_df_stocks_clean.apply(lambda row : hour(row\["timestamp"\]),
-axis=1))
-
-![A screenshot of a computer Description automatically
-generated](./media/image197.png)
+     ![](./media/image197.png)
 
  
 
@@ -1485,163 +1388,122 @@ generated](./media/image197.png)
     example, if the *timestamp* is *2024-02-07 09:54:00* enter *54*. You
     may need to enter example values for several rows.
 
-![A screenshot of a computer Description automatically
-generated](./media/image198.png)
+     ![](./media/image198.png)
 
 10. The code generated should look similar to:
 
-\# Derive column 'minute' from column: 'timestamp'
+      # Derive column 'minute' from column: 'timestamp'
+      def minute(timestamp):
+          """
+          Transform based on the following examples:
+             timestamp           Output
+          1: 2024-02-07T09:57 => "57"
+          """
+          number1 = timestamp.minute
+          return f"{number1:01.0f}"
+      
+      pandas_df_stocks_clean.insert(3, "minute", pandas_df_stocks_clean.apply(lambda row : minute(row["timestamp"]), axis=1))
 
-def minute(timestamp):
-
-    """
-
-    Transform based on the following examples:
-
-       timestamp           Output
-
-    1: 2024-02-07T09:57 =\> "57"
-
-    """
-
-    number1 = timestamp.minute
-
-    return f"{number1:01.0f}"
-
-pandas_df_stocks_clean.insert(3, "minute",
-pandas_df_stocks_clean.apply(lambda row : minute(row\["timestamp"\]),
-axis=1))
-
-![A screenshot of a computer Description automatically
-generated](./media/image199.png)
+      ![](./media/image199.png)
 
 11. Next, convert the hour column to an integer. Click on the **ellipsis
-    (...)** in the corner of the *hour* column and select ***Change
-    column** type*. Click on the dropdown beside ***New type***,
-    navigate and select ***int32**,* then click on the ***Apply
-    button*** as shown in the below image. ![A screenshot of a computer
-    Description automatically generated](./media/image200.png)
+    (...)** in the corner of the **hour** column and select  **Change
+    column** type . Click on the dropdown beside  **New type** ,
+    navigate and select  **int32**,  then click on the  **Apply
+    button**  as shown in the below image.
+      ![](./media/image200.png)
 
-![A screenshot of a computer Description automatically
-generated](./media/image201.png)
-
+     ![](./media/image201.png)
 12. Convert the minute column to an integer using the same steps as you
     just performed for the hour. Click on the **ellipsis (...)** in the
-    corner of the ***minute* column** and select ***Change column**
-    type*. Click on the dropdown beside ***New type***, navigate and
-    select ***int32**,* then click on the ***Apply button*** as shown in
+    corner of the ***minute column** and select  **Change column**
+    type . Click on the dropdown beside ***New type** , navigate and
+    select  **int32**,  then click on the  **Apply button**  as shown in
     the below image.
 
-![A screenshot of a computer Description automatically
-generated](./media/image202.png)
-
-![A screenshot of a computer Description automatically
-generated](./media/image203.png)
-
-![A screenshot of a computer Description automatically
-generated](./media/image204.png)
+    ![](./media/image202.png)
+    ![](./media/image203.png)
+    ![](./media/image204.png)
 
 13. **Now, under the Operations section, navigate and click on *Group by
     and aggregate*** as shown in the below image.
 
-![A screenshot of a computer Description automatically
-generated](./media/image205.png)
+    ![](./media/image205.png)
 
 14. Click on the dropdown under ***Columns to group by*** field and
-    select ***symbol*, *datestamp*, *hour*, *minute***.
+    select **symbol**, **datestamp**, **hour**, **minute**.
 
-![A screenshot of a computer Description automatically
-generated](./media/image206.png)
-
+    ![](./media/image206.png)
 15. Click on +*Add aggregation*, create a total of three aggregations as
-    shown in the below images and click on the ***Apply*** button.
+    shown in the below images and click on the  **Apply**  button.
 
-- price: Maximum
+    - price: Maximum
+    
+    - price: Minimum
+    
+    - price: Last value
 
-- price: Minimum
+     ![](./media/image207.png)
+      ![](./media/image208.png)
 
-- price: Last value
+16. Click  **Add code to notebook**  in the upper left corner of the
+    page. On the **Add code to notebook** window, ensure  Include
+    pandas code  is unchecked, then click on the  **Add** button. 
 
-![A screenshot of a computer Description automatically
-generated](./media/image207.png)
+      ![](./media/image209.png)
+      ![](./media/image210.png)
+      ![](./media/image211.png)
 
-![A screenshot of a computer Description automatically
-generated](./media/image208.png)
-
-16. Click ***Add code to notebook*** in the upper left corner of the
-    page. On the ***Add code to notebook* window**, ensure *Include
-    pandas code* is unchecked, then click on the ***Add** button.*
-
-![A screenshot of a computer Description automatically
-generated](./media/image209.png)
-
-![A screenshot of a computer code Description automatically
-generated](./media/image210.png)
-
-![A screenshot of a computer Description automatically
-generated](./media/image211.png)
-
-13. **Review the code, i**n the cell that is added, in the last two
+13.  **Review the code**, in the cell that is added, in the last two
     lines of the cell, notice the dataframe returned is
-    named ***df_stocks_clean_1***. Rename
+    named  **df_stocks_clean_1** . Rename
     this ***df_stocks_agg_minute***, and change the name of the function
-    to ***aggregate_data_minute*,** as shown below.
-
-**\# old:**
-
-def clean_data(df_stocks_clean):
-
-...
-
-df_stocks_clean_1 = clean_data(df_stocks_clean)
-
-display(df_stocks_clean_1)
-
-**\# new:**
-
-def aggregate_data_minute(df_stocks_clean):
-
-...
-
-df_stocks_agg_minute = aggregate_data_minute(df_stocks_clean)
-
-display(df_stocks_agg_minute)
-
-![A screenshot of a computer Description automatically
-generated](./media/image212.png)
+    to ***aggregate_data_minute*** as shown below.
+    ```
+     **# old:**
+      def clean_data(df_stocks_clean):
+        ...
+      
+      df_stocks_clean_1 = clean_data(df_stocks_clean)
+      display(df_stocks_clean_1)
+      
+      **# new:**
+      def aggregate_data_minute(df_stocks_clean):
+        ...
+      
+      df_stocks_agg_minute = aggregate_data_minute(df_stocks_clean)
+      display(df_stocks_agg_minute)
+    ```
+    ![](./media/image212.png)
 
 14. Code generated by Data Wrangler for PySpark DataFrame cell, select
     the **Run** icon that appears to the left of the cell upon hover.
 
-![A screenshot of a computer Description automatically
-generated](./media/image213.png)
+    ![](./media/image213.png)
+    ![](./media/image214.png)
+    ![](./media/image215.png)
 
-![A screenshot of a computer code Description automatically
-generated](./media/image214.png)
 
-![A screenshot of a computer Description automatically
-generated](./media/image215.png)
+    **Note**: If you get stuck, refer to the commented-out code as a
+    reference. If any of the data wrangling steps don't seem to be quite
+    correct (not getting the correct hour or minute, for example), refer to
+    the commented-out samples. Step 7 below has a number of additional
+    considerations that may help.
 
-**Note**: If you get stuck, refer to the commented-out code as a
-reference. If any of the data wrangling steps don't seem to be quite
-correct (not getting the correct hour or minute, for example), refer to
-the commented-out samples. Step 7 below has a number of additional
-considerations that may help.
-
-**Note:** If you'd like to comment-out (or uncomment) large blocks, you
-can highlight the section of code (or CTRL-A to select everything in the
-current cell) and use CTRL-/ (Control *slash*) to toggler commenting.
+    **Note:** If you'd like to comment-out (or uncomment) large blocks, you
+    can highlight the section of code (or CTRL-A to select everything in the
+    current cell) and use CTRL-/ (Control *slash*) to toggler commenting.
 
 15. In the merge cell, select the **Run** icon that appears to the left
     of the cell upon hover. The merge function writes the data into the
     table:
+    ```
+    # write the data to the stocks_minute_agg table
+    
+    merge_minute_agg(df_stocks_agg_minute)
+    ```
 
-> \# write the data to the stocks_minute_agg table
->
-> merge_minute_agg(df_stocks_agg_minute)
-
-![A screenshot of a computer Description automatically
-generated](./media/image216.png)
+     ![](./media/image216.png)
 
 ## Task 3: Aggregate hourly
 
@@ -1656,15 +1518,12 @@ per-hour frequency, reducing the data to 24 rows/day per stock symbol.
     wrangler.
 
 2.  In the final placeholder under the ***Symbol/Date/Hour*** section,
-    place your cursor in the *Add data wrangler here* cell and select
+    place your cursor in the Add data wrangler here cell and select
     the cell. Dropdown the **Data Wrangler,** navigate and click on
     ***df_stocks_agg_minute*** as shown in the below image.
 
-![A screenshot of a computer Description automatically
-generated](./media/image217.png)
-
-> ![A screenshot of a computer Description automatically
-> generated](./media/image218.png)
+     ![](./media/image217.png)
+      ![](./media/image218.png)
 
 3.  Under ***Operations*,** select ***Group by and aggregate***. Click
     on the dropdown below **Columns to group by** field and select
@@ -1672,17 +1531,14 @@ generated](./media/image217.png)
     aggregations**. Create the following three aggregations and click on
     Apply button below it, as shown in the below image.
 
-- price_min: Minimum
+      - price_min: Minimum
+      
+      - price_max: Maximum
+      
+      - price_last: Last value
 
-- price_max: Maximum
-
-- price_last: Last value
-
-![A screenshot of a computer Description automatically
-generated](./media/image219.png)
-
-![A screenshot of a computer Description automatically
-generated](./media/image220.png)
+     ![](./media/image219.png)
+      ![](./media/image220.png)
 
 4.  Example code is shown below. In addition to renaming the function
     to *aggregate_data_hour*, the alias of each price column has also
@@ -1691,75 +1547,53 @@ generated](./media/image220.png)
     naming the columns like price_max_max, price_min_min; we will modify
     the aliases to keep the names the same for clarity.
 
-![A screenshot of a computer Description automatically
-generated](./media/image221.png)
+     ![](./media/image221.png)
 
 5.  Click ***Add code to notebook*** in the upper left corner of the
-    page. On the ***Add code to notebook* window**, ensure *Include
-    pandas code* is unchecked and click on the ***Add** button.*
+    page. On the ***Add code to notebook** window, ensure  Include
+    pandas code  is unchecked and click on the  **Add** button. 
 
-![A screenshot of a computer Description automatically
-generated](./media/image222.png)
-
-![A screenshot of a computer code Description automatically
-generated](./media/image223.png)
-
-![A screenshot of a computer Description automatically
-generated](./media/image224.png)
+      ![](./media/image222.png)
+      ![](./media/image223.png)
+      ![](./media/image224.png)
 
 16. In the cell that is added, in the last two lines of the cell, notice
     the dataframe returned is named def
     clean_data(df_stocks_agg_minute):, rename this
 
-**def aggregate_data_hour(df_stocks_agg_minute):**
+    **def aggregate_data_hour(df_stocks_agg_minute):**
 
 17. In the cell that is added, in the last two lines of the cell, notice
     the dataframe returned is named **df_stocks_agg_minute_clean =
-    clean_data(df_stocks_agg_minute).**Rename this **df_stocks_agg_hour
+    clean_data(df_stocks_agg_minute)**. Rename this **df_stocks_agg_hour
     = aggregate_data_hour(df_stocks_agg_minute),** and change the name
     of the function **display(df_stocks_agg_minute_clean)**
-    to *aggregate_data_minute*, as shown below. 
-
-Reference Code:
-
-\# Code generated by Data Wrangler for PySpark DataFrame
-
-from pyspark.sql import functions as F
-
-def aggregate_data_hour(df_stocks_agg_minute):
-
-\# Performed 3 aggregations grouped on columns: 'symbol', 'datestamp',
-'hour'
-
-df_stocks_agg_minute = df_stocks_agg_minute.groupBy('symbol',
-'datestamp', 'hour').agg(
-
-F.max('price_max').alias('price_max'),
-
-F.min('price_min').alias('price_min'),
-
-F.last('price_last').alias('price_last'))
-
-df_stocks_agg_minute = df_stocks_agg_minute.dropna()
-
-df_stocks_agg_minute =
-df_stocks_agg_minute.sort(df_stocks_agg_minute\['symbol'\].asc(),
-df_stocks_agg_minute\['datestamp'\].asc(),
-df_stocks_agg_minute\['hour'\].asc())
-
-return df_stocks_agg_minute
-
-df_stocks_agg_hour = aggregate_data_hour(df_stocks_agg_minute)
-
-display(df_stocks_agg_hour)
-
-![A screenshot of a computer Description automatically
-generated](./media/image225.png)
+    to **aggregate_data_minute**, as shown below. 
+      ```
+      **Reference Code:** 
+      # Code generated by Data Wrangler for PySpark DataFrame
+      
+      from pyspark.sql import functions as F
+      
+      def aggregate_data_hour(df_stocks_agg_minute):
+          # Performed 3 aggregations grouped on columns: 'symbol', 'datestamp', 'hour'
+          df_stocks_agg_minute = df_stocks_agg_minute.groupBy('symbol', 'datestamp', 'hour').agg(
+              F.max('price_max').alias('price_max'), 
+              F.min('price_min').alias('price_min'), 
+              F.last('price_last').alias('price_last'))
+          df_stocks_agg_minute = df_stocks_agg_minute.dropna()
+          df_stocks_agg_minute = df_stocks_agg_minute.sort(df_stocks_agg_minute['symbol'].asc(), df_stocks_agg_minute['datestamp'].asc(), df_stocks_agg_minute['hour'].asc())
+          return df_stocks_agg_minute
+      
+      df_stocks_agg_hour = aggregate_data_hour(df_stocks_agg_minute)
+      display(df_stocks_agg_hour)
+      
+      ```
+     ![](./media/image225.png)
 
 18. Select and **Run** the cell.
 
-![A screenshot of a computer Description automatically
-generated](./media/image226.png)
+     ![](./media/image226.png)
 
 19. The code to merge the hour aggregated data is in the next cell:
     **merge_hour_agg(df_stocks_agg_hour)**
@@ -1768,21 +1602,15 @@ generated](./media/image226.png)
     the bottom for checking the data in the tables -- explore the data a
     bit and feel free to experiment.
 
-![A screenshot of a computer Description automatically
-generated](./media/image227.png)
+     ![](./media/image227.png)
 
 21. Use **Handy SQL Commands for testing** section for testing, cleaning
     out tables to re-run, etc. Select and **Run** the cells in this
     section.
 
-![A screenshot of a computer Description automatically
-generated](./media/image228.png)
-
-![A screenshot of a computer program Description automatically
-generated](./media/image229.png)
-
-![A screenshot of a computer program Description automatically
-generated](./media/image230.png)
+     ![](./media/image228.png)
+      ![](./media/image229.png)
+       ![](./media/image230.png)
 
 # Exercise 7: Building the Dimensional Model
 
@@ -1806,87 +1634,59 @@ be overwritten.
 
 1.  Click on **RealTimeWorkspace** on the left-sided navigation menu.
 
-![A screenshot of a computer Description automatically
-generated](./media/image231.png)
+      ![](./media/image231.png)
 
-2.  *In the RealTimeWorkshop* workspace, select the ***Lakehouse 3 –
-    Create Star Schema*  **notebook.
-
-![A screenshot of a computer Description automatically
-generated](./media/image232.png)
+2.   In the RealTimeWorkshop  workspace, select the  **Lakehouse 3 –
+    Create Star Schema** notebook.
+    ![](./media/image232.png)
 
 3.  Under the Explorer, navigate and click on the **Lakehouses**, then
-    click on the ***Add** button.*
+    click on the  **Add** button. 
 
-![A screenshot of a computer Description automatically
-generated](./media/image233.png)
-
-![A screenshot of a computer Description automatically
-generated](./media/image234.png)
+     ![](./media/image233.png)
+      ![](./media/image234.png)
 
 4.  In the **Add Lakehouse** dialog box, select the **Existing
     lakehouse** radio button, then click on the **Add** button.
 
-![A screenshot of a computer Description automatically
-generated](./media/image235.png)
+     ![](./media/image235.png)
 
 5.  On the OneLake data hub window, select ***StockLakehouse***  and
     click on the **Add** button.
 
-![A screenshot of a computer Description automatically
-generated](./media/image149.png)
+     ![](./media/image149.png)
 
 6.  With the notebook loaded and the Lakehouse attached, notice the
     schema on the left. In addition to the **raw_stock_data** table,
     there should be the **stocks_minute_agg** and **stocks_hour_agg**
     tables.
 
-![A screenshot of a computer Description automatically
-generated](./media/image236.png)
+     ![](./media/image236.png)
 
 7.  Run each cell individually by clicking the **play** button on the
     left side of each cell to follow along with the process.
 
-![A screenshot of a computer program Description automatically
-generated](./media/image237.png)
-
-![A screenshot of a computer Description automatically
-generated](./media/image238.png)
-
-![A screenshot of a computer Description automatically
-generated](./media/image239.png)
-
-![A screenshot of a computer Description automatically
-generated](./media/image240.png)
-
-![A screenshot of a computer Description automatically
-generated](./media/image241.png)
-
-![A screenshot of a computer Description automatically
-generated](./media/image242.png)
-
-![A screenshot of a computer Description automatically
-generated](./media/image243.png)
-
-![A screenshot of a computer Description automatically
-generated](./media/image244.png)
-
-![A screenshot of a computer Description automatically
-generated](./media/image245.png)
-
+       ![](./media/image237.png)
+       ![](./media/image238.png)
+       ![](./media/image239.png)
+       ![](./media/image240.png)
+        ![](./media/image241.png)
+        ![](./media/image242.png)
+         ![](./media/image243.png)
+         ![](./media/image244.png)
+         ![](./media/image245.png)
+      
 8.  When all cells have been run successfully, navigate to
     **StocksLakehouse** section, click on the horizontal ellipsis beside
     **Tables** **(...)**, then navigate and click on ***Refresh** as
-    shown in the below image*.
+    shown in the below image .
 
-![A screenshot of a computer Description automatically
-generated](./media/image246.png)
+     ![](./media/image246.png)
 
 9.  Now, you can see all additional tables ***dim_symbol*, *dim_date*,
     and *fact_stocks_daily_prices*** for our dimensional model.
 
-![A screenshot of a computer Description automatically
-generated](./media/image247.png)
+     ![](./media/image247.png)
 
 ## Task 2: Load fact table
 
@@ -1899,131 +1699,96 @@ applied to larger datasets.
 1.  Now, click on **RealTimeWorkspace** on the left-sided navigation
     menu.
 
-![A screenshot of a computer Description automatically
-generated](./media/image248.png)
+     ![](./media/image248.png)
 
-2.  *In the RealTimeWorkshop* workspace, select the ***Lakehouse 4 –
-    Load fact table*  **notebook.
+2.   In the RealTimeWorkshop  workspace, select the  **Lakehouse 4 –
+    Load fact table**  notebook.
 
-![A screenshot of a computer Description automatically
-generated](./media/image249.png)
+     ![](./media/image249.png)
 
 3.  Under the Explorer, select **Lakehouse**, then click on the ***Add**
-    button.*
+    button. 
 
-![A screenshot of a computer Description automatically
-generated](./media/image250.png)
-
-![A screenshot of a computer Description automatically
-generated](./media/image251.png)
+     ![](./media/image250.png)
+    
+     ![](./media/image251.png)
 
 4.  In the **Add Lakehouse** dialog box, select the **Existing
     lakehouse** radio button, then click on the **Add** button.
 
-![A screenshot of a computer Description automatically
-generated](./media/image235.png)
+     ![](./media/image235.png)
 
 5.  On the OneLake data hub tab, select the ***StockLakehouse***  and
     click on the **Add** button.
 
-![A screenshot of a computer Description automatically
-generated](./media/image149.png)
+     ![](./media/image149.png)
 
 6.  Select and run each cell individually.
 
-![A screenshot of a computer program Description automatically
-generated](./media/image252.png)
+     ![](./media/image252.png)
 
 7.  Function adds symbols to dim_symbol that may not exist in table,
     select and **Run** the 2^(nd) and 3^(rd) cells.
 
-![A screenshot of a computer Description automatically
-generated](./media/image253.png)
-
-![A screenshot of a computer program Description automatically
-generated](./media/image254.png)
+    ![](./media/image253.png)
+    ![](./media/image254.png)
 
 8.  To get new stock data to ingest, starting at watermark, select and
     run the 4^(th) cell.
 
-![A screenshot of a computer Description automatically
-generated](./media/image255.png)
+    ![](./media/image255.png)
 
 9.  Load the date dimension for later joins, select and **Run** the
     5^(th), 6^(th), and 7^(th) cells.
 
-![A screenshot of a computer Description automatically
-generated](./media/image256.png)
-
-![A screenshot of a computer program Description automatically
-generated](./media/image257.png)
-
-![A screenshot of a computer Description automatically
-generated](./media/image258.png)
-
-![A screenshot of a computer Description automatically
-generated](./media/image259.png)
+    ![](./media/image256.png)
+    ![](./media/image257.png)
+    ![](./media/image258.png)
+    ![](./media/image259.png)
 
 10. To join the aggregated data to the date dimension, select and
     **Run** the 8^(th) and 9^(th) cells.
 
-![A screenshot of a computer Description automatically
-generated](./media/image260.png)
-
-![A screenshot of a computer Description automatically
-generated](./media/image261.png)
-
+    ![](./media/image260.png)
+    ![](./media/image261.png)
 11. Create a final view with cleaned names for processing ease, select
     and **Run** the 10^(th), 11^(th) , and 12^(th) cells.
 
-![A screenshot of a computer Description automatically
-generated](./media/image262.png)
-
-![A screenshot of a computer Description automatically
-generated](./media/image263.png)
-
-![A screenshot of a computer Description automatically
-generated](./media/image264.png)
+    ![](./media/image262.png)
+    ![](./media/image263.png)
+    ![](./media/image264.png)
 
 12. To obtain the result and plot a graph, select and **Run** 13^(th)
     and 14^(th) cells.
 
-![A screenshot of a computer Description automatically
-generated](./media/image265.png)
-
-![A screenshot of a computer program Description automatically
-generated](./media/image266.png)
-
-![A screenshot of a graph Description automatically
-generated](./media/image267.png)
+    ![](./media/image265.png)
+    ![](./media/image266.png)
+    ![](./media/image267.png)
 
 13. To validate the created tables, right click on the horizontal
     ellipsis (…) beside **Tables,** then navigate and click on
     **Refresh.** The tables will appear.
 
-![A screenshot of a computer Description automatically
-generated](./media/image268.png)
+    ![](./media/image268.png)
 
 14. To schedule the notebook to run periodically, click on
-    the ***Run*** tab, and click on ***Schedule** as shown in the below
-    image.*
+    the  **Run**  tab, and click on  **Schedule** as shown in the below
+    image. 
 
-![A screenshot of a computer Description automatically
-generated](./media/image269.png)
+     ![](./media/image269.png)
 
 15. In Lackhouse 4-Load Star Schema tab, select the below details and
     click on the **Apply** button.
 
-- Schedule run: **On**
+    - Schedule run: **On**
+    
+    - Repeat : **Hourly**
+    
+    - Every: **4 hours**
+    
+    - Select today date
 
-- Repeat**: Hourly**
-
-- Every: **4 hours**
-
-- Select today date
-
-![A screenshot of a computer Description automatically
-generated](./media/image270.png)
+     ![](./media/image270.png)
 
 ## Task 3: Build semantic model and simple report
 
@@ -2032,136 +1797,113 @@ reporting, and create a simple Power BI report.
 
 1.  Now, click on **StocksLakehouse** on the left-sided navigation menu.
 
-![A screenshot of a computer Description automatically
-generated](./media/image271.png)
+     ![](./media/image271.png)
 
-2.  In the ***StocksLakehouse** window,* navigate and click on ***New
-    semantic model** in the command bar.*
+2.  In the ***StocksLakehouse** window,  navigate and click on  **New
+    semantic model** in the command bar. 
 
-![A screenshot of a computer Description automatically
-generated](./media/image272.png)
+    ![](./media/image272.png)
 
-3.  Name the model +++***StocksDimensionalModel+++* **and select the
+3.  Name the model +++ StocksDimensionalModel+++ and select the
     **fact_stocks_daily_prices**, **dim_date** and **dim_symbol**
     tables. Then, click on the **Confirm** button.
 
-![A screenshot of a computer Description automatically
-generated](./media/image273.png)
-
-![A screenshot of a computer Description automatically
-generated](./media/image274.png)
+     ![](./media/image273.png)
+      ![](./media/image274.png)
 
 4.  When the semantic model opens, we need to define relationships
     between the fact and dimension tables.
 
 5.  From the **fact_Stocks_Daily_Prices** table, drag
-    the ***Symbol_SK***  field and drop it on
-    the ***Symbol_SK***   field in the **dim_Symbol** table to create a
+    the  **Symbol_SK**   field and drop it on
+    the  **Symbol_SK**    field in the **dim_Symbol** table to create a
     relationship. The **New relationship** dialog box appears.
 
-![A screenshot of a computer Description automatically
-generated](./media/image275.png)
+     ![](./media/image275.png)
 
 6.  In the **New relationship** dialog box:
 
-- **From table** is populated with **fact_Stocks_Daily_Prices** and the
-  column of **Symbol_SK.**
+      - **From table** is populated with **fact_Stocks_Daily_Prices** and the
+        column of **Symbol_SK.**
+      
+      - **To table** is populated with **dim_symbol**  and the column of
+        **Symbol_SK**
+      
+      - Cardinality: **Many to one (*:1)**
+      
+      - Cross filter direction: **Single**
+      
+      - Leave the box next to **Make this relationship active** selected.
+      
+      - Select **Save.**
 
-- **To table** is populated with **dim_symbol**  and the column of
-  **Symbol_SK**
-
-- Cardinality: **Many to one (\*:1)**
-
-- Cross filter direction: **Single**
-
-- Leave the box next to **Make this relationship active** selected.
-
-- Select **Save.**
-
-![A screenshot of a computer Description automatically
-generated](./media/image276.png)
-
-![A screenshot of a computer Description automatically
-generated](./media/image277.png)
+    ![](./media/image276.png)
+    ![](./media/image277.png)
 
 7.  From the **fact_Stocks_Daily_Prices** table, drag
     the ***PrinceDateKey***  field and drop it on
     the ***DateKey***   field in the **dim_date** table to create a
     relationship. The **New relationship** dialog box appears.
 
-![A screenshot of a computer Description automatically
-generated](./media/image278.png)
+    ![](./media/image278.png)
 
 8.  In the **New relationship** dialog box:
 
-- **From table** is populated with **fact_Stocks_Daily_Prices** and the
-  column of **PrinceDateKey.**
+    - **From table** is populated with **fact_Stocks_Daily_Prices** and the
+      column of **PrinceDateKey.**
+    
+    - **To table** is populated with **dim_date**  and the column of
+      **DateKey**
+    
+    - Cardinality: **Many to one (*:1)**
+    
+    - Cross filter direction: **Single**
+    
+    - Leave the box next to **Make this relationship active** selected.
+    
+    - Select **Ok.**
 
-- **To table** is populated with **dim_date**  and the column of
-  **DateKey**
+    ![](./media/image279.png)
+    ![](./media/image280.png)
 
-- Cardinality: **Many to one (\*:1)**
+9.  Click  **New Report**  to load the semantic model in Power BI.
 
-- Cross filter direction: **Single**
-
-- Leave the box next to **Make this relationship active** selected.
-
-- Select **Ok.**
-
-![A screenshot of a computer Description automatically
-generated](./media/image279.png)
-
-![A screenshot of a computer Description automatically
-generated](./media/image280.png)
-
-9.  Click ***New Report*** to load the semantic model in Power BI.
-
-![A screenshot of a computer Description automatically
-generated](./media/image281.png)
+     ![](./media/image281.png)
 
 10. In the **Power BI** page, under **Visualizations**, click to the
     **Line chart** icon to add a **Column chart** to your report.
 
-- On the **Data** pane, expand **fact_Stocks_Daily_Prices**  and check
-  the box next to **PriceDateKey**. This creates a column chart and adds
-  the field to the **X-axis**.
+    - On the **Data** pane, expand **fact_Stocks_Daily_Prices**  and check
+      the box next to **PriceDateKey**. This creates a column chart and adds
+      the field to the **X-axis**.
+    
+    - On the **Data** pane, expand **fact_Stocks_Daily_Prices** and check
+      the box next to **ClosePrice**. This adds the field to the **Y-axis**.
+    
+    - On the **Data** pane, expand **dim_Symbol** and check the box next
+      to **Symbol**. This adds the field to the **Legend**.
 
-- On the **Data** pane, expand **fact_Stocks_Daily_Prices** and check
-  the box next to **ClosePrice**. This adds the field to the **Y-axis**.
-
-- On the **Data** pane, expand **dim_Symbol** and check the box next
-  to **Symbol**. This adds the field to the **Legend**.
-
-![A screenshot of a computer Description automatically
-generated](./media/image282.png)
+    ![](./media/image282.png)
 
 11. Under **Filters,** select **PriceDateKey** and enter the below
-    details. Click on the **Apply filte**r
+    details. Click on the **Apply filter**
 
-- Filter type: **Relative date**
+      - Filter type: **Relative date**
+      
+      - Show items when the value: **is in the last 45 days**
 
-- Show items when the value: **is in the last 45 days**
-
-![A screenshot of a computer Description automatically
-generated](./media/image283.png)
-
-![A screenshot of a computer Description automatically
-generated](./media/image284.png)
+    ![](./media/image283.png)
+    ![](./media/image284.png)
 
 12. From the ribbon, select **File** \> **Save as.**
 
-![A screenshot of a graph Description automatically
-generated](./media/image285.png)
+    ![](./media/image285.png)
 
-13. In the Save your report dialog box, enter +++
-    **StocksDimensional** +++ as the name of your report and select
+13. In the Save your report dialog box, enter +++StocksDimensional+++ as the name of your report and select
     **your workspace**. Click on the **Save button.**
 
-![A screenshot of a computer Description automatically
-generated](./media/image286.png)
-
-![A screenshot of a computer Description automatically
-generated](./media/image287.png)
+    ![](./media/image286.png)
+    ![](./media/image287.png)
 
 # Exercise 8: Building and storing an ML model
 
@@ -2170,68 +1912,52 @@ generated](./media/image287.png)
 1.  In the **StockDimensionalModel** page, click on
     **RealTimeWorkspace** on the left-sided navigation menu.
 
-![A screenshot of a computer Description automatically
-generated](./media/image288.png)
+    ![](./media/image288.png)
 
 2.  In the **Synapse Data Engineering** workspace page, navigate and
     click on **+New** button, then select **Import notebook.**
 
-![A screenshot of a computer Description automatically
-generated](./media/image289.png)
+    ![](./media/image289.png)
 
 3.  In the **Import status** pane that appear on the right side, click
     on **Upload** .
 
-![A screenshot of a computer Description automatically
-generated](./media/image290.png)
+      ![](./media/image290.png)
 
 4.  Navigate to **C:\LabFiles\Lab 05** and select **DS 1-Build Model, DS
     2-Predict Stock Prices and DS 3-Forecast All** notebooks, then click
     on the **Open** button.
 
-![A screenshot of a computer Description automatically
-generated](./media/image291.png)
+     ![](./media/image291.png)
 
 5.  You will see a notification stating - **Imported successfully.**
 
-![A screenshot of a computer Description automatically
-generated](./media/image292.png)
+    ![](./media/image292.png)
+    ![](./media/image293.png)
 
-![A screenshot of a computer Description automatically
-generated](./media/image293.png)
-
-6.  *In the **RealTimeWorkspace**,* click on **DS 1-Build Model**
+6.   In the **RealTimeWorkspace**,  click on **DS 1-Build Model**
     notebook.
-
-![A screenshot of a computer Description automatically
-generated](./media/image294.png)
+    ![](./media/image294.png)
 
 7.  Under the Explorer, select **Lakehouse** and click on the
-    ***Add *button.**
+     **Add** button. 
 
-> ***Important*:** You will need to add the Lakehouse to every imported
-> notebook -- do this each time you open a notebook for the first time.
+      ***Important*:** You will need to add the Lakehouse to every imported
+      notebook -- do this each time you open a notebook for the first time.
 
-![A screenshot of a computer Description automatically
-generated](./media/image295.png)
-
-![A screenshot of a computer Description automatically
-generated](./media/image296.png)
+     ![](./media/image295.png)
+      ![](./media/image296.png)
 
 8.  In the **Add Lakehouse** dialog box, select **Existing lakehouse**
     radio button, then click on the **Add** button.
 
-![A screenshot of a computer Description automatically
-generated](./media/image297.png)
+     ![](./media/image297.png)
 
 9.  On the OneLake data hub window, select the ***StockLakehouse*** and
     click on the **Add** button.
 
-![A screenshot of a computer Description automatically
-generated](./media/image298.png)
-
-![A screenshot of a computer Description automatically
-generated](./media/image299.png)
+    ![](./media/image298.png)
+    ![](./media/image299.png)
 
 ## Task 2: Explore and run the notebook
 
@@ -2268,8 +1994,7 @@ the model as necessary (daily/weekly/monthly).
 1.  In 1^(st) cell uncomment the STOCK_SYMBOL=”IDGD” and
     STOCK_SYMBOL=”BCUZ”, then select and **Run** the cell.
 
-![A screenshot of a computer Description automatically
-generated](./media/image300.png)
+      ![](./media/image300.png)
 
 2.  Click ***Run all*** in the top toolbar and follow along as the work
     progresses.
@@ -2278,105 +2003,51 @@ generated](./media/image300.png)
     steps, like **training the model** and **cross validation**, will
     take some time.
 
-![A screenshot of a computer Description automatically
-generated](./media/image301.png)
-
-![A screenshot of a computer Description automatically
-generated](./media/image302.png)
-
-![A screenshot of a computer Description automatically
-generated](./media/image303.png)
-
-![A screenshot of a computer code Description automatically
-generated](./media/image304.png)
-
-![A screenshot of a computer program Description automatically
-generated](./media/image305.png)
-
-![A screenshot of a computer program Description automatically
-generated](./media/image306.png)
-
-![A screenshot of a computer Description automatically
-generated](./media/image307.png)
-
-![A screenshot of a computer program Description automatically
-generated](./media/image308.png)
-
-![A screenshot of a computer Description automatically
-generated](./media/image309.png)
-
-![A screenshot of a computer program Description automatically
-generated](./media/image310.png)
-
-![A screen shot of a computer Description automatically
-generated](./media/image311.png)
-
-![A screen shot of a graph Description automatically
-generated](./media/image312.png)
-
-![A graph with a line going up Description automatically
-generated](./media/image313.png)
-
-![A graph of a graph Description automatically generated with medium
-confidence](./media/image314.png)
-
-![A screenshot of a computer Description automatically
-generated](./media/image315.png)
-
-![A screen shot of a graph Description automatically
-generated](./media/image316.png)
-
-![A screenshot of a computer code Description automatically
-generated](./media/image317.png)
-
-![A screenshot of a computer Description automatically
-generated](./media/image318.png)
-
-![A screenshot of a computer Description automatically
-generated](./media/image319.png)
-
-![A screenshot of a computer program Description automatically
-generated](./media/image320.png)
-
-![A graph with a blue line Description automatically
-generated](./media/image321.png)
-
-![A graph showing a graph Description automatically generated with
-medium confidence](./media/image322.png)
-
-![A screenshot of a computer program Description automatically
-generated](./media/image323.png)
-
-![A screenshot of a computer Description automatically
-generated](./media/image324.png)
-
-![A screenshot of a computer program Description automatically
-generated](./media/image325.png)
-
-![A screenshot of a computer Description automatically
-generated](./media/image326.png)
-
-![A screenshot of a computer code Description automatically
-generated](./media/image327.png)
+      ![](./media/image301.png)
+      ![](./media/image302.png)
+      ![](./media/image303.png)
+      ![](./media/image304.png)
+      ![](./media/image305.png)
+      ![](./media/image306.png)
+      ![](./media/image307.png)
+      ![](./media/image308.png)
+      ![](./media/image309.png)
+      ![](./media/image310.png)
+      ![](./media/image311.png)
+      ![](./media/image312.png)
+      ![](./media/image313.png)
+      ![](./media/image314.png)
+      ![](./media/image315.png)
+      ![](./media/image316.png)
+      ![](./media/image317.png)
+      ![](./media/image318.png)
+      ![](./media/image319.png)
+      ![](./media/image320.png)
+      ![](./media/image321.png)
+      ![](./media/image322.png)
+      ![](./media/image323.png)
+      ![](./media/image324.png)
+      ![](./media/image325.png)
+      ![](./media/image326.png)
+      ![](./media/image327.png)
 
 ##  Task 3: Examine the model and runs
 
 1.  Now, click on **RealTimeWorkspace** on the left-sided navigation
     menu.
 
-![](./media/image328.png)
+    ![](./media/image328.png)
 
 2.  Experiments and runs can be viewed in the workspace resource list.
 
-![](./media/image329.png)
+    ![](./media/image329.png)
 
 3.  In the **RealTimeWorkspace** page, select
     **WHO-stock-prediction-model** of ML model type.
 
-![](./media/image330.png)
+     ![](./media/image330.png)
 
-![A screenshot of a computer Description automatically
-generated](./media/image331.png)
+     ![](./media/image331.png)
 
 4.  Metadata, in our case, includes input parameters we may tune for our
     model, as well as metrics on the model's accuracy, such as root mean
@@ -2385,7 +2056,7 @@ generated](./media/image331.png)
     numbers show an increase error. While lower numbers are better, a
     "good" number is subjective based on the scenario.
 
-![](./media/image332.png)
+     ![](./media/image332.png)
 
 # Exercise 9-Using models, saving to Lakehouse, building a report
 
@@ -2413,77 +2084,74 @@ completes these tasks at a high level:
 1.  Now,click on **RealTimeWorkspace** on the left-sided navigation
     pane.
 
-![](./media/image328.png)
+    ![](./media/image328.png)
 
 2.  *In the **RealTime*****Workspace**, click on the **DS 2-Predict
     Stock Prices** notebook.
 
-![](./media/image333.png)
+    ![](./media/image333.png)
 
 3.  Under the Explorer, select the **Lakehouse**, then click on the
-    ***Add ***button*.*
+     **Add**button . 
 
-![](./media/image334.png)
+    ![](./media/image334.png)
 
-![](./media/image335.png)
+    ![](./media/image335.png)
 
 4.  In the **Add Lakehouse** dialog box, select **Existing lakehouse**
     radio button, then click on the **Add** button.
 
-![A screenshot of a computer Description automatically
-generated](./media/image297.png)
+     ![](./media/image297.png)
 
 5.  On the OneLake data hub window, select the ***StockLakehouse*** and
     click on the **Add** button.
 
-![A screenshot of a computer Description automatically
-generated](./media/image298.png)
+    ![](./media/image298.png)
 
-![A screenshot of a computer Description automatically
-generated](./media/image336.png)
+    ![](./media/image236.png)
 
 ## Task 2: Run the notebook
 
 1.  Creates the stock predictions table in the Lakehouse, select and
     **Run** the 1^(st) and 2^(nd) cells.
 
-![](./media/image337.png)
-
-![](./media/image338.png)
+    ![](./media/image337.png)
+    
+    ![](./media/image338.png)
 
 2.  Gets a list of all stock symbols, select and **Run** the 3^(rd) and
     4^(th) cells.
 
-![](./media/image339.png)
-
-![](./media/image340.png)
+    ![](./media/image339.png)
+    
+    ![](./media/image340.png)
 
 3.  Creates a prediction list by examining available ML models in
     MLflow, select and **Run** the 7^(th), 8^(th) , 9^(th) , and 10^(th)
     cells.
 
-![](./media/image341.png)
-
-![](./media/image342.png)
-
-![](./media/image343.png)
-
-![](./media/image344.png)
+      ![](./media/image341.png)
+      
+      ![](./media/image342.png)
+      
+      ![](./media/image343.png)
+      
+      ![](./media/image344.png)
 
 4.  To build predictions for each model store in Lakehouse , select and
     **Run** the 11^(th) and 12^(th) cells.
 
-![](./media/image345.png)
-
-![](./media/image346.png)
+      ![](./media/image345.png)
+      
+      ![](./media/image346.png)
 
 5.  When all cells have been run, refresh the schema by clicking on the
     three dots **(...)** beside *Tables,* then navigate and click on
     ***Refresh*.**
 
-![](./media/image347.png)
-
-![](./media/image348.png)
+    ![](./media/image347.png)
+    
+    ![](./media/image348.png)
 
 # Exercise 10: Solution in practice
 
@@ -2536,37 +2204,32 @@ a few key things:
 1.  Now, click on **RealTimeWorkspace** on the left-sided navigation
     menu.
 
-![](./media/image328.png)
+    ![](./media/image328.png)
 
-2.  *In the **RealTimeWorkspace***, click on the **DS 3-Forecast All**
+2.   In the **RealTimeWorkspace***, click on the **DS 3-Forecast All**
     notebook.
-
-![](./media/image349.png)
+    ![](./media/image349.png)
 
 3.  Under the Explorer select the **Lakehouse** and click on the
-    ***Add .***
+     **Add .** 
 
-![A screenshot of a computer Description automatically
-generated](./media/image334.png)
+      ![](./media/image334.png)
 
-![A screenshot of a computer Description automatically
-generated](./media/image335.png)
+      ![](./media/image335.png)
 
 4.  In the **Add Lakehouse** dialog box, select **Existing lakehouse**
     radio button, then click on the **Add** button.
 
-![A screenshot of a computer Description automatically
-generated](./media/image297.png)
+      ![](./media/image297.png)
 
 5.  On the OneLake data hub window, select the ***StockLakehouse*** and
     click on the **Add** button.
 
-![A screenshot of a computer Description automatically
-generated](./media/image298.png)
+      ![](./media/image298.png)
 
 6.  Select and **Run** the 1^(st) cell.
 
-![](./media/image350.png)
+      ![](./media/image350.png)
 
 7.  Click ***Run all*** in the command and follow along as the work
     progresses.
@@ -2574,50 +2237,34 @@ generated](./media/image298.png)
 8.  Running the notebook for all symbols could take 10 minutes.
     ![](./media/image351.png)
 
-![](./media/image352.png)
+    ![](./media/image352.png)
 
-![](./media/image353.png)
+    ![](./media/image353.png)
 
-![](./media/image354.png)
+      ![](./media/image354.png)
+      
+      ![](./media/image355.png)
+      
+      ![](./media/image356.png)
+      
+      ![](./media/image357.png)
 
-![](./media/image355.png)
-
-![](./media/image356.png)
-
-![](./media/image357.png)
-
-![A screenshot of a computer program Description automatically
-generated](./media/image358.png)
-
-![A graph showing the growth of the stock market Description
-automatically generated](./media/image359.png)
-
-![A graph showing different colored lines Description automatically
-generated](./media/image360.png)
-
-![A graph showing different colored lines Description automatically
-generated](./media/image361.png)
-
-![A graph showing different colored lines Description automatically
-generated](./media/image362.png)
-
-![A graph of different colored lines Description automatically
-generated](./media/image363.png)
-
-![A graph showing the growth of a company Description automatically
-generated](./media/image364.png)
-
-![A graph showing different colored lines Description automatically
-generated](./media/image365.png)
-
-![A graph showing different colored lines Description automatically
-generated](./media/image366.png)
+       ![](./media/image358.png)
+       ![](./media/image359.png)
+        ![](./media/image360.png)
+        ![](./media/image361.png)
+        ![](./media/image362.png)
+        ![](./media/image363.png)
+        ![](./media/image364.png)
+        ![](./media/image365.png)
+        ![](./media/image366.png)
+         
 
 9.  When all cells have been run, refresh the schema by clicking the
     three dots **(...)** dots to the right of the *Tables*, then
     navigate and click on ***Refresh*.**
 
-![](./media/image367.png)
+     ![](./media/image367.png)
 
 # Exercise 12: Building a Prediction Report
 
@@ -2632,30 +2279,28 @@ and enrichments like measures to make developing reports easier
 
 1.  Click on **RealTimeWorkspace** on the left-sided navigation menu.
 
-![](./media/image368.png)
+    ![](./media/image368.png)
 
 2.  To create a semantic model, navigate and click on the Lakehouse
     i.e., **StackLakehouse.**
 
-![](./media/image369.png)
+    ![](./media/image369.png)
+    
+    ![](./media/image370.png)
 
-![](./media/image370.png)
-
-3.  In the ***StocksLakehouse** page,* click on ***New semantic model***
+3.  In the  **StocksLakehouse** page,  click on ***New semantic model***
     in the command bar.
 
-![](./media/image371.png)
+    ![](./media/image371.png)
 
 4.  In the **New semantic model** pane **Name** field, enter the name of
     the model as ***StocksLakehousePredictions**,* select the
     **stock_prediction**, and **dim_symbol** tables. Then, click on the
     **Confirm** button as shown in the below image.
 
-![](./media/image372.png)
+    ![](./media/image372.png)
 
-![A screenshot of a computer Description automatically
-generated](./media/image373.png)
-
+    ![](./media/image373.png)
 5.  When the semantic model opens, we need to define relationships
     between the stock_prediction and dim_symbol tables.
 
@@ -2664,27 +2309,27 @@ generated](./media/image373.png)
     to create a relationship. The **New relationship** dialog box
     appears.
 
-![](./media/image374.png)
+    ![](./media/image374.png)
 
 7.  In the **New relationship** dialog box:
 
-- **From table** is populated with **stock_prediction** and the column
-  of **Symbol.**
-
-- **To table** is populated with **dim_symbol**  and the column of
-  **Symbol.**
-
-- Cardinality: **Many to one (\*:1)**
-
-- Cross filter direction: **Single**
-
-- Leave the box next to **Make this relationship active** selected.
-
-- Select **Ok**
-
-![](./media/image375.png)
-
-![](./media/image376.png)
+      - **From table** is populated with **stock_prediction** and the column
+        of **Symbol.**
+      
+      - **To table** is populated with **dim_symbol**  and the column of
+        **Symbol.**
+      
+      - Cardinality: **Many to one (\*:1)**
+      
+      - Cross filter direction: **Single**
+      
+      - Leave the box next to **Make this relationship active** selected.
+      
+      - Select **Ok**
+      
+      ![](./media/image375.png)
+      
+      ![](./media/image376.png)
 
 ## Task 2: Build the report in Power BI Desktop
 
@@ -2694,94 +2339,78 @@ generated](./media/image373.png)
 
 2.  Click on the **Download free** button.
 
-![](./media/image377.png)
+    ![](./media/image377.png)
 
-10. In case, **This site is trying to open Microsoft Store** dialog box
+3. In case, **This site is trying to open Microsoft Store** dialog box
     appears, then click on **Open** button.
 
-![](./media/image378.png)
+    ![](./media/image378.png)
 
-11. Under **Power BI Desktop**, click on the **Get** button.
-
-![A screenshot of a computer Description automatically
-generated](./media/image379.png)
+4. Under **Power BI Desktop**, click on the **Get** button.
+       ![](./media/image379.png)
 
 12. Now, click on the **Open** button.
 
-![A screenshot of a computer Description automatically
-generated](./media/image380.png)
+     ![](./media/image380.png)
 
 13. Enter your **Microsoft Office 365** **tenant** credentials and click
     on the **Next** button.
 
-![A screenshot of a computer Description automatically
-generated](./media/image381.png)
+     ![](./media/image381.png)
 
 14. Enter the **Administrative password** from the **Resources** tab and
-    click on the **Sign in** button**.**
+    click on the **Sign in** button . 
 
-![A screenshot of a computer Description automatically
-generated](./media/image382.png)
+     ![](./media/image382.png)
 
 15. In Power BI Desktop, select **New.**
 
-![A screenshot of a computer Description automatically
-generated](./media/image383.png)
+     ![](./media/image383.png)
 
 16. , On the *Home* ribbon, click the ***OneLake data hub*** and select
     **KQL Database.**
 
-![A screenshot of a computer Description automatically
-generated](./media/image384.png)
+      ![](./media/image384.png)
 
 17. On the **OneLake data hub** window, select the **StockDB**  and
     click on the **Connect** button.
 
-![A screenshot of a computer Description automatically
-generated](./media/image385.png)
+      ![](./media/image385.png)
 
 18. Enter your **Microsoft Office 365** tenant credentials and click on
     the **Next** button.
 
-![A screenshot of a computer Description automatically
-generated](./media/image386.png)
+      ![](./media/image386.png)
 
 19. Enter the **Administrative password** from the **Resources** tab and
-    click on the **Sign in** button**.**
+    click on the **Sign in** button . 
 
-![A screenshot of a login box Description automatically
-generated](./media/image387.png)
+    ![](./media/image387.png)
 
 20. In the Navigator page, under **Display Options**, select
     **StockPrice** table, then click on the **Load** button.
 
-![A screenshot of a computer Description automatically
-generated](./media/image388.png)
+      ![](./media/image388.png)
 
 21. In the ***Connection settings*** dialog box, select ***DirectQuery**
     radio button and click on **OK** button.*
 
-![A screenshot of a computer Description automatically
-generated](./media/image389.png)
+      ![](./media/image389.png)
 
 22. On the ***Home*** ribbon, click the ***OneLake data hub*** and
     select **Power BI semantic models** as shown in the below image.
 
-![A screenshot of a computer Description automatically
-generated](./media/image390.png)
-
+      ![](./media/image390.png)
 23. On the **OneLake data hub** window, select
     the **StockLakehousePredictions** from the list and click on the
     **Connect** button.
 
-![A screenshot of a computer Description automatically
-generated](./media/image391.png)
+      ![](./media/image391.png)
 
 24. In the **Connect to your data** page, select **dim_symbol,
     stock_prediction**, and click on the **Submit** button.
 
-![A screenshot of a computer Description automatically
-generated](./media/image392.png)
+   ![](./media/image391.png)
 
 25. In this case, we can dismiss the **Potential security risk** warning
     by clicking on the **OK** button.
