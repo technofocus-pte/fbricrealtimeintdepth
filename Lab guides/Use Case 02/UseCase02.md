@@ -668,31 +668,4 @@ falls below a certain threshold.
 
     ![](./media/image110.png)
 
-4.  Open your browser, navigate to the address bar, type or paste the
-    following URL:
-    [*https://portal.azure.com/*](https://portal.azure.com/), then press
-    the **Enter** button.
-
-5.  To delete the fabric account, navigate to **Azure portal Home**
-    page, click on **Resource groups**.
-
-    ![](./media/image111.png)
-
-6.  Click on the resource group that you’ve created.
-
-    ![](./media/image112.png)
-
-7.  In the Resource group home page, select the **Delete resource
-    group** button
-
-    ![](./media/image113.png)
-
-8.  In the **Delete Resources** pane that appears on the right side,
-    navigate to **Enter “resource group name” to confirm deletion**
-    field, then click on the **Delete** button.
-
-    ![](./media/image114.png)
-    
-    ![](./media/image115.png)
-
-    ![](./media/image116.png)
+   
