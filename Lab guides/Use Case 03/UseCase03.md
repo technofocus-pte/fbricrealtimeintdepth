@@ -2543,48 +2543,38 @@ and enrichments like measures to make developing reports easier
     visuals should react accordingly. As shown in the below image, the
     **NASDAQ** market is selected on the upper-right market chart:
 
-![A screenshot of a computer Description automatically
-generated](./media/image416.png)
+    ![](./media/image416.png)
+    ![](./media/image417.png)
+40. Click on the  **Publish** in the command bar. 
 
-![A screenshot of a computer Description automatically
-generated](./media/image417.png)
-
-40. Click on the ***Publish** in the command bar.*
-
-![A screenshot of a computer Description automatically
-generated](./media/image418.png)
+      ![](./media/image418.png)
 
 41. In **Microsoft Power BI Desktop** dialog box, click on the **Save**
     button.
 
-![A screenshot of a computer Description automatically
-generated](./media/image419.png)
+    ![](./media/image419.png)
 
 42. In **Save this file** dialog box, enter the Name as **Prediction
     Report** and select the location. Then, click on the **Save**
     button.
 
-![A screenshot of a computer Description automatically
-generated](./media/image420.png)
+    ![](./media/image420.png)
 
 ## Task 3: Clean up resources
 
 1.  Select your workspace, the  ***RealTimeFabricWorkspaceXXX***  from
     the left-hand navigation menu. It opens the workspace item view.
 
-![A screenshot of a computer Description automatically
-generated](./media/image421.png)
+    ![](./media/image421.png)
 
 2.  Select the ***...*** option under the workspace name and
     select **Workspace settings**.
 
-![A screenshot of a computer Description automatically
-generated](./media/image422.png)
+    ![](./media/image422.png)
 
 3.  Select **General** and **Remove this workspace.**
 
-![A screenshot of a computer Description automatically
-generated](./media/image423.png)
+     ![](./media/image423.png)
 
 4.  Open your browser, navigate to the address bar, type or paste the
     following URL:
@@ -2594,62 +2584,48 @@ generated](./media/image423.png)
 5.  To delete the fabric account, navigate to **Azure portal Home**
     page, click on **Resource groups**.
 
-![A screenshot of a computer Description automatically
-generated](./media/image424.png)
+    ![](./media/image424.png)
 
 6.  Click on the resource group that you’ve created.
 
-![A screenshot of a computer Description automatically
-generated](./media/image425.png)
+    ![](./media/image425.png)
 
 7.  In the Resource group home page, select the **Delete resource
     group** button
 
-![A screenshot of a computer Description automatically
-generated](./media/image426.png)
+      ![](./media/image426.png)
 
 8.  In the **Delete Resources** pane that appears on the right side,
     navigate to **Enter “resource group name” to confirm deletion**
     field, then click on the **Delete** button.
 
-![A screenshot of a computer Description automatically
-generated](./media/image427.png)
-
-![A screenshot of a computer error Description automatically
-generated](./media/image428.png)
-
-![A screenshot of a computer Description automatically
-generated](./media/image429.png)
+    ![](./media/image427.png)
+    ![](./media/image428.png)
+    ![](./media/image429.png)
 
 9.  Navigate to **Azure portal Home** page, click on **Resource
     groups**.
 
-![A screenshot of a computer Description automatically
-generated](./media/image424.png)
+      ![](./media/image424.png)
 
 10. Click on the resource group that you’ve created.
 
-![A screenshot of a computer Description automatically
-generated](./media/image430.png)
+      ![](./media/image430.png)
 
 11. In the Resource group home page, select the **Delete resource
     group** button
 
-![A screenshot of a computer Description automatically
-generated](./media/image431.png)
+      ![](./media/image431.png)
 
 12. In the **Delete Resources** pane that appears on the right side,
     navigate to **Enter “resource group name” to confirm deletion**
     field, then click on the **Delete** button.
 
-![A screenshot of a computer Description automatically
-generated](./media/image432.png)
-
-![A screenshot of a computer error Description automatically
-generated](./media/image428.png)
-
-![A screenshot of a computer Description automatically
-generated](./media/image429.png)
+      ![](./media/image432.png)
+      
+      ![](./media/image428.png)
+      
+      ![](./media/image429.png)
 
 **Summary**
 
