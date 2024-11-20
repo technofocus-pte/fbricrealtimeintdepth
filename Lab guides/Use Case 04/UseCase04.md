@@ -1,3 +1,5 @@
+# **Use case 04: Building real-time Medallion Architecture in KQL using update policy**
+
 **Introduction**
 
 A medallion architecture (also coined by Databricks) is a data design
@@ -38,7 +40,7 @@ Gold layer 
 
 - Built for dashboards.
 
-![RTIComponents](./media/image1.png)
+![](./media/image1.png)
 
 **Objective**
 
@@ -68,76 +70,69 @@ dataflows, Data Factory pipelines, the notebooks, Power BI datasets, and
 reports.
 
 1.  Open your browser, navigate to the address bar, and type or paste
-    the following URL: +++<https://app.fabric.microsoft.com/>+++ then
+    the following URL: +++https://app.fabric.microsoft.com/+++ then
     press the **Enter** button. In the **Microsoft Fabric Home** page,
     navigate and click on **Power BI** tile.
 
-> ![A screenshot of a computer Description automatically
-> generated](./media/image2.png)
-
+    ![](./media/image2.png)
 2.  In the **Power BI Home** page left-sided navigation menu, navigate
     and click on **Workspaces** as shown in the below image.
 
-> ![A screenshot of a computer Description automatically
-> generated](./media/image3.png)
+    ![](./media/image3.png)
 
 3.  In the Workspaces pane, click on **+** **New workspace button**
 
-> ![A screenshot of a computer Description automatically
-> generated](./media/image4.png)
+    ![](./media/image4.png)
 
 4.  In the **Create a workspace** pane that appears on the right side,
     enter the following details, and click on the **Apply** button.
 
-[TABLE]
+      |   |   |
+      |---|---|
+      |Name|	+++RTI-Medallion+++|
+      |Advanced|	Select Fabric Trial|
+      |Default storage format|	Small dataset storage format|
 
-> ![A screenshot of a computer Description automatically
-> generated](./media/image5.png)
->
-> ![A screenshot of a computer Description automatically
-> generated](./media/image6.png)
 
-![A screenshot of a computer Description automatically
-generated](./media/image7.png)
+     ![](./media/image5.png)
+      ![](./media/image6.png)
+       ![](./media/image7.png)
 
 ## Task 2: Create a new Eventhouse
 
 1.  On the bottom left experience switcher, select **Real-Time
     Intelligence**.
 
-> ![](./media/image8.png)
+     ![](./media/image8.png)
 
 2.  On the **Real-Time Intelligence** home page, select **Eventhouse**.
-    Name the Eventhouse +++ **WebEvents_EH**+++ and click on the
+    Name the Eventhouse **+++WebEvents_EH+++** and click on the
     **Create** button.
 
-> ![A screenshot of a computer Description automatically
-> generated](./media/image9.png)
->
-> ![](./media/image10.png)
+      ![](./media/image9.png)
+     
+       ![](./media/image10.png)
 
 3.  When provisioning is complete, the eventhouse **System
     overview** page is shown.
 
-> ![A screenshot of a computer Description automatically
-> generated](./media/image11.png)
+     ![](./media/image11.png)
 
 ## Task 3: Turn on OneLake availability
 
 1.  From the **System overview** page, select the **WebEvents_EH** KQL
     database you created in the previous task.
 
-> ![](./media/image12.png)
+     ![](./media/image12.png)
 
 2.  In the **Database details** section, click on the **OneLake
     availability** as shown in the below image to change the setting
     and, then click on the **Turn on** Toggle the button enable OneLake
     access.
 
-![](./media/image13.png)
+    ![](./media/image13.png)
 
-> ![A screenshot of a computer Description automatically
-> generated](./media/image14.png)
+     ![](./media/image14.png)
 
 ## **Task 4: Create a new Eventstream**
 
@@ -147,42 +142,40 @@ eventstream and consumed by our Eventhouse KQL Database.
 
 1.  Now, click on **RTI-Medallian** on the left-sided navigation pane.
 
-> ![A screenshot of a computer Description automatically
-> generated](./media/image15.png)
+     ![](./media/image15.png)
 
-2.  From your workspace, click on ***+** New **item \> **Eventstream as
-    shown in the below image.* Enter **Eventstream** as
-    +++**WebEventsStream_ES**+++
+2.  From your workspace, click on  **+ New item** \> **Eventstream** as
+    shown in the below image.  Enter **Eventstream** as
+    +++WebEventsStream_ES+++
 
-> ![A screenshot of a computer Description automatically
-> generated](./media/image16.png)
->
-> ![](./media/image17.png)
+      ![](./media/image16.png)
+     
+      ![](./media/image17.png)
 
 3.  On the Screen **Design a flow to ingest, transform, and route
     streaming events** click on **Use Custom Endpoint**. This will
     create an event hub connected to the Eventstream.
 
-![](./media/image18.png)
+    ![](./media/image18.png)
 
 4.  Insert +++WebEventsCustomSource+++ as the source name and the click
     on **Add**.
 
-![](./media/image19.png)
+     ![](./media/image19.png)
 
 5.  Click on the **Publish** button.
 
-![](./media/image20.png)
+    ![](./media/image20.png)
 
 6.  Now the Eventstream will be published and the Event Hub will be
     created.
 
-7.  On the **Eventstream** pane**,** select the **keys** under the
+7.  On the **Eventstream** pane ,  select the **keys** under the
     **Details**, select **SAS key Authentication ,** copy the **Event
     hub name**, **connection strings-primarykey** and paste them on a
     notepad, as you need them in the upcoming task
 
-![](./media/image21.png)
+    ![](./media/image21.png)
 
 Note: It does not matter if you copy the primary or secondary connection
 string.
@@ -191,68 +184,65 @@ string.
 
 1.  Now, click on **RTI-Medallian** on the left-sided navigation pane.
 
-> ![A screenshot of a computer Description automatically
-> generated](./media/image15.png)
+       ![](./media/image15.png)
 
 2.  On the **Real-Time Intelligence** page, from the menu bar, navigate
     and click on **-\>|Import** button, then select **Notebook** and
     select **From this computer** as shown in the below image.
 
-![](./media/image22.png)
+    ![](./media/image22.png)
 
 3.  Select **Upload** from the **Import status** pane that appears on
     the right side of the screen.
 
-> ![](./media/image23.png)
+      ![](./media/image23.png)
 
 4.  Navigate and select **Generate synthetic events** notebooks from
     **C:\LabFiles**and click on the **Open** button.
 
-![](./media/image24.png)
+      ![](./media/image24.png)
 
 5.  You will see a notification stating **Imported successfully.**
 
-> ![A screenshot of a computer Description automatically
-> generated](./media/image25.png)
+      ![](./media/image25.png)
 
-6.  *Then*, select the **Generate synthetic events **notebook.
+6.   Then , select the **Generate synthetic events** notebook.
 
-![](./media/image26.png)
+      ![](./media/image26.png)
 
-**Note**: DO NOT use an InPrivate browser window. Recommend using a
-Personal browser window for the Notebook session to connect & run
-successfully.
+      **Note**: DO NOT use an InPrivate browser window. Recommend using a
+      Personal browser window for the Notebook session to connect & run
+      successfully.
 
 7.  To start the notebook, run the the 1^(st) cell.
 
-> ![](./media/image27.png)
->
-> **Note:** It can happen that the notebook will throw some errors in
-> cell 1. These errors are caused by libaries that already have been
-> installed in the environment. You can safely ignore these errors. The
-> notebook will execute successfully regardless of these errors.
->
-> ![](./media/image28.png)
+      ![](./media/image27.png)
+ 
+    **Note:** It can happen that the notebook will throw some errors in
+    cell 1. These errors are caused by libaries that already have been
+    installed in the environment. You can safely ignore these errors. The
+    notebook will execute successfully regardless of these errors.
+   
+    ![](./media/image28.png)
 
 8.  In the **2^(nd)** cell paste the **connection string of your custom
     app source and eventHunNameevents**(the value that you have saved in
     your notepad in the **Task 4\>Step 7)**, select the **Run** icon
     that appears on the left side of the cell.
 
-![](./media/image29.png)
+    ![](./media/image29.png)
 
 9.  Select and run the 3^(rd) ,4^(th) cells
 
-![](./media/image30.png)
+    ![](./media/image30.png)
 
-![](./media/image31.png)
+    ![](./media/image31.png)
 
 10. The last code cell and it should begin to print the generated
     synthetic events in JSON format. The last code cell its still
     running continue the next steps.
 
-![A screenshot of a computer Description automatically
-generated](./media/image32.png)
+    ![](./media/image32.png)
 
 ## Task 6: Define destination in the Eventstream
 
@@ -263,122 +253,142 @@ following steps.
 1.  Now, click on **WebEventStream_ES** on the left-sided navigation
     pane.
 
-![](./media/image33.png)
+    ![](./media/image33.png)
 
 2.  In the event stream authoring canvas, select the **Edit**
 
-> ![](./media/image34.png)
+      ![](./media/image34.png)
 
 3.  Click on the node **Transform events or add Destination** and
     select **Filter** from the menu.
 
-> ![](./media/image35.png)
+      ![](./media/image35.png)
 
 4.  Click on the pencil icon in the node **Filter** to enter edit mode.
 
-![](./media/image36.png)
+    ![](./media/image36.png)
 
 5.  Provide the following values in the pane **Filter** on the left
     side. Then click on **Save**.
 
-[TABLE]
+      |Field|	Value|
+      |--|---|
+      |Operation name|	+++ClickEventsFilter+++|
+      |Select a field to filter on|	eventType|
+      |Keep events when the value|	equals|
+      |value|	CLICK|
 
-> ![](./media/image37.png)
+      ![](./media/image37.png)
 
-**Note: **CLICK is in ALL CAPS.
+      **Note:** CLICK is in ALL CAPS.
 
-**Note**: It is normal that the node ClickEventsFilter is shown with an
-error. The error indicates that there is no target for the datastream
-coming out of the filter. We will fix this in the next step.
+      **Note**: It is normal that the node ClickEventsFilter is shown with an
+      error. The error indicates that there is no target for the datastream
+      coming out of the filter. We will fix this in the next step.
 
 6.  Click on **+** icon next to the **ClickEventsFilter** node. and
     choose **Stream** from the context menu.
 
-> ![](./media/image38.png)
+      ![](./media/image38.png)
 
 7.  Coose **Stream** from the context menu.
 
-> ![](./media/image39.png)
+      ![](./media/image39.png)
 
 8.  Click on the pencil in node **Stream1** to go to edit mode.
-    Enter +++**ClickEventsStream**+++ as name of the Eventstream in the
+    Enter +++ClickEventsStream+++ as name of the Eventstream in the
     field **Stream name**. Ensure that the **Input data
     format** is **Json**. Click on the Button **Save**.
 
-> ![](./media/image40.png)
->
-> ![](./media/image41.png)
+     ![](./media/image40.png)
+ 
+      ![](./media/image41.png)
 
 9.  Click on **+** icon next to the node **ClickEventsStream**.
 
-> ![](./media/image42.png)
+      ![](./media/image42.png)
 
 10. Select the option **Eventhouse** in the context menu.
 
-> ![](./media/image43.png)
+      ![](./media/image43.png)
 
 11. Click the pencil in node **Eventhouse** to enter edit mode. Provide
     the following values in the pane **Eventhouse**. Click the
     button **Save** after you entered all the values.
 
-[TABLE]
+      |Field|	Value|
+      |---|---|
+      |Event processing before ingestion	|Ensure that this option is selected.|
+      |Destionation name|	ClickEventStore|
+      |Workspace|	Select RTI-Medallion |
+      |Eventhouse	|Select the Eventhouse WebEvents_EH|
+      |KQL Database|	Select the KQL Database WebEvents_EH|
+      |Destination table|	Click on Create new and enter +++BronzeClicks+++ as name for the new table and click on **Done**|.
+      |Input data format|	Ensure that the option **Json** is selected.|
 
-![](./media/image44.png)
 
-![](./media/image45.png)
+      ![](./media/image44.png)
+      
+      ![](./media/image45.png)
 
 12. Click on **Insert a node** sign next to the
     node **WebEventsStream_ES**.
 
-![](./media/image46.png)
+    ![](./media/image46.png)
 
 13. Choose the option **Filter** from the context menu.
 
-> ![](./media/image47.png)
+      ![](./media/image47.png)
 
 14. Delete the connection between the new filter node **Filter1** and
     the node **ClickEventsFilter** by clicking on the trashcan icon.
 
-> ![](./media/image48.png)
+      ![](./media/image48.png)
 
 15. Connect the output of the node **WebEventsStream_ES** to the input
     of the node **ClickEventsFilter**.
 
-> ![](./media/image49.png)
+      ![](./media/image49.png)
 
 16. Click on the pencil icon of the new node **Filter1** to enter edit
     mode. Provide the following values in the pane **Filter** on the
     left side. Then click on **Save**.
 
-[TABLE]
+      |Field|	Value|
+      |---|----|
+      |**Operation name**|	+++ImpressionEventsFilter+++|
+      |**Select a field to filter on**|	eventType|
+      |**Keep events when the value**|	equals|
+      |**value**|	IMPRESSION|
 
-> ![](./media/image50.png)
->
-> **Note: **IMPRESSION is in ALL CAPS.
->
-> **Note:** It is normal that the node ImpressionEventsFilter is shown
-> with an error. The error indicates that there is no target for the
-> datastream coming out of the filter. We will fix this in the next
-> step.
+
+    ![](./media/image50.png)
+   
+     **Note:** IMPRESSION is in ALL CAPS.
+     
+      **Note:** It is normal that the node ImpressionEventsFilter is shown
+      with an error. The error indicates that there is no target for the
+      datastream coming out of the filter. We will fix this in the next
+       step.
 
 17. Click on **+** sign next to the **ImpressionEventsFilter** node and
     choose **Stream** from the context menu.
 
-![](./media/image51.png)
-
-![](./media/image52.png)
+      ![](./media/image51.png)
+      
+      ![](./media/image52.png)
 
 18. Click on the pencil icon in the node **Stream1** to enter edit mode.
-    Enter +++**ImpressionsEventsStream+++** as name of the Eventstream
+    Enter **+++ImpressionsEventsStream+++** as name of the Eventstream
     in the field **Stream name**. Ensure that the **Input data
     format** is **Json**. Click on the Button **Save**.
 
-> ![](./media/image53.png)
+      ![](./media/image53.png)
 
 19. Click on **+** icon next to the node **ImpressionEventsStream** and
     select **Eventhouse** from the context menu.
 
-> ![](./media/image54.png)
+      ![](./media/image54.png)
 
 20. Click the pencil in node **Eventhouse1** to enter edit mode. Provide
     the following values in the pane **Eventhouse**.
