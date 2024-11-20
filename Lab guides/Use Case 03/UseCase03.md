@@ -1381,9 +1381,7 @@ the notebook to help fix any issues after.
 
      ![](./media/image197.png)
 
- 
-
-9.  Same as with the hour column, create a new ***minute* **column. In
+ 9.  Same as with the hour column, create a new ***minute* **column. In
     the new *minute* column, enter a minute for any given row. For
     example, if the *timestamp* is *2024-02-07 09:54:00* enter *54*. You
     may need to enter example values for several rows.
@@ -2410,163 +2408,137 @@ and enrichments like measures to make developing reports easier
 24. In the **Connect to your data** page, select **dim_symbol,
     stock_prediction**, and click on the **Submit** button.
 
-   ![](./media/image391.png)
+   ![](./media/image392.png)
 
 25. In this case, we can dismiss the **Potential security risk** warning
     by clicking on the **OK** button.
 
-![A screenshot of a computer Description automatically
-generated](./media/image393.png)
+     ![](./media/image393.png)
+    
+     ![](./media/image394.png)
 
-![A screenshot of a computer Description automatically
-generated](./media/image394.png)
+26. Click on  **Modeling** in the command bar, then click on  **Manage
+    relationships.** 
 
-26. Click on ***Modeling*** in the command bar, then click on ***Manage
-    relationships.***
-
-![A screenshot of a computer Description automatically
-generated](./media/image395.png)
+     ![](./media/image395.png)
 
 27. In the **Manage relationships** pane, select **New** as shown in the
     below image.
 
-![A screenshot of a computer Description automatically
-generated](./media/image396.png)
+     ![](./media/image396.png)
 
 28. Create a new **many-to-many** relationship between
-    the ***StockPrice*** - ***symbol* **and
-    the ***stocks_prediction*** - ***Symbol* **(after selecting the
+    the ***StockPrice*** - **symbol**and
+    the ***stocks_prediction*** - **Symbol**(after selecting the
     table, ensure to select the symbol columns in each table). Set the
-    cross filter direction to ***Both***, and make sure the cardinality
-    is set to ***Many-to-many*.** Then, click on the **OK** button.
+    cross filter direction to  **Both** , and make sure the cardinality
+    is set to **Many-to-many** Then, click on the **OK** button.
 
-> ![A screenshot of a computer Description automatically
-> generated](./media/image397.png)
+     ![](./media/image397.png)
 
 29. In Mange relationships page, click on the **Close** button.
 
-![A screenshot of a computer Description automatically
-generated](./media/image398.png)
+    ![](./media/image398.png)
 
 30. In the **Power BI** page, under **Visualizations**, click on the
     **Line chart** icon to add a **Column chart** to your report.
 
-- On the **Data** pane, expand **StockPrice**  and check the box next
-  to **timestamp**. This creates a column chart and adds the field to
-  the **X-axis**.
+      - On the **Data** pane, expand **StockPrice**  and check the box next
+        to **timestamp**. This creates a column chart and adds the field to
+        the **X-axis**.
+      
+      - On the **Data** pane, expand **StockPrice** and check the box next
+        to **Price**. This adds the field to the **Y-axis**.
+      
+      - On the **Data** pane, expand **StockPrice** and check the box next
+        to **Symbol**. This adds the field to the **Legend**.
+      
+      - **Filter**: **timestamp** to ***Relative time** is in the last **15
+        minutes***.
 
-- On the **Data** pane, expand **StockPrice** and check the box next
-  to **Price**. This adds the field to the **Y-axis**.
+      ![](./media/image399.png)
 
-- On the **Data** pane, expand **StockPrice** and check the box next
-  to **Symbol**. This adds the field to the **Legend**.
-
-- **Filter**: **timestamp** to ***Relative time** is in the last **15
-  minutes***.
-
-![A screenshot of a computer Description automatically
-generated](./media/image399.png)
-
-![A screenshot of a computer Description automatically
-generated](./media/image400.png)
+      ![](./media/image400.png)
 
 31. In the **Power BI** page, under **Visualizations**, click on the
     **Line chart** icon to add a **Column chart** to your report.
 
-- On the **Data** pane, expand **StockPrice**  and check the box next
-  to **timestamp**. This creates a column chart and adds the field to
-  the **X-axis**.
+      - On the **Data** pane, expand **StockPrice**  and check the box next
+        to **timestamp**. This creates a column chart and adds the field to
+        the **X-axis**.
+      
+      - On the **Data** pane, expand **StockPrice** and check the box next
+        to **Price**. This adds the field to the **Y-axis**.
+      
+      - On the **Data** pane, expand **dim_symbol** and check the box next
+        to **Market**. This adds the field to the **Legend**.
+      
+      - **Filter**: **timestamp** to ***Relative time** is in the last **1
+        hour***.
 
-- On the **Data** pane, expand **StockPrice** and check the box next
-  to **Price**. This adds the field to the **Y-axis**.
-
-- On the **Data** pane, expand **dim_symbol** and check the box next
-  to **Market**. This adds the field to the **Legend**.
-
-- **Filter**: **timestamp** to ***Relative time** is in the last **1
-  hour***.
-
-![A screenshot of a computer Description automatically
-generated](./media/image401.png)
-
-![A screenshot of a computer Description automatically
-generated](./media/image402.png)
-
-![A screenshot of a computer Description automatically
-generated](./media/image403.png)
-
-![A screenshot of a computer Description automatically
-generated](./media/image404.png)
+      ![](./media/image401.png)
+      
+      ![](./media/image402.png)
+      
+      ![](./media/image403.png)
+      
+      ![](./media/image404.png)
 
 32. In the **Power BI** page, under **Visualizations**, click on the
     **Line chart** icon to add a **Column chart** to your report.
 
-- On the **Data** pane, expand **Stock_prediction**  and check the box
-  next to **predict_time**. This creates a column chart and adds the
-  field to the **X-axis**.
+      - On the **Data** pane, expand **Stock_prediction**  and check the box
+        next to **predict_time**. This creates a column chart and adds the
+        field to the **X-axis**.
+      
+      - On the **Data** pane, expand **Stock_prediction**  and check the box
+        next to **yhat**. This adds the field to the **Y-axis**.
+      
+      - On the **Data** pane, expand **Stock_prediction** and check the box
+        next to **Symbol**. This adds the field to the **Legend**.
+      
+      - **Filter**: **predict_time** to ***Relative date** in the last **3
+        days***.
 
-- On the **Data** pane, expand **Stock_prediction**  and check the box
-  next to **yhat**. This adds the field to the **Y-axis**.
-
-- On the **Data** pane, expand **Stock_prediction** and check the box
-  next to **Symbol**. This adds the field to the **Legend**.
-
-- **Filter**: **predict_time** to ***Relative date** in the last **3
-  days***.
-
-![A screenshot of a computer Description automatically
-generated](./media/image405.png)
-
-![A screenshot of a computer Description automatically
-generated](./media/image406.png)
-
-![A screenshot of a computer Description automatically
-generated](./media/image407.png)
-
-![A screenshot of a computer Description automatically
-generated](./media/image408.png)
+      ![](./media/image405.png)
+      ![](./media/image406.png)
+      ![](./media/image407.png)
+      ![](./media/image408.png)
 
 33. In the **Power BI** page, under **Data,** right click
     the ***stocks_prediction*** table and select ***New measure.***
 
-![A screenshot of a computer Description automatically
-generated](./media/image409.png)
+    ![](./media/image409.png)
 
 34. Measures are formulas written in the Data Analysis Expressions (DAX)
     language; for this DAX formula, enter +++***currdate = NOW()+++* **
 
-![A screenshot of a computer Description automatically
-generated](./media/image410.png)
+     ![](./media/image410.png)
 
 35. With the prediction chart selected, navigate to the additional
     visualization options i.e., the magnifying glass/chart icon and add
-    a **new *X-Axis Constant Line***.
+    a **new X-Axis Constant Line** .
 
-![A screenshot of a computer Description automatically
-generated](./media/image411.png)
+    ![](./media/image411.png)
 
-36. Under *Value*, use the formula button **(fx)** to choose a field.
+36. Under  Value , use the formula button **(fx)** to choose a field.
 
-![A screenshot of a computer Description automatically
-generated](./media/image412.png)
+    ![](./media/image412.png)
 
 37. In **Value -Apply settings to** page, click on the dropdown under
     **what field should we base this on?**, then click on the dropdown
     of **stocks_prediction**, select the ***currdate* **measure. Then,
     click on the **OK** button.
 
-![A screenshot of a computer Description automatically
-generated](./media/image413.png)
-
-![A screenshot of a computer Description automatically
-generated](./media/image414.png)
+      ![](./media/image413.png)
+      
+      ![](./media/image414.png)
 
 38. Navigate to the additional visualization options i.e., the
-    magnifying glass/chart icon, turn On the **Shade area**.![A
-    screenshot of a computer Description automatically
-    generated](./media/image415.png)
+    magnifying glass/chart icon, turn On the **Shade area**.
+   ![](./media/image415.png)
 
-39. Configured the relationships between tables, all visual should cross
+40. Configured the relationships between tables, all visual should cross
     filter; when selecting either a symbol or market on a chart, all
     visuals should react accordingly. As shown in the below image, the
     **NASDAQ** market is selected on the upper-right market chart:
