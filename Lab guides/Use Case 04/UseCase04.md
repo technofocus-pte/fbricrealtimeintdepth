@@ -795,7 +795,7 @@ can be imported and configured to your KQL Database data source.
 
 1.  Now, click on **RTI-Medallian** on the left-sided navigation pane.
 
-    ![](./media/image15.png)
+     ![](./media/image15.png)
 
 2.  To create a new realtime dashboard click on the button **+ New
     Item** and the select **Real-Time Dashboard**
@@ -846,7 +846,7 @@ can be imported and configured to your KQL Database data source.
     file [dashboard-RTA.kql](https://github.com/microsoft/FabricRTIWorkshop/blob/main/dashboards/RTA%20dashboard/dashboard-RTA.kql)
     is available in Labfiles folder
 
-    ![](./media/image110.png)
+      ![](./media/image110.png)
 
 10.  Click on the **+Add visual**
 
@@ -855,7 +855,6 @@ can be imported and configured to your KQL Database data source.
 11.  In the **Visual formatting** tab, set Tile name to +++Click by
     hour+++, set Visual type to **Area chart.** Click on the **Apply
     changes**.
-
     ![](./media/image112.png)
 
 12.  While editing the dashboard, click on the tab **Manage** on the top
@@ -898,271 +897,214 @@ can be imported and configured to your KQL Database data source.
     
      ![](./media/image118.png)
 
-12. Select **+Add visual**
+18. Select **+Add visual**
 
-![](./media/image119.png)
+      ![](./media/image119.png)
 
-13. In the **Visual formatting** tab, set Tile name to +++ Impressions
+19. In the **Visual formatting** tab, set Tile name to +++Impressions
     by hour+++, set Visual type to **Area chart.** Click on the **Apply
     changes**.
 
-![](./media/image120.png)
+    ![](./media/image120.png)
 
-![A screenshot of a computer Description automatically
-generated](./media/image121.png)
+    ![](./media/image121.png)
 
-7.  While editing the dashboard, click **Home** on the top left, and
+20.  While editing the dashboard, click **Home** on the top left, and
     select **New title** to proceed with the next visuals.
+     ![](./media/image122.png)
 
-![A screenshot of a computer Description automatically
-generated](./media/image122.png)
-
-14. In the query editor, **paste** the following code, then click on
+21. In the query editor, **paste** the following code, then click on
     **Run** to execute the query.
 
-**Impressions by location **[\#](javascript:void(0))
+      Impressions by location #
+      
+      •	Visual type: Map.
+      ```
+      //Impressions by location
+      SilverImpressions
+      | where eventDate  between (_startTime.._endTime)
+      | join external_table('products') on $left.productId == $right.ProductID
+      | project lon = toreal(geo_info_from_ip_address(ip_address).longitude), lat = toreal(geo_info_from_ip_address(ip_address).latitude), Name
+      | render scatterchart with (kind = map) //, xcolumn=lon, ycolumns=lat)
+      ```
+      
+      ![](./media/image123.png)
 
-- Visual type: **Map**.
+22. Select **+Add visual**
 
-//Impressions by location
-
-SilverImpressions
-
-| where eventDate between (\_startTime..\_endTime)
-
-| join external_table('products') on $left.productId == $right.ProductID
-
-| project lon = toreal(geo_info_from_ip_address(ip_address).longitude),
-lat = toreal(geo_info_from_ip_address(ip_address).latitude), Name
-
-| render scatterchart with (kind = map) //, xcolumn=lon, ycolumns=lat)
-
-![](./media/image123.png)
-
-15. Select **+Add visual**
-
-16. In the **Visual formatting** tab, set Tile name to +++Impressions by
+23. In the **Visual formatting** tab, set Tile name to +++Impressions by
     location+++, set Visual type to **Map.** Click on the **Apply
     changes**.
 
-![](./media/image124.png)
+      ![](./media/image124.png)
+      
+      ![](./media/image125.png)
 
-![](./media/image125.png)
-
-17. While editing the dashboard, click **Home** on the top left, and
+24. While editing the dashboard, click **Home** on the top left, and
     select **New title** to proceed with the next visuals.
 
-> ![](./media/image126.png)
+      ![](./media/image126.png)
 
-18. In the query editor, paste the following code, then click on Run to
+25. In the query editor, paste the following code, then click on Run to
     execute the query.
 
-**Average Page Load time **[\#](javascript:void(0))
+      Average Page Load time #
+      •	Visual type: Timechart.
+      ```
+      //Average Page Load time
+      SilverImpressions
+      | where eventDate   between (_startTime.._endTime)
+      //| summarize average_loadtime = avg(page_loading_seconds) by bin(eventDate, 1h)
+      | make-series average_loadtime = avg(page_loading_seconds) on eventDate from _startTime to _endTime+4h step 1h
+      | extend forecast = series_decompose_forecast(average_loadtime, 4)
+      | render timechart
+      ```
 
-- Visual type: **Timechart**.
+    ![](./media/image127.png)
 
-//Average Page Load time
+26. Select **+Add visual**
 
-SilverImpressions
+27. In the **Visual formatting** tab, set Tile name to +++Average Page Load time+++, set Visual type to **Time chart.** Click on the **Apply changes**.
 
-| where eventDate between (\_startTime..\_endTime)
-
-//| summarize average_loadtime = avg(page_loading_seconds) by
-bin(eventDate, 1h)
-
-| make-series average_loadtime = avg(page_loading_seconds) on eventDate
-from \_startTime to \_endTime+4h step 1h
-
-| extend forecast = series_decompose_forecast(average_loadtime, 4)
-
-| render timechart
-
-![](./media/image127.png)
-
-19. Select **+Add visual**
-
-20. In the **Visual formatting** tab, set Tile name to +++**Average Page
-    Load time**+++, set Visual type to **Time chart.** Click on the
-    **Apply changes**.
-
-> ![](./media/image128.png)
->
-> ![A screenshot of a computer Description automatically
-> generated](./media/image129.png)
-
-19. While editing the dashboard, click **Home** on the top left, and
+      ![](./media/image128.png)
+      ![](./media/image129.png)
+28. While editing the dashboard, click **Home** on the top left, and
     select **New title** to proceed with the next visuals.
 
-> ![](./media/image130.png)
+      ![](./media/image130.png)
 
-20. In the query editor, **paste** the following code, then click on
+29. In the query editor, **paste** the following code, then click on
     **Run** to execute the query.
 
-> Impressions, Clicks & CTR 
->
-> //Clicks, Impressions, CTR
->
-> let imp = SilverImpressions
->
-> | where eventDate between (\_startTime..\_endTime)
->
-> | extend dateOnly = substring(todatetime(eventDate).tostring(), 0, 10)
->
-> | summarize imp_count = count() by dateOnly;
->
-> let clck = SilverClicks
->
-> | where eventDate between (\_startTime..\_endTime)
->
-> | extend dateOnly = substring(todatetime(eventDate).tostring(), 0, 10)
->
-> | summarize clck_count = count() by dateOnly;
->
-> imp
->
-> | join clck on $left.dateOnly == $right.dateOnly
->
-> | project selected_date = dateOnly , impressions = imp_count , clicks
-> = clck_count, CTR = clck_count \* 100 / imp_count
->
-> ![](./media/image131.png)
+      Impressions, Clicks & CTR 
+      ```
+      //Clicks, Impressions, CTR
+      let imp =  SilverImpressions
+      | where eventDate  between (_startTime.._endTime)
+      | extend dateOnly = substring(todatetime(eventDate).tostring(), 0, 10)
+      | summarize imp_count = count() by dateOnly;
+      let clck = SilverClicks
+      | where eventDate  between (_startTime.._endTime)
+      | extend dateOnly = substring(todatetime(eventDate).tostring(), 0, 10)
+      | summarize clck_count = count() by dateOnly;
+      imp
+      | join clck on $left.dateOnly == $right.dateOnly
+      | project selected_date = dateOnly , impressions = imp_count , clicks = clck_count, CTR = clck_count * 100 / imp_count
+      ```
+     ![](./media/image131.png)
 
-21. Enter +++Impressions+++ in the field **Tile name**.
+30. Enter +++Impressions+++ in the field **Tile name**.
     Select **Stat** in the combobox **Visual type**. In combobox **Data
     Value column** select **impressions (long)**. Then click on the
     button **Apply changes**.
 
-![](./media/image132.png)
+    ![](./media/image132.png)
+    
+    ![](./media/image133.png)
 
-![](./media/image133.png)
-
-22. Click the 3-dots (**...**) at the top right of the tile you just
+31. Click the 3-dots (**...**) at the top right of the tile you just
     created and select **Duplicate** from the context menu to duplicate
     it two more times.
 
-> ![](./media/image134.png)
+      ![](./media/image134.png)
 
-23. Name the 2nd one Clicks, set the Data value column to **clicks
+32. Name the 2nd one Clicks, set the Data value column to **clicks
     (long)**, then click on the button **Apply changes**.
 
-> ![](./media/image135.png)
->
-> ![](./media/image136.png)
+     ![](./media/image135.png)
+     
+      ![](./media/image136.png)
 
-24. Name the 3rd Click Through Rate, set the Data value column
+33. Name the 3rd Click Through Rate, set the Data value column
     to **CTR**, then click on the button **Apply changes**.
 
-![](./media/image137.png)
+    ![](./media/image137.png)
 
-![A screenshot of a computer Description automatically
-generated](./media/image138.png)
+     ![](./media/image138.png)
 
-25. While editing the dashboard, click **Home** on the top left, and
+34. While editing the dashboard, click **Home** on the top left, and
     select **New title** to proceed with the next visuals.
 
-![A screenshot of a computer Description automatically
-generated](./media/image139.png)
+     ![](./media/image139.png)
 
-26. In the query editor, **paste** the following code, then click on
+35. In the query editor, **paste** the following code, then click on
     **Run** to execute the query
 
-**Average Page Load Time Anomalies **[\#](javascript:void(0))
+    Average Page Load Time Anomalies #
+    Visual type: Timechart
+    ```
+    //Avg Page Load Time Anomalies
+    SilverImpressions
+    | where eventDate   between (_startTime.._endTime)
+    | make-series average_loadtime = avg(page_loading_seconds) on eventDate from _startTime to _endTime+4h step 1h
+    | extend anomalies = series_decompose_anomalies(average_loadtime)
+    | render anomalychart
+    
+    ```
+    ![](./media/image140.png)
 
-> Visual type: **Timechart**
->
-> //Avg Page Load Time Anomalies
->
-> SilverImpressions
->
-> | where eventDate between (\_startTime..\_endTime)
->
-> | make-series average_loadtime = avg(page_loading_seconds) on
-> eventDate from \_startTime to \_endTime+4h step 1h
->
-> | extend anomalies = series_decompose_anomalies(average_loadtime)
->
-> | render anomalychart
->
-> ![A screenshot of a computer Description automatically
-> generated](./media/image140.png)
+36. Clicking **+ Add visual**.
 
-27. Clicking **+ Add visual**.
+      ![](./media/image141.png)
 
-> ![](./media/image141.png)
+37. In the **Visual formatting** tab, set Tile name to +++Avg Page Load Time Anomalies+++, Click on the **Apply changes**.
 
-28. In the **Visual formatting** tab, set Tile name to +++Avg Page Load
-    Time Anomalies+++, Click on the **Apply changes**.
+     ![](./media/image142.png)
+     
+      ![](./media/image143.png)
 
-> ![](./media/image142.png)
->
-> ![](./media/image143.png)
-
-29. While editing the dashboard, click **Home** on the top left, and
+38. While editing the dashboard, click **Home** on the top left, and
     select **New title** to proceed with the next visuals.
 
-![A screenshot of a computer Description automatically
-generated](./media/image144.png)
+     ![](./media/image144.png)
 
-30. In the query editor, **paste** the following code, then click on
+39. In the query editor, **paste** the following code, then click on
     **Run** to execute the query
 
-**Strong Anomalies **[\#](javascript:void(0))
+    Strong Anomalies #
+    ```
+    //Strong Anomalies
+    SilverImpressions
+    | where eventDate between (_startTime.._endTime)
+    | make-series average_loadtime = avg(page_loading_seconds) on eventDate from _startTime to _endTime+4h step 1h
+    | extend anomalies = series_decompose_anomalies(average_loadtime,2.5)
+    | mv-expand eventDate, average_loadtime, anomalies
+    | where anomalies <> 0
+    | project-away anomalies
+    ```
+    
+    ![](./media/image145.png)
 
-//Strong Anomalies
+31. In the **Visual formatting** tab, set Tile name to +++Strong Anomalies+++, set Visual type to **Map.** Click on the **Apply changes**.
 
-SilverImpressions
-
-| where eventDate between (\_startTime..\_endTime)
-
-| make-series average_loadtime = avg(page_loading_seconds) on eventDate
-from \_startTime to \_endTime+4h step 1h
-
-| extend anomalies = series_decompose_anomalies(average_loadtime,2.5)
-
-| mv-expand eventDate, average_loadtime, anomalies
-
-| where anomalies \<\> 0
-
-| project-away anomalies
-
-![](./media/image145.png)
-
-31. In the **Visual formatting** tab, set Tile name to +++Strong
-    Anomalies+++, set Visual type to **Map.** Click on the **Apply
-    changes**.
-
-> ![](./media/image146.png)
->
-> ![A screenshot of a computer Description automatically
-> generated](./media/image147.png)
+      ![](./media/image146.png)
+     
+     ![](./media/image147.png)
 
 ## Task 12: Logo (Markdown Text Tile)  
 
 1.  Click on the button **New text tile** in the toolbar at the top.
 
-![](./media/image148.png)
+    ![](./media/image148.png)
 
 2.  Paste the following code in the text area and click on the
     button **Apply changes**
+    ```
+    //Logo (Markdown Text Tile)
+    ![AdventureWorks](https://vikasrajput.github.io/resources/PBIRptDev/AdventureWorksLogo.jpg "AdventureWorks")
+    ```
+    
+    ![](./media/image149.png)
 
-> //Logo (Markdown Text Tile)
->
-> \![AdventureWorks\](https://vikasrajput.github.io/resources/PBIRptDev/AdventureWorksLogo.jpg
-> "AdventureWorks")
+     ![](./media/image150.png)
+    
+    **Note: The title can be resized on the dashboard canvas directly,
+    rather than writing code.**
 
-![](./media/image149.png)
+    After you added all the visuals and moved them to thier appropiate
+    places your dashboard should look similar to this.
 
-![A screenshot of a computer Description automatically
-generated](./media/image150.png)
-
-**Note: The title can be resized on the dashboard canvas directly,
-rather than writing code.**
-
-After you added all the visuals and moved them to thier appropiate
-places your dashboard should look similar to this.
-
-![A screenshot of a computer Description automatically
-generated](./media/image151.png)
+     ![](./media/image151.png)
 
 ## Task 13: Auto-refresh  
 
@@ -1173,16 +1115,16 @@ automatically updated while it is shown on screen.
     click on the button **Auto refresh**. This will open a pane on the
     right side of the browser.
 
-![](./media/image152.png)
+      ![](./media/image152.png)
 
 2.  In the pane **Auto refresh** set it to **Enabled** and set **Default
     refresh rate** to **Continous**. Then click on the button **Apply**
 
-> ![](./media/image153.png)
+      ![](./media/image153.png)
 
 3.  Click on the tab **Home** and then click on the button **Save**.
 
-> ![](./media/image154.png)
+     ![](./media/image154.png)
 
 ## **Task 14:** create a Reflex Alert
 
@@ -1194,19 +1136,24 @@ Message when a value meets a certain threshold.
     menu. This will open the pane **Set alert** at the right side in the
     browser.
 
-> ![](./media/image155.png)
+      ![](./media/image155.png)
 
 2.  In the pane **Set alert** set the values as stated in the following
     table
 
-[TABLE]
-
-> ![A screenshot of a computer Description automatically
-> generated](./media/image156.png)
+      |Field|	Value|
+      |---|---|
+      |Check|	**On each event grouped by**|
+      |Grouping field|	**event_date**|
+      |When|	**date_count**|
+      |Condition	|**Becomes greater than**|
+      |Value|	**250**|
+      
+     ![](./media/image156.png)
 
 3.  Select **Message me in teams** as **Action**.
 
-> ![](./media/image157.png)
+      ![](./media/image157.png)
 
 4.  In the combobox **Workspace** select the workspace. In our example
     the workspace is named **RTI-Medallion**. If you do the Lab at
@@ -1215,7 +1162,7 @@ Message when a value meets a certain threshold.
     new item** is selected. Insert My Reflex as value for the
     field **New item name**. Then click on the button **Create**.
 
-> ![](./media/image158.png)
+      ![](./media/image158.png)
 
 The Reflex item will appear in your workspace and you can edit the
 Reflex trigger action. The same Reflex item can also trigger multiple
@@ -1229,35 +1176,32 @@ actions.
 1.  Open the notebook "Generate synthetic events" from your workspace
     and click **Stop** on the last code cell if its still running.
 
-> ![](./media/image159.png)
+      ![](./media/image159.png)
 
 2.  You can click **Cancel All** on the top menu or click the stop
     red-square button to Stop session. These only appear when your
     session is active or the notebook is running.
 
-![A screenshot of a computer Description automatically
-generated](./media/image160.png)
-
-![alt text](./media/image161.png)
+    ![](./media/image160.png)
+    
+    ![](./media/image1610.png)
 
 ## Task 14: Clean up resources
 
 1.  Select your workspace, the **RTI-Medallian** from the left-hand
     navigation menu. It opens the workspace item view.
-
-![](./media/image162.png)
+     ![](./media/image162.png)
 
 2.  Select the *...* option under the workspace name and
     select **Workspace settings**.
 
-![](./media/image163.png)
+    ![](./media/image163.png)
 
 3.  Select **General** and **Remove this workspace.**
 
-![A screenshot of a computer Description automatically
-generated](./media/image164.png)
+     ![](./media/image164.png)
 
-Summary
+**Summary**
 
 In this use case you learn to set up your Fabric workspace and related
 components, start by creating a workspace that includes essential items
