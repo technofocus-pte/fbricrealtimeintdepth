@@ -253,7 +253,7 @@ following steps.
 1.  Now, click on **WebEventStream_ES** on the left-sided navigation
     pane.
 
-    ![](./media/image33.png)
+     ![](./media/image33.png)
 
 2.  In the event stream authoring canvas, select the **Edit**
 
@@ -393,33 +393,40 @@ following steps.
 20. Click the pencil in node **Eventhouse1** to enter edit mode. Provide
     the following values in the pane **Eventhouse**.
 
-[TABLE]
+      |Field|	Value|
+      |---|---|
+      |Event processing before ingestion|	Ensure that this option is selected.|
+      |Destionation name	|ImpressionEventStore|
+      |Workspace|	Select **RTI-Medallion**. If you attend the Precon at dataMinds Connectrope please select the Workspace Name that was provided to you.|
+      |Eventhouse	|Select the Eventhouse **WebEvents_EH**|
+      |KQL Database|	Select the KQL Database **WebEvents_EH**|
+      |Destination table|	Click on Create new and enter +++BronzeImpressions+++ as name for the new table and click on **Done**.|
+      |Input data format|	Ensure that the option **Json** is selected.|
+
 
 21. After providing these values click on the button **Save**.
 
-![](./media/image55.png)
-
-![](./media/image56.png)
+    ![](./media/image55.png)
+    
+    ![](./media/image56.png)
 
 21. Click on the button **Publish** that is located in the toolbar at
     the top of the screen.
 
-> ![](./media/image57.png)
->
-> ![](./media/image58.png)
+      ![](./media/image57.png)
+     
+      ![](./media/image58.png)
 
 22. After a few minutes, you should see the nodes 
     **ClickEventStore** and **ImpressionEventStore** change to
     mode **Streaming**.
 
-![A screenshot of a computer Description automatically
-generated](./media/image59.png)
+    ![](./media/image59.png)
 
 23. In the end your Eventstream toplogy should look like the image
     below.
 
-![A screenshot of a computer Description automatically
-generated](./media/image60.png)
+     ![](./media/image61.png)
 
 ## Task 7: Setting up the Lakehouse 
 
@@ -433,19 +440,19 @@ the KQL Database accessible through the lakehouse.
     dataMinds Connect Europe Precon this is the workspace that was
     provided to you.
 
-![](./media/image61.png)
+    ![](./media/image61.png)
 
 2.  Click on the button **+ New Item** in the toolbar and in the popin
     window click on the tile **Lakehouse**.
 
-> ![](./media/image62.png)
+      ![](./media/image62.png)
 
 3.  In the dialog **New lakehouse** enter +++WebSalesData_LH+++ as name
     for the new lakehouse. Ensure that the checkbox **Lakehouse schemas
     (Public Preview)** is not checked. Then click on the
     button **Create**
 
-> ![](./media/image63.png)
+    ![](./media/image63.png)
 
 ## Task 8: Uploading reference data files and creating delta tables in the lakehouse 
 
@@ -457,61 +464,61 @@ steps.
 1.  Click on the button **Get data** in the toolbar and select **Upload
     Files** from the dropdown menu.
 
-![](./media/image64.png)
+    ![](./media/image64.png)
 
 2.  To upload the two files click on the folder symbol under
     **C:Labfiles/**. Select the two
     files **products.csv** and **productcategory.csv**. Then click on
     the button **Open**.
 
-> ![](./media/image65.png)
->
-> ![](./media/image66.png)
+      ![](./media/image65.png)
+     
+     ![](./media/image66.png)
 
-**To select the two files at once you can just hold the key CTRL while
-you click the two files.**
+      **To select the two files at once you can just hold the key CTRL while
+      you click the two files.**
 
 3.  In the popin window **Upload files** click on the button **Upload**.
     Now the files will be uploaded.
 
-> ![](./media/image67.png)
+     ![](./media/image67.png)
 
 4.  To check that the files have been uploaded successfully, click on
     the folder **Files** in the pane **Explorer**. You should see the
     files in the list **Files** in the right part of the window.
 
-> ![](./media/image68.png)
+      ![](./media/image68.png)
 
 5.  Next we have to create delta tables in our Lakehouse from the files
     we uploaded. To do this access the context menu by clicking on the
     three dots (**...**). Select **Load to tables** from the context
     menu.
 
-> ![](./media/image69.png)
+     ![](./media/image69.png)
 
 6.  In the submenu click on **New table**
 
-> ![](./media/image70.png)
+     ![](./media/image70.png)
 
 7.  Retain all default values and click on the button **Load**.
 
-> ![](./media/image71.png)
+     ![](./media/image71.png)
 
 8.  This steps have to be executed for the file productcategory.csv as
     well as for the file **product.csv.**
 
-> ![](./media/image72.png)
->
-> ![](./media/image73.png)
->
-> ![](./media/image74.png)
+      ![](./media/image72.png)
+     
+      ![](./media/image73.png)
+     
+      ![](./media/image74.png)
 
 9.  Ensure that both
     files **products.csv** and **productcategory.csv** are available as
     delta tables in your lakehouse. Your lakehouse should look like
     this:
 
-> ![](./media/image75.png)
+     ![](./media/image75.png)
 
 ## Task 9: Accessing Eventhouse data from the lakehouse  
 
@@ -522,46 +529,46 @@ creating *shortcuts*.
 1.  Click on the button **Get data** in the menu bar at the top.
     Choose **New shortcut** from the dropdown menu.
 
-> ![](./media/image76.png)
+      ![](./media/image76.png)
 
-\*\*If your Lakehouse is using Schemas you will see the
-schema **dbo** under the folder **Tables**. right-click the
-schema **dbo** and select the option \*\*New table shortcut\*\* from the
-context menu.
+    If your Lakehouse is using Schemas you will see the
+    schema **dbo** under the folder **Tables**. right-click the
+    schema **dbo** and select the option New table shortcut from the
+    context menu.
 
 2.  Select **Microsoft OneLake.**
 
-> ![](./media/image77.png)
+    ![](./media/image77.png)
 
 3.  Select the KQL Database **WebEvents_EH** in the Window **Select a
     data source type** and click on the button **Next**.
 
-> ![](./media/image78.png)
+      ![](./media/image78.png)
 
 4.  Expand the folder **Tables** under **WebEvents_EH** in the
     window **New shortcut** and check both
     tables **BronzeClicks** and **BronzeImpressions**. Click
     on **Next**.
 
-> ![](./media/image79.png)
+    ![](./media/image79.png)
 
-**Note:** You may return to this step to create additional shortcuts,
-after running the createAll.kql database script which will create
-additional tables. For now, you may proceed by selecting just
-the BronzeClicks and BronzeImpressions tables.
+    **Note:** You may return to this step to create additional shortcuts,
+    after running the createAll.kql database script which will create
+    additional tables. For now, you may proceed by selecting just
+    the BronzeClicks and BronzeImpressions tables.
 
 5.  Click on the button **Create**.
 
-> ![](./media/image80.png)
+      ![](./media/image80.png)
 
 6.  Now you can see the shortcuts to the tables **BronzeClicks** and
     **BronzeImpressions** under the folder Tables in the lakehouse
     **WebSalesData_LH**.
 
-> ![](./media/image81.png)
+     ![](./media/image81.png)
 
-**Note:** Note that the shortcuts have another icon than the regular
-delta tables.
+    **Note:** Note that the shortcuts have another icon than the regular
+    delta tables.
 
 ## Task 10: Build the KQL DB schema  
 
@@ -570,334 +577,213 @@ enable update policies and in our Eventhouse KQL Database. Two of the
 tables (product and productCategory) are shortcuts to the lakehouse and
 the data is **NOT** being copied into our KQL Database.
 
-![alt text](./media/image82.png)
+     ![](./media/image82.png)
 
 1.  Open the KQL Database **WebEvents_EH** in the Eventhouse of your
     Fabric Workspace. To do so click on the Icon of the Eventhouse in
     the left toolbar.
 
-> ![](./media/image83.png)
+     ![](./media/image83.png)
 
 2.  Click on the button **+ New** in the top toolbar and
     choose **OneLake shortcut** from the drop down menu.
 
-> ![](./media/image84.png)
+      ![](./media/image84.png)
 
 3.  Select **Microsoft OneLake**..
 
-> ![](./media/image85.png)
+     ![](./media/image85.png)
 
 4.  Select the lakehouse **WebSalesData_LH** and click on the
     button **Next**.
 
-> ![](./media/image86.png)
+      ![](./media/image86.png)
 
 5.  Expand the folder **Tables**, select the table **products** table
     and click on the button **Create**. This will create a shortcut to
     the table **products** in your Lakehouse without copying the data
     from the Lakehouse to Eventhouse.
 
-> ![](./media/image87.png)
->
-> ![](./media/image88.png)
->
-> ![](./media/image89.png)
+      ![](./media/image87.png)
+  
+      ![](./media/image88.png)
+   
+      ![](./media/image89.png)
 
 6.  Repeat the steps above for the table **productcategory** to create a
     shortcut for this table as well.
 
-> ![](./media/image90.png)
->
-> ![](./media/image91.png)
->
-> ![](./media/image92.png)
->
-> ![](./media/image93.png)
->
-> ![](./media/image94.png)
+      ![](./media/image90.png)
+     
+      ![](./media/image91.png)
+     
+      ![](./media/image92.png)
+     
+      ![](./media/image93.png)
+     
+      ![](./media/image94.png)
 
 7.  Expand the folder **Shortcuts** in the tree of your
     Eventhouse **WebEvents_EH** to verify if the 2 shortcuts have been
     created correctly.
 
-> ![](./media/image95.png)
+      ![](./media/image95.png)
 
 8.  Click on the button **Explore your Data** at the top of the screen.
 
-> ![](./media/image96.png)
+      ![](./media/image96.png)
 
-The window **Explore your data** will be shown.
+     The window **Explore your data** will be shown.
 
-> ![](./media/image97.png)
+     ![](./media/image97.png)
 
 9.  On the left side in the pane **KQL Databases** underneath the
     node **WebEvents_EH** there is the automatically created
     queryset **WebEvents_EH_queryset**. Click on this queryset and
     replace the text in the tab **WebEvents_EH** by the contents of the
     file createAll.kql. Then click on the Button **Run**
-
-.execute database script \<|
-
-//SILVER LAYER
-
-.create table SilverClicks (
-
-eventType:string,
-
-eventID:string,
-
-eventDate:datetime,
-
-productId:long,
-
-userAgent:dynamic,
-
-device:string,
-
-ip_address:string,
-
-referer:dynamic,
-
-page_loading_seconds:real,
-
-clickType:string,
-
-clickPathTitle:string,
-
-clickPathUrl:string
-
-)
-
-//
-
-.create table SilverImpressions (
-
-eventType:string,
-
-eventID:string,
-
-eventDate:datetime,
-
-productId:long,
-
-userAgent:dynamic,
-
-device:string,
-
-ip_address:string,
-
-page_loading_seconds:real,
-
-relatedProductCategory:string,
-
-relatedProductId:string,
-
-relatedProductName:string
-
-)
-
-// use update policies to transform data during Ingestion
-
-.create-or-alter function with (folder="Bronze to Silver
-Transformations") expandClickpath()
-
-{
-
-BronzeClicks
-
-| mv-expand extraPayload
-
-| evaluate bag_unpack(extraPayload)
-
-| project
-
-eventType,
-
-eventID,
-
-todatetime(eventDate),
-
-productId,
-
-userAgent,
-
-device,
-
-ip_address,
-
-referer,
-
-toreal(page_loading_seconds),
-
-clickType = clickType,
-
-clickPathTitle = \['title'\],
-
-clickPathUrl = url
-
-}
-
-//
-
-.alter table SilverClicks policy update @'\[{"Source": "BronzeClicks",
-"Query": "expandClickpath", "IsEnabled" : true, "IsTransactional": false
-}\]'
-
-//
-
-.create-or-alter function with (folder="Bronze to Silver
-Transformations") expandRelatedProducts()
-
-{
-
-BronzeImpressions
-
-| mv-expand extraPayload
-
-| evaluate bag_unpack(extraPayload)
-
-| project
-
-eventType,
-
-eventID,
-
-todatetime(eventDate),
-
-productId,
-
-userAgent,
-
-device,
-
-ip_address,
-
-toreal(page_loading_seconds),
-
-relatedProductCategory,
-
-relatedProductId,
-
-relatedProductName
-
-}
-
-//
-
-.alter table SilverImpressions policy update @'\[{"Source":
-"BronzeImpressions", "Query": "expandRelatedProducts", "IsEnabled" :
-true, "IsTransactional": false }\]'
-
-//
-
-.create-or-alter function with (docstring = "Social Media Campaign
-Clickstream", folder = "Gold Views") SocialMediaCampaignClickstream()
-
-{
-
-SilverClicks
-
-| extend CampaignType = tostring(referer.campaignType)
-
-| extend Platform = tostring(userAgent.platform)
-
-| extend Browser = tostring(userAgent.browser)
-
-| extend RefererUrl = tostring(referer.url)
-
-| extend AdTitle = tostring(referer.adTitle)
-
-| where CampaignType in ("facebook", "twitter", "instagram",
-"pinterest")
-
-| project-away userAgent, referer
-
-| project-reorder CampaignType
-
-}
-
-//
-
-.create-or-alter function with (docstring = "Search Media Campaign
-Clickstream", folder = "Gold Views") SearchMediaCampaignClickstream()
-
-{
-
-SilverClicks
-
-| extend CampaignType = tostring(referer.campaignType)
-
-| extend Platform = tostring(userAgent.platform)
-
-| extend Browser = tostring(userAgent.browser)
-
-| extend RefererUrl = tostring(referer.url)
-
-| extend AdTitle = tostring(referer.adTitle)
-
-| where CampaignType in ("google", "bing")
-
-| project-away userAgent, referer
-
-| project-reorder CampaignType
-
-}
-
-//
-
-.create-or-alter function with (docstring = "Email Campaign
-Clickstream", folder = "Gold Views") EmailCampaignClickstream()
-
-{
-
-SilverClicks
-
-| extend CampaignType = tostring(referer.campaignType)
-
-| extend Platform = tostring(userAgent.platform)
-
-| extend Browser = tostring(userAgent.browser)
-
-| extend RefererUrl = tostring(referer.url)
-
-| extend EmailId = tostring(referer.emailId)
-
-| where CampaignType in ("email")
-
-| project-away userAgent, referer
-
-| project-reorder CampaignType
-
-}
-
-> ![](./media/image98.png)
+        ```
+        .execute database script <|
+        //SILVER LAYER
+        .create table SilverClicks (
+            eventType:string, 
+            eventID:string, 
+            eventDate:datetime, 
+            productId:long, 
+            userAgent:dynamic, 
+            device:string, 
+            ip_address:string, 
+            referer:dynamic, 
+            page_loading_seconds:real, 
+            clickType:string, 
+            clickPathTitle:string, 
+            clickPathUrl:string
+        )
+        //
+        .create table SilverImpressions (
+            eventType:string, 
+            eventID:string, 
+            eventDate:datetime, 
+            productId:long, 
+            userAgent:dynamic, 
+            device:string, 
+            ip_address:string, 
+            page_loading_seconds:real, 
+            relatedProductCategory:string, 
+            relatedProductId:string, 
+            relatedProductName:string
+        )
+        // use update policies to transform data during Ingestion
+        .create-or-alter function with (folder="Bronze to Silver Transformations") expandClickpath()
+        {
+        BronzeClicks
+        | mv-expand extraPayload
+        | evaluate bag_unpack(extraPayload)
+        | project 
+            eventType, 
+            eventID, 
+            todatetime(eventDate), 
+            productId, 
+            userAgent, 
+            device, 
+            ip_address, 
+            referer, 
+            toreal(page_loading_seconds), 
+            clickType = clickType, 
+            clickPathTitle = ['title'], 
+            clickPathUrl = url
+        }
+        //
+        .alter table SilverClicks policy update @'[{"Source": "BronzeClicks", "Query": "expandClickpath", "IsEnabled" : true, "IsTransactional": false }]'
+        //
+        .create-or-alter function with (folder="Bronze to Silver Transformations") expandRelatedProducts()
+        {
+        BronzeImpressions
+        | mv-expand extraPayload
+        | evaluate bag_unpack(extraPayload)
+        | project 
+            eventType, 
+            eventID, 
+            todatetime(eventDate), 
+            productId, 
+            userAgent, 
+            device, 
+            ip_address, 
+            toreal(page_loading_seconds), 
+            relatedProductCategory, 
+            relatedProductId, 
+            relatedProductName
+        }
+        //
+        .alter table SilverImpressions policy update @'[{"Source": "BronzeImpressions", "Query": "expandRelatedProducts", "IsEnabled" : true, "IsTransactional": false }]'
+        //
+        .create-or-alter function with (docstring = "Social Media Campaign Clickstream", folder = "Gold Views") SocialMediaCampaignClickstream()
+        {
+        SilverClicks
+        | extend CampaignType = tostring(referer.campaignType)
+        | extend Platform = tostring(userAgent.platform)
+        | extend Browser = tostring(userAgent.browser)
+        | extend RefererUrl = tostring(referer.url)
+        | extend AdTitle = tostring(referer.adTitle)
+        | where CampaignType in ("facebook", "twitter", "instagram", "pinterest")
+        | project-away userAgent, referer
+        | project-reorder CampaignType
+        }
+        //
+        .create-or-alter function with (docstring = "Search Media Campaign Clickstream", folder = "Gold Views") SearchMediaCampaignClickstream()
+        {
+        SilverClicks
+        | extend CampaignType = tostring(referer.campaignType)
+        | extend Platform = tostring(userAgent.platform)
+        | extend Browser = tostring(userAgent.browser)
+        | extend RefererUrl = tostring(referer.url)
+        | extend AdTitle = tostring(referer.adTitle)
+        | where CampaignType in ("google", "bing")
+        | project-away userAgent, referer
+        | project-reorder CampaignType
+        }
+        //
+        .create-or-alter function with (docstring = "Email Campaign Clickstream", folder = "Gold Views") EmailCampaignClickstream()
+        {
+        SilverClicks
+        | extend CampaignType = tostring(referer.campaignType)
+        | extend Platform = tostring(userAgent.platform)
+        | extend Browser = tostring(userAgent.browser)
+        | extend RefererUrl = tostring(referer.url)
+        | extend EmailId = tostring(referer.emailId)
+        | where CampaignType in ("email")
+        | project-away userAgent, referer
+        | project-reorder CampaignType
+        }
+        ```
+        
+       ![](./media/image98.png)
 
 10. The status of the execution of the commands from the file  can be
     seen at the bottom of the pane. The result of each Command should
     be **Completed**.
 
-> ![A screenshot of a computer Description automatically
-> generated](./media/image99.png)
+    ![](./media/image99.png)
 
 11. Click on the pencil at the tab **WebEvents_EH** and rename the tab
     to **createAll**.
 
-> ![](./media/image100.png)
->
-> ![](./media/image101.png)
+      ![](./media/image100.png)
+ 
+      ![](./media/image101.png)
 
-**Note:** You can add additional tabs in the KQL Queryset to add new
-queries.
+    **Note:** You can add additional tabs in the KQL Queryset to add new
+    queries.
 
 12. Expand all folders in the database pane on the left. All tables and
     functions that have been created by the script can be found here.
 
-> ![](./media/image102.png)
+      ![](./media/image102.png)
 
-**Note:** While on the KQL Database details screen you may explore
-additional Real-Time Intelligence Samples by clicking the drop-drop next
-to Get data and selecting a desired sample. These samples give you the
-ability to learn more.
+  **Note:** While on the KQL Database details screen you may explore
+  additional Real-Time Intelligence Samples by clicking the drop-drop next
+  to Get data and selecting a desired sample. These samples give you the
+  ability to learn more.
 
 ## Task 11: Real-Time Dashboard  
 
@@ -905,123 +791,112 @@ In this task, we will build a real-time dashboard to visualize the
 streaming data and set it to refresh every 30 seconds. (Optionally) A
 pre-built version of the dashboard is available to download here, which
 can be imported and configured to your KQL Database data source.
+     ![](./media/image103.png)
 
-- The Proctor Guide covers this process.![Real-Time
-  Dashboard](./media/image103.png)
+1.  Now, click on **RTI-Medallian** on the left-sided navigation pane.
 
-8.  Now, click on **RTI-Medallian** on the left-sided navigation pane.
-
-> ![A screenshot of a computer Description automatically
-> generated](./media/image15.png)
+    ![](./media/image15.png)
 
 2.  To create a new realtime dashboard click on the button **+ New
     Item** and the select **Real-Time Dashboard**
 
-> ![](./media/image104.png)
+      ![](./media/image104.png)
 
-3.  Enter the name +++**Web Events Dashboard+++** in the field **New
+3.  Enter the name +++Web Events Dashboard+++ in the field **New
     Real-Time Dashboard**. Then click on **Create**.
 
-> ![](./media/image105.png)
+      ![](./media/image105.png)
 
 4.  An empty dashboard will be displayed. To add a visualisation click
     on the button **+ Add tile**.
 
-> ![](./media/image106.png)
+      ![](./media/image106.png)
 
 5.  Click on the Button **+ Data source** and select **One Lake Data
     Hub** .
 
-> ![](./media/image107.png)
+      ![](./media/image107.png)
 
 6.  In the Window **One Lake Data Hub** select the
     Eventhouse **WebEvents_EH**. Then click on **Connect**.
 
-> ![](./media/image108.png)
+      ![](./media/image108.png)
 
 7.  As name keep the given name WebEvents_EH. Set
     the **Database** to **WebEvents_EH** and click on the
     button **Add**.
 
-> ![](./media/image109.png)
+      ![](./media/image109.png)
 
-1.  Set Time rage parameter at the top left to **Last 7 days**. This
+8.  Set Time rage parameter at the top left to **Last 7 days**. This
     parameter is referenced by the query in the where clause by using
     fields \_startTime and \_endTime.
 
-2.  Copy the following query and click **Run**.
+9.  Copy the following query and click **Run**.
+      ```
+      //Clicks by hour
+      SilverClicks
+      | where eventDate between (_startTime.._endTime)
+      | summarize date_count = count() by bin(eventDate, 1h)
+      | render timechart
+      | top 30 by date_count
+      ```
 
-> //Clicks by hour
->
-> SilverClicks
->
-> | where eventDate between (\_startTime..\_endTime)
->
-> | summarize date_count = count() by bin(eventDate, 1h)
->
-> | render timechart
->
-> | top 30 by date_count
+    Note: All queries are available in this script
+    file [dashboard-RTA.kql](https://github.com/microsoft/FabricRTIWorkshop/blob/main/dashboards/RTA%20dashboard/dashboard-RTA.kql)
+    is available in Labfiles folder
 
-Note: All queries are available in this script
-file [dashboard-RTA.kql](https://github.com/microsoft/FabricRTIWorkshop/blob/main/dashboards/RTA%20dashboard/dashboard-RTA.kql)
-is available in Labfiles folder
+    ![](./media/image110.png)
 
-![](./media/image110.png)
+10.  Click on the **+Add visual**
 
-3.  Click on the **+Add visual**
+     ![](./media/image111.png)
 
-> ![](./media/image111.png)
-
-4.  In the **Visual formatting** tab, set Tile name to +++Click by
+11.  In the **Visual formatting** tab, set Tile name to +++Click by
     hour+++, set Visual type to **Area chart.** Click on the **Apply
     changes**.
 
-> ![](./media/image112.png)
+    ![](./media/image112.png)
 
-5.  While editing the dashboard, click on the tab **Manage** on the top
+12.  While editing the dashboard, click on the tab **Manage** on the top
     left then click on the
-    button **Parameters**.![](./media/image113.png)
+    button **Parameters**.
+    ![](./media/image113.png)
 
-6.  To edit the parameter **Time range** click on the pencil icon. This
+13.  To edit the parameter **Time range** click on the pencil icon. This
     will enter the edit mode for this parameter.
 
-> ![](./media/image114.png)
+      ![](./media/image114.png)
 
-8.  Select **Last 7 Days** in the combo box **Default value**. Then
+14.  Select **Last 7 Days** in the combo box **Default value**. Then
     click on **Done**.
 
-> ![](./media/image115.png)
+      ![](./media/image115.png)
 
-9.  In the parameter pane click on the button **Close**.
+15.  In the parameter pane click on the button **Close**.
 
-> ![](./media/image116.png)
+      ![](./media/image116.png)
 
-10. Click on the tab **Home** and then click on the button **New
+16. Click on the tab **Home** and then click on the button **New
     tile** again to proceed with the next visuals.
 
-> ![](./media/image117.png)
+      ![](./media/image117.png)
 
-11. In the query editor, **paste** the following code, then click on
+17. In the query editor, **paste** the following code, then click on
     **Run** to execute the query.
 
-**Impressions by hour **
-
-- Visual type: **Area chart**.
-
-//Impressions by hour
-
-SilverImpressions
-
-| where eventDate between (\_startTime..\_endTime)
-
-| summarize date_count = count() by bin(eventDate, 1h)
-
-| render timechart
-
-| top 30 by date_count
-
-> ![](./media/image118.png)
+    Impressions by hour 
+    •	Visual type: Area chart.
+    ```
+      //Impressions by hour
+      SilverImpressions
+      | where eventDate between (_startTime.._endTime)
+      | summarize date_count = count() by bin(eventDate, 1h)
+      | render timechart
+      | top 30 by date_count
+    ```
+    
+     ![](./media/image118.png)
 
 12. Select **+Add visual**
 
