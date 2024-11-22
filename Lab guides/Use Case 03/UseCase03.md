@@ -304,12 +304,15 @@ To auto-deploy the resources, use these steps below.
 5.  On the **Azure Event Hubs** configuration page, enter the below
     details and click on **Add** button.
 
-      i.	Cloud connection: Click on the **Create new** and enter the below details then click on Create button. 
+      i.	Cloud connection: Click on the **Create new** and enter the below details then click on Create button.
+    
             a.	In **Event Hub namespace**-Enter **Event Hub name** (the values that you have saved in your notepad in the **Task 2**)
             b.	Event Hub : +++StockEventHub+++
             c.	Shared Access Key Name:**+++stockeventhub_sas+++**
             d.	Shared Access Key- Enter **Primary Key** (the value that you have saved in your notepad in the Task 2)
-      ii.	Consumer group: **$Default** 
+    
+      ii.	Consumer group: **$Default**
+    
       iii.	Data format: **JSON**
 
       ![](./media/image32.png)
