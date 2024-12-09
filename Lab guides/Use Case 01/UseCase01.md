@@ -827,16 +827,15 @@ Fabric UI. Tables policies can be managed via a KQL command.
     click on **▷ Run cell** button and review the output
 
       Copy
+  >  
+    .alter table ingestionLogs policy retention 
       ```
-      .alter table ingestionLogs policy retention 
       { 
           "SoftDeletePeriod": "10:12:00:00",
           "Recoverability": "Enabled"
       }
       ```
-     
-      
-      ![](./media/image70.png)
+>     ![](./media/image70.png)
 
 5.  Replace all the code in the **cell** with the following code and
     click on **▷ Run cell** button and review the output
