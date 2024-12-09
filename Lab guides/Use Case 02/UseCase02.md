@@ -64,7 +64,7 @@ reports.
 
     |  |  |
     |---|---|
-    |Name	|+++ RealTimeWorkspaceXX+++(XX can be a unique number)| 
+    |Name	|+++RealTimeWorkspaceXX+++(XX can be a unique number)| 
     |Advanced|	Under License mode, select Trial|
     |Default |storage format	Small dataset storage format|
 
@@ -129,7 +129,7 @@ reports.
     as +++TutorialSource+++
     ![](./media/image19.png)
 
-4.  Under the **Stream details, e**dit the **Eventstream name** by
+4.  Under the **Stream details, **edit** the **Eventstream name** by
     selecting the pencil icon and
     entering +++TutorialEventstream+++. Select **Next**.
 
