@@ -424,7 +424,7 @@ Use this (case-sensitive) name as the data source for your query.
 
     ![](./media/image66.png)
 
-6.  Enter the new name ***Chelsea bikes*** to rename the tile.
+6.  Enter the new name ***+++Chelsea bikes+++*** to rename the tile.
 
     ![](./media/image67.png)
 
