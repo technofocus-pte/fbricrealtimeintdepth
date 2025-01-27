@@ -148,7 +148,7 @@ trial enabled.
 
     ![](./media/image21.png)
 
-## **Task 4:** [**Create a KQL Database**](https://github.com/microsoft/FabricRTA-in-a-Day/blob/main/Lab1.md#challenge-1-create-a-kql-database)
+## **Task 4:Create a KQL Database**
 
 Kusto query language (KQL) is used to query static or streaming data in
 a table that is defined in a KQL database. To analyze the sales data,
