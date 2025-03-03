@@ -55,7 +55,7 @@ KQL queries.
 
 5.  Close the **Settings** window.
 
-      ![](./media/image5.png)
+      ![](./media/a1.png)
 
 ## Task 1: Sign in to Power BI account and sign up for the free 
 
@@ -114,19 +114,9 @@ Follow these steps to start your Fabric trial.
 Before working with data in Fabric, create a workspace with the Fabric
 trial enabled.
 
-1.  In the **Microsoft Fabric** home page, select the **Power BI**
-    template.
+1.  In the **Fabric** home page, select **+New workspace**.
 
-     ![](./media/image15.png)
-
-2.  In the **Power BI Home** page menu bar on the left,
-    select **Workspaces** (the icon looks similar to 🗇).
-
-     ![](./media/image16.png)
-
-3.  In the Workspaces pane, select **+New workspace**.
-
-     ![](./media/image17.png)
+     ![](./media/a2.png)
 
 4.  In the **Create a workspace tab**, enter the following details and
     click on the **Apply** button.
@@ -155,14 +145,12 @@ a table that is defined in a KQL database. To analyze the sales data,
 you must create a table in a KQL database and ingest the data from the
 file.
 
-1.  At the bottom left of the Power BI portal, select the **Power
-    BI** icon and switch to the **Real-Time Intelligence** experience.
+1.  In the **Real Time Intelligence** home page, Click the "**+New item**" button to create a new KQLQueryset
 
-     ![](./media/image22.png)
+     ![](./media/a3.png)
+     ![](./media/a4.png)
  
-     ![](./media/image23.png)
-
-2.  In the **New Eventhouse** dialog box, enter the **Eventhouse name**
+3.  In the **New Eventhouse** dialog box, enter the **Eventhouse name**
     as +++FabricRTA+++ (or new database with a name of your choice)
     and click on **Create** button.
 
