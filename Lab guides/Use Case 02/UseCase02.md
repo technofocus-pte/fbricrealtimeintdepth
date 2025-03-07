@@ -74,9 +74,7 @@ reports.
 2.  Name the Eventhouse +++**Tutorial**+++  and click on the **Create**
     button.
 
-      ![](./media/image9.png)
- 
-      ![](./media/image10.png)
+     ![](./media/image10.png)
 
 3.  When provisioning is complete, the eventhouse **System
     overview** page is shown.
