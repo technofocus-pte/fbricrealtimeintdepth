@@ -71,20 +71,13 @@ reports.
 
 1.  Open your browser, navigate to the address bar, and type or paste
     the following URL: +++https://app.fabric.microsoft.com/+++ then
-    press the **Enter** button. In the **Microsoft Fabric Home** page,
-    navigate and click on **Power BI** tile.
+    press the **Enter** button. 
 
-    ![](./media/image2.png)
-2.  In the **Power BI Home** page left-sided navigation menu, navigate
-    and click on **Workspaces** as shown in the below image.
+2.  In the Workspaces pane, click on **+** **New workspace** tile
 
-    ![](./media/image3.png)
+    ![](./media/a1.png)
 
-3.  In the Workspaces pane, click on **+** **New workspace button**
-
-    ![](./media/image4.png)
-
-4.  In the **Create a workspace** pane that appears on the right side,
+3.  In the **Create a workspace** pane that appears on the right side,
     enter the following details, and click on the **Apply** button.
 
       |   |   |
@@ -100,20 +93,15 @@ reports.
 
 ## Task 2: Create a new Eventhouse
 
-1.  On the bottom left experience switcher, select **Real-Time
-    Intelligence**.
-
-     ![](./media/image8.png)
-
-2.  On the **Real-Time Intelligence** home page, select **Eventhouse**.
-    Name the Eventhouse **+++WebEvents_EH+++** and click on the
+1.  On the **Real-Time Intelligence** home page, select **+New item** and select **Eventhouse**.
+        ![](./media/a2.png)
+    
+3.  Name the Eventhouse **+++WebEvents_EH+++** and click on the
     **Create** button.
+ 
+     ![](./media/image10.png)
 
-      ![](./media/image9.png)
-     
-       ![](./media/image10.png)
-
-3.  When provisioning is complete, the eventhouse **System
+4.  When provisioning is complete, the eventhouse **System
     overview** page is shown.
 
      ![](./media/image11.png)
@@ -629,11 +617,11 @@ the data is **NOT** being copied into our KQL Database.
 
       ![](./media/image95.png)
 
-8.  Click on the button **Explore your Data** at the top of the screen.
+8.  Click on the button **Query with code** at the top of the screen.
 
-      ![](./media/image96.png)
+      ![](./media/a3.png)
 
-     The window **Explore your data** will be shown.
+     The window **Query with code** will be shown.
 
      ![](./media/image97.png)
 
@@ -812,12 +800,11 @@ can be imported and configured to your KQL Database data source.
 
       ![](./media/image106.png)
 
-5.  Click on the Button **+ Data source** and select **One Lake Data
-    Hub** .
+5.  Click on the Button **+ Data source** and select **Eventhouse/KQL Database** .
 
-      ![](./media/image107.png)
+      ![](./media/a4.png)
 
-6.  In the Window **One Lake Data Hub** select the
+6.  In the Window **One Lake catalog** select the
     Eventhouse **WebEvents_EH**. Then click on **Connect**.
 
       ![](./media/image108.png)
