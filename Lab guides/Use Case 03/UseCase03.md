@@ -190,19 +190,11 @@ reports.
 
 1.  Open your browser, navigate to the address bar, and type or paste
     the following URL: +++https://app.fabric.microsoft.com/+++ then press the
-    **Enter** button. In the **Microsoft Fabric Home** page, navigate
-    and click on **Power BI** tile.
+    **Enter** button. 
 
-    ![](./media/image12.png)
+2.  In the Workspaces pane, click on **+** **New workspace** tile
 
-2.  In the **Power BI Home** page left-sided navigation menu, navigate
-    and click on **Workspaces** as shown in the below image.
-
-    ![](./media/image13.png)
-
-3.  In the Workspaces pane, click on **+** **New workspace button**
-
-     ![](./media/image14.png)
+     ![](./media/a1.png)
 
 4.  In the **Create a workspace** pane that appears on the right side,
     enter the following details, and click on the **Apply** button.
@@ -279,17 +271,11 @@ To auto-deploy the resources, use these steps below.
 
 ## **Task 3: Get data with Eventstream**
 
-1.  Go back to the Microsoft Fabric, navigate and click on **Power BI**
-    at the bottom of the page, then select **Real-Time Intelligence**.
+1.  Go back to the Microsoft Fabric home page,select **+New item** and select **Eventstream**.
+        ![](./media/a3.png)
+    
+2.    Name the Eventstream +++StockEventStream+++, click on the **Create** button.
 
-      ![](./media/image27.png)
-
-2.  On the **Synapse Real-Time Analytics** home page,
-    select **Eventstream**. Name the Eventstream
-    +++StockEventStream+++, click on the **Create** button.
-
-      ![](./media/image28.png)
-      
       ![](./media/image29.png)
 
 3.  On the Eventstream, select **Use external source**
@@ -477,14 +463,14 @@ complexity to support different business uses.
 
 2.  From your workspace, click on **+** **New item \> KQL Queryset** as
     shown in the below image. In the **New KQL Queryset** dialog box,
-    enter +++StockQueryset+++, then click on the **Create**
+    enter +++**StockQueryset**+++, then click on the **Create**
     button.
 
       ![](./media/image66.png)
    
       ![](./media/image67.png)
 
-3.  Select the ***StockDB*** and click on the **Connect** button. ![A
+3.  Select the **StockDB** and click on the **Connect** button. ![A
       ![](./media/image68.png)
 
 4.  The KQL query window will open, allowing you to query the data.
