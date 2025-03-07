@@ -272,7 +272,7 @@ To auto-deploy the resources, use these steps below.
 ## **Task 3: Get data with Eventstream**
 
 1.  Go back to the Microsoft Fabric home page,select **+New item** and select **Eventstream**.
-        ![](./media/a3.png)
+        ![](./media/a2.png)
     
 2.    Name the Eventstream +++StockEventStream+++, click on the **Create** button.
 
