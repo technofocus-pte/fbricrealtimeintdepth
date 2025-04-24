@@ -60,7 +60,7 @@ KQL queries.
 ## Task 1: Sign in to Power BI account and sign up for the free 
 
 1.  Open your browser, navigate to the address bar, and type or paste
-    the following URL: +++https://app.fabric.microsoft.com/+++ then
+    the following URL: !!https://app.fabric.microsoft.com/!! then
     press the **Enter** button.
 
       ![](./media/image6.png)
@@ -123,7 +123,7 @@ trial enabled.
 
       |   |   |
       |---|----|
-      |Name|+++Fabric Real-Time AnalyticsXX+++(XX can be a unique number) |
+      |Name|!!Fabric Real-Time AnalyticsXX!!(XX can be a unique number) |
       |Advanced|	Under License mode, select Trial|
       |Default| storage format	Small dataset storage format|
 
@@ -151,7 +151,7 @@ file.
      ![](./media/a4.png)
  
 3.  In the **New Eventhouse** dialog box, enter the **Eventhouse name**
-    as +++FabricRTA+++ (or new database with a name of your choice)
+    as !!FabricRTA!! (or new database with a name of your choice)
     and click on **Create** button.
 
    **Note**: Remove any extra space before and after **FabricRTA.**
@@ -175,7 +175,7 @@ create it.
       ![](./media/image27.png)
 
 3.  In the **New KQL Queryset** dialog box, enter the **KQL Query name**
-    as **+++querysetXX+++**(or new database with a name of your choice)
+    as **!!querysetXX!!**(or new database with a name of your choice)
     and click on **Create** button.
 
       Note: KQL Query name should be alphanumeric characters, underscores,
@@ -191,7 +191,7 @@ create it.
     ![](./media/image30.png)
 5.  Now you can write a simple KQL query:
    
-     +++print "Hello World"+++
+     !!print "Hello World"!!
 
       ![](./media/image31.png)
 
@@ -261,7 +261,7 @@ Azure blob storage.
 
 4.  In the **Get data** tab, select the existing table as **logsRaw**.
     Under the Configure the data source tab enter the **URI :**
-    +++[https://rtainaday.blob.core.windows.net/logsbenchmark-onegb?sp=rl&st=2025-03-12T19:25:59Z&se=2099-03-13T03:25:59Z&spr=https&sv=2022-11-02&sr=c&sig=XxQnOYzmqarwNi8xhRF7zbRMuY8T0WXmz5CVCJMiW0M%3D](https://rtainaday.blob.core.windows.net/logsbenchmark-onegb?sp=rl&st=2025-03-12T19:25:59Z&se=2099-03-13T03:25:59Z&spr=https&sv=2022-11-02&sr=c&sig=XxQnOYzmqarwNi8xhRF7zbRMuY8T0WXmz5CVCJMiW0M%3D)+++    
+    !![https://rtainaday.blob.core.windows.net/logsbenchmark-onegb?sp=rl&st=2025-03-12T19:25:59Z&se=2099-03-13T03:25:59Z&spr=https&sv=2022-11-02&sr=c&sig=XxQnOYzmqarwNi8xhRF7zbRMuY8T0WXmz5CVCJMiW0M%3D](https://rtainaday.blob.core.windows.net/logsbenchmark-onegb?sp=rl&st=2025-03-12T19:25:59Z&se=2099-03-13T03:25:59Z&spr=https&sv=2022-11-02&sr=c&sig=XxQnOYzmqarwNi8xhRF7zbRMuY8T0WXmz5CVCJMiW0M%3D)!!    
       ![](./media/image39.png)
 
 5.  In the **Get data** tab, click on the **+** and click on **Next**
