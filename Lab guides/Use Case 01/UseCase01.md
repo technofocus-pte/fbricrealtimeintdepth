@@ -261,7 +261,7 @@ Azure blob storage.
 
 4.  In the **Get data** tab, select the existing table as **logsRaw**.
     Under the Configure the data source tab enter the **URI :**
-    !![https://rtainaday.blob.core.windows.net/logsbenchmark-onegb?sp=rl&st=2025-03-12T19:25:59Z&se=2099-03-13T03:25:59Z&spr=https&sv=2022-11-02&sr=c&sig=XxQnOYzmqarwNi8xhRF7zbRMuY8T0WXmz5CVCJMiW0M%3D](https://rtainaday.blob.core.windows.net/logsbenchmark-onegb?sp=rl&st=2025-03-12T19:25:59Z&se=2099-03-13T03:25:59Z&spr=https&sv=2022-11-02&sr=c&sig=XxQnOYzmqarwNi8xhRF7zbRMuY8T0WXmz5CVCJMiW0M%3D)!!    
+    !!https://rtainaday.blob.core.windows.net/logsbenchmark-onegb/2014/03/08/03/data.csv.gz?sp=rl&st=2025-03-12T19:25:59Z&se=2099-03-13T03:25:59Z&spr=https&sv=2022-11-02&sr=c&sig=XxQnOYzmqarwNi8xhRF7zbRMuY8T0WXmz5CVCJMiW0M%3D!!    
       ![](./media/image39.png)
 
 5.  In the **Get data** tab, click on the **+** and click on **Next**
