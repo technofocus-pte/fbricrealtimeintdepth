@@ -172,143 +172,94 @@ reports.
 > ![A screenshot of a computer AI-generated content may be
 > incorrect.](./media/image5.png)
 
-## **Task 2: Deploy the app via Azure Container Instance**
-
-This task deploys the stock generator app to an Azure Container Instance
-using an ARM template. The app will generate stock data that publishes
-the data to an Azure Event Hub, which is also configured during the
-deployment of the ARM template.
-
-To auto-deploy the resources, use these steps below.
-
-1.  Open a new address bar and enter the following URL. If prompted to
-    Sign in, then use your tenant credentials.
-
-> [https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fmicrosoft%2Ffabricrealtimelab%2Fmain%2Fresources%2Fmodule00%2Ffabricworkshop_arm_managedid.json](https://portal.azure.com/%23create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fmicrosoft%2Ffabricrealtimelab%2Fmain%2Fresources%2Fmodule00%2Ffabricworkshop_arm_managedid.json)
-
-2.  In the **Custom deployment** window, under the **Basics** tab, enter
-    the following details and click on the **Review+create** button.
-
-    |  |  |
-    | --- | --- |
-    | Subscription | Select **@lab.CloudSubscription.Name** |
-    | Resource group | Select **@lab.CloudResourceGroup(ResourceGroup1).Name** |
-    | Region | Select **@lab.CloudResourceGroup(ResourceGroup1).Location** |
-
-> ![A screenshot of a computer AI-generated content may be
-> incorrect.](./media/image6.png)
-
-3.  Once the validation has passed, click **Create**.
-
-> ![A screenshot of a computer AI-generated content may be
-> incorrect.](./media/image7.png)
->
-> ![A screenshot of a computer AI-generated content may be
-> incorrect.](./media/image8.png)
-
-4.  After the deployment is completed, click on the **Go to resource**
-    button.
-
-> ![A screenshot of a computer AI-generated content may be
-> incorrect.](./media/image9.png)
-
-4.  After the deployment has completed, open the resource group and
-    verify the **Event Hub Namespace and Azure Container
-    Instance (ACI)** is deployed
-
-> ![A screenshot of a computer AI-generated content may be
-> incorrect.](./media/image10.png)
-
-5.  Open the **Event Hub** **namespace**, which will have a name similar
-    to** *ehns-123456-fabricworkshop***.
-
-> ![A screenshot of a computer AI-generated content may be
-> incorrect.](./media/image11.png)
-
-6.  In **Event Hub** **namespace** page from the left menu select
-    **Shared access policies** under the **Settings.**
-
-> ![A screenshot of a web page AI-generated content may be
-> incorrect.](./media/image12.png)
-
-7.   In the ***Shared access policies*** page, click
-    the ***stockeventhub_sas*** .On the SAS key tab copy the **primary
-    key** and **Event Hub namespace** (such
-    as *ehns-123456-fabricworkshop*) to your notepad as this will be
-    needed shortly. In short, you'll need the following:
-
-> ![](./media/image13.png)
-
-![A screenshot of a computer Description automatically
-generated](./media/image14.png)
-
-## **Task 3: Get data with Eventstream**
+## Task 2: Get data with Eventstream
 
 1.  Create a new Eventhouse by clicking on the **+New item** button in
     the navigation bar. select **Eventstream**
 
-> ![A screenshot of a computer AI-generated content may be
-> incorrect.](./media/image15.png)
+![A screenshot of a computer AI-generated content may be
+incorrect.](./media/img1.png)
 
 2.  Name the Eventstream +++**StockEventStream**+++, click on
     the **Create** button.
 
-![](./media/image16.png)
+![](./media/img2.png)
 
-3.  On the Eventstream, select **Connect data sources**
+3.  On the Screen **Design a flow to ingest, transform, and route
+    streaming events** click on **Use custom Endpoint**. This will
+    create an event hub connected to the Eventstream.
 
-![A screenshot of a computer AI-generated content may be
-incorrect.](./media/image17.png)
+> ![](./media/img3.png)
 
-4.  On the Connect data source, select **Azure** ***Event* Hubs
-    Namespace** button.
+4.  Click on **Add**.
 
-![A screenshot of a computer AI-generated content may be
-incorrect.](./media/image18.png)
+> ![](./media/img4.png)
 
-5.  Click on **connect**
+5.  Click on the **Publish** button.
 
-![A screenshot of a computer AI-generated content may be
-incorrect.](./media/image19.png)
-
-6.  Select Next
-
-![A screenshot of a computer AI-generated content may be
-incorrect.](./media/image20.png)
-
-7.  Click on **Next** button
-
-![A screenshot of a computer AI-generated content may be
-incorrect.](./media/image21.png)
-
-![A screenshot of a computer AI-generated content may be
-incorrect.](./media/image22.png)
-
-9.  With the Event Hub configured, click on ***Data preview***. You
-    should see events including the stock symbol, price, and timestamp.
-
-> ![A screenshot of a computer AI-generated content may be
-> incorrect.](./media/image23.png)
-
-10. On the Eventstream, select **Publish.**
-
-> ![A screenshot of a computer AI-generated content may be
-> incorrect.](./media/image24.png)
+> ![](./media/img5.png)
 >
-> ![A screenshot of a computer AI-generated content may be
-> incorrect.](./media/image25.png)
->
-> ![A screenshot of a computer AI-generated content may be
-> incorrect.](./media/image26.png)
+> ![](./media/img6.png)
 
-11. On the Eventstream, select **new-source** and click on **Refresh**
-    button.
+7.  On the **Eventstream** pane, select the **keys** under
+    the **Details**, select **SAS key Authentication ,** copy
+    the **Event hub name**, **connection strings-primarykey** and paste
+    them on a notepad, as you need them in the upcoming task
 
-> ![A screenshot of a computer AI-generated content may be
-> incorrect.](./media/image27.png)
+> ![](./media/img7.png)
+
+8.  Now, click on **RealTimeWorkspaceXXX** on the left-sided navigation
+    pane.
+
+> ![](./media/img8.png)
+
+9.  On the **RealTimeWorkspace** page, from the menu bar, navigate and
+    click on **-\>|Import** button, then select **Notebook** and
+    select **From this computer** as shown in the below image.
+
+> ![](./media/image9.png)
+
+10. Select **Upload** from the **Import status** pane that appears on
+    the right side of the screen.
+
+> ![](./media/img10.png)
+
+11. Navigate and select S**tockGeneratorNotebook** notebooks
+    from **C:\LabFiles**and click on the **Open** button.
+
+> ![](./media/img11.png)
+
+4.  You will see a notification stating **Imported successfully.**
+
+5.  Then, select the S**tockGeneratorNotebook** notebook.
+
+> ![](./media/img12.png)
+
+6.  In the notebook, paste the connection string from above in the
+    single quotes of the **ConnectionString **variable of the first
+    cell. It should look similar to the below image:
+
+> ![](./media/img13.png)
+
+7.  With the connection string in place, click *Run All* in the top
+    toolbar. The first few cells may take a few moments to start the
+    Spark session and import the required libraries.
+
+> ![](./media/img14.png)
+
+8.  Skip running the 9^(th) cell, which is the final cell in the
+    notebook.
+
+> ![](./media/img15.png)
+
+9.  Switch back to the Eventstream to observe a preview of the events
+    generated by the notebook:
+
+> ![](./media/img16.png)
 >
-> ![A screenshot of a computer AI-generated content may be
-> incorrect.](./media/image28.png)
+> ![](./media/img17.png)
+>
+> ![](./media/img18.png)
 
 # Exercise 2: KQL Database Configuration and Ingestion
 
